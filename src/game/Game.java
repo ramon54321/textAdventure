@@ -1,15 +1,16 @@
 package game;
 
-import com.sun.xml.internal.bind.v2.TODO;
-
 import javax.swing.*;
 import java.awt.*;
 
 /**
  * Created by ramon on 20.12.2015.
+ * Main game class, constructing a new game class creates a full new game and window.
  */
 
-public class Game extends Canvas {
+public class Game extends Canvas implements Runnable{
+
+    public static Thread gameThread;
 
     private final int width = 300;
     private final int height = width / 16 * 9;
@@ -20,6 +21,10 @@ public class Game extends Canvas {
     public Game() {
         System.out.println("Started...");
         initGame();
+    }
+
+    public void run(){
+        //TODO: Calculate Tick and Update loops, and call corresponding functions.
     }
 
     private void initGame(){
@@ -34,6 +39,6 @@ public class Game extends Canvas {
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setVisible(true);
 
-        //TODO: Start this class in own thread.
+        new Thread(this).start();
     }
 }
