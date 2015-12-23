@@ -17,7 +17,7 @@ public class Game extends Canvas implements Runnable{
     // Global variables
     private final int width = 300;
     private final int height = width / 16 * 9;
-    private final int scale = 1;
+    private final int scale = 3;
     private final int targetFPS = 144;
     private final int targetTPS = 60;
 
@@ -78,9 +78,13 @@ public class Game extends Canvas implements Runnable{
             return;
         }
 
-        Graphics g = bs.getDrawGraphics();
-        g.drawImage(mainRenderImage, 0, 0, getWidth(), getHeight(), null);
-        g.dispose();
+        Graphics2D g2d = (Graphics2D) bs.getDrawGraphics();
+        g2d.drawImage(mainRenderImage, 0, 0, getWidth(), getHeight(), null);
+        //g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        //g2d.setFont(new Font("Arial", Font.PLAIN, 24));
+        //g2d.setColor(new Color(255,255,255));
+        //g2d.drawString("Hello text", 25, 25);
+        g2d.dispose();
 
         bs.show();
     }
