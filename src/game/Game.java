@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.util.ArrayList;
 
 /**
  * Created by ramon on 20.12.2015.
@@ -19,20 +20,21 @@ public class Game extends Canvas implements Runnable{
     //TODO: Add static reference to game thread.
 
     // Global variables
-    private final int WIDTH = 100;
-    private final int HEIGHT = WIDTH / 16 * 9;
-    private final int SCALE = 9;
+    public final int WIDTH = 200;
+    public final int HEIGHT = WIDTH / 16 * 9;
+    public final int SCALE = 4;
     private final int targetFPS = 144;
     private final int targetTPS = 60;
 
     // Reference Variables
     public JFrame mainFrame;
     public GScreen mainGScreen;
-    public GEntity[] gEntities;
+    public ArrayList<GEntity> gEntities = new ArrayList<GEntity>();
 
     // Management variables
     private int framesRendered = 0;
     private int framesTicked = 0;
+    public long tickDeltaTime = 0;
     private int lastFPS;
     private int lastTPS;
 
@@ -62,7 +64,9 @@ public class Game extends Canvas implements Runnable{
 
 
             // Tick
-            if(System.nanoTime() - lastTimeTick > ((1 * 1000000000) / targetTPS)){
+            long newTickTime = System.nanoTime();
+            if(newTickTime - lastTimeTick > ((1 * 1000000000) / targetTPS)){
+                tickDeltaTime = (newTickTime - lastTimeTick) / 1000;
                 tick();
                 framesTicked++;
                 lastTimeTick = System.nanoTime();
@@ -88,6 +92,14 @@ public class Game extends Canvas implements Runnable{
             createBufferStrategy(2);
             return;
         }
+        mainGScreen.clear();
+
+        // Render Order
+        if(gEntities.size() > 0) {
+            for (int i = 0; i < gEntities.size(); i++) {
+                gEntities.get(i).render();
+            }
+        }
 
         Graphics2D g2d = (Graphics2D) bs.getDrawGraphics();
         g2d.drawImage(mainRenderImage, 0, 0, getWidth(), getHeight(), null);
@@ -97,6 +109,14 @@ public class Game extends Canvas implements Runnable{
     }
 
     private void tick(){
+
+        try {
+            gEntities.get(0).move(10, 0.25);
+            //System.out.println("Moving");
+        }
+        catch (Exception e) {
+
+        }
 
     }
 
@@ -120,7 +140,7 @@ public class Game extends Canvas implements Runnable{
         renderThread.start();
 
         try {
-            Thread.sleep(2500);
+            Thread.sleep(1500);
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -128,9 +148,8 @@ public class Game extends Canvas implements Runnable{
 
         System.out.println("Action...");
 
-        pixels[30 + (14 * WIDTH)] = 0xCCFF33;
-
-        mainGScreen.clear();
+        //pixels[30 + (14 * WIDTH)] = 0xCCFF33;
+        gEntities.add(new GEntity(this, 40, 14, 1, 0xFFFFFF));
 
     }
 

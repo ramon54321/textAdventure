@@ -15,13 +15,13 @@ public class GScreen {
 
     public void clear() {
         for (int i = 0; i < game.pixels.length; i++) {
-            game.pixels[i] = 0x0000FF;
+            game.pixels[i] = 0x000000;
         }
     }
 
     public void renderEntities() {
-        for (int i = 0; i < game.gEntities.length; i++) {
-            game.gEntities[i].render();
+        for (int i = 0; i < game.gEntities.size(); i++) {
+            game.gEntities.get(i).render();
         }
     }
 
