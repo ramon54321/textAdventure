@@ -1,7 +1,9 @@
 package game.entity;
 
 import game.Game;
+import game.graphics.GPixel;
 import game.interfaces.GRenderable;
+import game.utilities.GVector2;
 
 /**
  * Created by Ramon on 1/17/16.
@@ -14,36 +16,48 @@ public class GEntity implements GRenderable {
     boolean visible = true;
     boolean inBounds = false;
 
-    double xPos = 0;
-    double yPos = 0;
+    GVector2 position = new GVector2(0,0);
     int scale = 1;
 
-    int width = 1;
-    int height = 1;
+    int width = 25;
+    int height = 25;
 
-    int[] pixels = new int[width * height];
+    GPixel[] pixels = new GPixel[width * height];
+
+    // TODO: Constructor with sprite
 
     public GEntity(Game game, int xPos, int yPos, int scale, int color) {
         this.game = game;
-        this.xPos = xPos;
-        this.yPos = yPos;
+        this.position.x = xPos;
+        this.position.y = yPos;
         this.scale = scale;
 
-        // Set color to all pixels
-        for (int i = 0; i < pixels.length; i++) {
-            pixels[i] = color;
+        // Set up pixels
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                pixels[x + (y * width)] = new GPixel(x, y);
+            }
         }
     }
 
     public void move(double x, double y) {
-        xPos += (x * ((double) game.tickDeltaTime)) / 1000000;
-        yPos += (y * ((double) game.tickDeltaTime)) / 1000000;
-        System.out.println("Xpos is now " + xPos);
+        position.x += (x * ((double) game.tickDeltaTime)) / 1000000;
+        position.y += (y * ((double) game.tickDeltaTime)) / 1000000;
     }
 
     public void moveTo(int x, int y) {
-        xPos = x;
-        yPos = y;
+        position.x = x;
+        position.y = y;
+    }
+
+    public void rotate(double theta) {
+        for (GPixel pixel : pixels) {
+            //Matrix Rotation
+            double newX = (pixel.position.x * Math.cos(theta)) - (pixel.position.y * Math.sin(theta));
+            double newY = (pixel.position.x * Math.sin(theta)) + (pixel.position.y * Math.cos(theta));
+            pixel.position.x = newX;
+            pixel.position.y = newY;
+        }
     }
 
     @Override
@@ -52,8 +66,15 @@ public class GEntity implements GRenderable {
         inBounds = true;
 
         if(active && visible && inBounds) {
-            // TODO: Render on screen
-            game.pixels[((int) xPos) + (((int) yPos) * game.WIDTH)] = pixels[0];
+            // TODO: Render on screen (sprite)
+            /*
+                For each pixel in pixels, render at origin + offset.
+             */
+            for (GPixel pixel : pixels) {
+                int x = ((int) position.x) + (int) Math.round(pixel.position.x);
+                int y = ((int) position.y) + (int) Math.round(pixel.position.y);
+                game.pixels[x + (y * game.WIDTH)] = pixel.color;
+            }
         }
     }
 }

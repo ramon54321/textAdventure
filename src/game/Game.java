@@ -1,7 +1,9 @@
 package game;
 
 import game.entity.GEntity;
+import game.graphics.GFrame;
 import game.graphics.GScreen;
+import game.input.GCommander;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,8 +29,10 @@ public class Game extends Canvas implements Runnable{
     private final int targetTPS = 60;
 
     // Reference Variables
-    public JFrame mainFrame;
+    public GFrame mainFrame;
     public GScreen mainGScreen;
+    public GCommander mainGCommander;
+
     public ArrayList<GEntity> gEntities = new ArrayList<GEntity>();
 
     // Management variables
@@ -95,6 +99,7 @@ public class Game extends Canvas implements Runnable{
         mainGScreen.clear();
 
         // Render Order
+        // TODO: Change to screen.render so its managed
         if(gEntities.size() > 0) {
             for (int i = 0; i < gEntities.size(); i++) {
                 gEntities.get(i).render();
@@ -111,8 +116,8 @@ public class Game extends Canvas implements Runnable{
     private void tick(){
 
         try {
-            gEntities.get(0).move(10, 0.25);
-            //System.out.println("Moving");
+            gEntities.get(0).move(6, 3);
+            gEntities.get(0).rotate(-0.0005);
         }
         catch (Exception e) {
 
@@ -124,13 +129,14 @@ public class Game extends Canvas implements Runnable{
     //TODO: Add tiles and render tiles
 
     private void initGame(){
-        mainFrame = new JFrame();
+        mainFrame = new GFrame();
         mainGScreen = new GScreen(this);
+        mainGCommander = new GCommander(this);
 
         Dimension size = new Dimension(WIDTH * SCALE, HEIGHT * SCALE);
         setPreferredSize(size);
         mainFrame.setResizable(false);
-        mainFrame.setTitle("Island Adventure");
+        mainFrame.setTitle("Black Flags of the West Indies");
         mainFrame.add(this);
         mainFrame.pack();
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -148,11 +154,20 @@ public class Game extends Canvas implements Runnable{
 
         System.out.println("Action...");
 
-        //pixels[30 + (14 * WIDTH)] = 0xCCFF33;
-        gEntities.add(new GEntity(this, 40, 14, 1, 0xFFFFFF));
+        gEntities.add(new GEntity(this, 45, 30, 1, 0x0000FF));
 
     }
 
     // Management Functions
 
 }
+
+/*
+
+Add Entity
+gEntities.add(new GEntity(this, 40, 14, 1, 0xFFFFFF));
+
+Move Entity
+gEntities.get(0).move(10, 0.25);
+
+ */
