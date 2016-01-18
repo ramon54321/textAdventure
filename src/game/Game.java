@@ -1,6 +1,10 @@
 package game;
 
 import game.entity.GEntity;
+import game.gameplay.GPlayer;
+import game.gameplay.items.GISmallWoodenBox;
+import game.gameplay.items.GItem;
+import game.gameplay.locations.GLocation;
 import game.graphics.GFrame;
 import game.graphics.GScreen;
 import game.input.GCommander;
@@ -32,8 +36,14 @@ public class Game extends Canvas implements Runnable{
     public GFrame mainFrame;
     public GScreen mainGScreen;
     public GCommander mainGCommander;
+    public GPlayer mainGPlayer;
 
     public ArrayList<GEntity> gEntities = new ArrayList<GEntity>();
+
+    // Gameplay
+    public ArrayList<GLocation> gLocations = new ArrayList<GLocation>();
+
+    public GLocation currentLocation;
 
     // Management variables
     private int framesRendered = 0;
@@ -83,8 +93,8 @@ public class Game extends Canvas implements Runnable{
                 lastTPS = framesTicked;
                 framesRendered = 0;
                 framesTicked = 0;
-                System.out.println("FPS: " + lastFPS);
-                System.out.println("TPS: " + lastTPS);
+                //System.out.println("FPS: " + lastFPS);
+                //System.out.println("TPS: " + lastTPS);
                 lastTimeClock = System.nanoTime();
             }
         }
@@ -116,8 +126,8 @@ public class Game extends Canvas implements Runnable{
     private void tick(){
 
         try {
-            gEntities.get(0).move(6, 3);
-            gEntities.get(0).rotate(-0.0005);
+            //gEntities.get(0).move(6, 3);
+            //gEntities.get(0).rotate(-0.0005);
         }
         catch (Exception e) {
 
@@ -129,9 +139,10 @@ public class Game extends Canvas implements Runnable{
     //TODO: Add tiles and render tiles
 
     private void initGame(){
-        mainFrame = new GFrame();
+        mainFrame = new GFrame(this);
         mainGScreen = new GScreen(this);
         mainGCommander = new GCommander(this);
+        mainGPlayer = new GPlayer(this);
 
         Dimension size = new Dimension(WIDTH * SCALE, HEIGHT * SCALE);
         setPreferredSize(size);
@@ -145,21 +156,26 @@ public class Game extends Canvas implements Runnable{
         Thread renderThread = new Thread(this);
         renderThread.start();
 
-        try {
-            Thread.sleep(1500);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+        setupGameplay();
+    }
 
-        System.out.println("Action...");
+    private void setupGameplay() {
+        // TODO: Set up all locations and items
+        gLocations.add(new GLocation("StartLocation", new GItem[] {new GISmallWoodenBox()}));
 
-        gEntities.add(new GEntity(this, 45, 30, 1, 0x0000FF));
-
+        // TODO: Set up all connections
+        currentLocation = getLocationByName("StartLocation");
     }
 
     // Management Functions
-
+    public GLocation getLocationByName(String locationName) {
+        for(GLocation location : gLocations) {
+            if(location.name.equals(locationName)) {
+                return location;
+            }
+        }
+        return null;
+    }
 }
 
 /*
