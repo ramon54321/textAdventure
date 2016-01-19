@@ -2,8 +2,12 @@ package game;
 
 import game.entity.GEntity;
 import game.gameplay.GPlayer;
+import game.gameplay.items.GISmallBird;
 import game.gameplay.items.GISmallWoodenBox;
+import game.gameplay.items.GISpoon;
 import game.gameplay.items.GItem;
+import game.gameplay.locations.GLNassauPort;
+import game.gameplay.locations.GLNassauTownMarket;
 import game.gameplay.locations.GLocation;
 import game.graphics.GFrame;
 import game.graphics.GScreen;
@@ -14,6 +18,7 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -127,7 +132,7 @@ public class Game extends Canvas implements Runnable{
 
         try {
             //gEntities.get(0).move(6, 3);
-            //gEntities.get(0).rotate(-0.0005);
+            //gEntities.get(0).rotate(0.05);
         }
         catch (Exception e) {
 
@@ -157,14 +162,21 @@ public class Game extends Canvas implements Runnable{
         renderThread.start();
 
         setupGameplay();
+
+        //gEntities.add(new GEntity(this, 40, 40, 1, 0xFF00FF));
     }
 
     private void setupGameplay() {
         // TODO: Set up all locations and items
-        gLocations.add(new GLocation("StartLocation", new GItem[] {new GISmallWoodenBox()}));
+        gLocations.add(new GLNassauPort(this));
+        gLocations.add(new GLNassauTownMarket(this));
 
         // TODO: Set up all connections
-        currentLocation = getLocationByName("StartLocation");
+        for(GLocation location : gLocations) {
+            location.makeConnections();
+        }
+
+        currentLocation = getLocationByName("Nassau City Market");
     }
 
     // Management Functions
@@ -176,6 +188,7 @@ public class Game extends Canvas implements Runnable{
         }
         return null;
     }
+
 }
 
 /*
