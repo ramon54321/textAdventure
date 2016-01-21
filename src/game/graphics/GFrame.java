@@ -1,6 +1,6 @@
 package game.graphics;
 
-import game.Game;
+import game.GGame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,12 +12,12 @@ import java.awt.event.KeyListener;
  */
 public class GFrame extends JFrame implements KeyListener{
 
-    private Game game;
+    private GGame GGame;
     public Container container;
     public JTextField mainTextField = new JTextField(10);
 
-    public GFrame(Game game) {
-        this.game = game;
+    public GFrame(GGame GGame) {
+        this.GGame = GGame;
         container = getContentPane();
         container.add(mainTextField, BorderLayout.SOUTH);
         mainTextField.addKeyListener(this);
@@ -32,7 +32,7 @@ public class GFrame extends JFrame implements KeyListener{
     public void keyPressed(KeyEvent e) {
         //System.out.println("Key Typed: " + e.getKeyCode());
         if(e.getKeyCode() == 10) {
-            game.mainGCommander.parseCommand(mainTextField.getText());
+            GGame.mainGCommander.parseCommand(mainTextField.getText());
             mainTextField.setText("");
         }
     }

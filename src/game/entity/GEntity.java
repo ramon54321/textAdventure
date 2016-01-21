@@ -1,6 +1,6 @@
 package game.entity;
 
-import game.Game;
+import game.GGame;
 import game.graphics.GPixel;
 import game.interfaces.GRenderable;
 import game.utilities.GVector2;
@@ -10,7 +10,7 @@ import game.utilities.GVector2;
  */
 public class GEntity implements GRenderable {
 
-    private Game game;
+    private GGame GGame;
 
     boolean active = true;
     boolean visible = true;
@@ -26,8 +26,8 @@ public class GEntity implements GRenderable {
 
     // TODO: Constructor with sprite
 
-    public GEntity(Game game, int xPos, int yPos, int scale, int color) {
-        this.game = game;
+    public GEntity(GGame GGame, int xPos, int yPos, int scale, int color) {
+        this.GGame = GGame;
         this.position.x = xPos;
         this.position.y = yPos;
         this.scale = scale;
@@ -41,8 +41,8 @@ public class GEntity implements GRenderable {
     }
 
     public void move(double x, double y) {
-        position.x += (x * ((double) game.tickDeltaTime)) / 1000000;
-        position.y += (y * ((double) game.tickDeltaTime)) / 1000000;
+        position.x += (x * ((double) GGame.tickDeltaTime)) / 1000000;
+        position.y += (y * ((double) GGame.tickDeltaTime)) / 1000000;
     }
 
     public void moveTo(int x, int y) {
@@ -73,7 +73,7 @@ public class GEntity implements GRenderable {
             for (GPixel pixel : pixels) {
                 int x = ((int) position.x) + (int) Math.round(pixel.position.x);
                 int y = ((int) position.y) + (int) Math.round(pixel.position.y);
-                game.pixels[x + (y * game.WIDTH)] = pixel.color;
+                GGame.pixels[x + (y * GGame.WIDTH)] = pixel.color;
             }
         }
     }

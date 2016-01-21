@@ -18,7 +18,7 @@ public class GItem implements GInteractable {
     public boolean pickupAble = false;
 
     public static String[] availableActions = new String[] {
-            "break", "throw", "look at", "eat", "drink", "pick up", "kill", "read"
+            "break", "throw", "look at", "eat", "drink", "pick up", "kill", "read", "talk to"
     };
 
     @Override
@@ -59,5 +59,10 @@ public class GItem implements GInteractable {
     @Override
     public void read(GItem with) {
         System.out.println("I can't read that...");
+    }
+
+    @Override
+    public void talkTo(GItem with) {
+        System.out.println("Can't talk to that.");
     }
 }

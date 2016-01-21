@@ -1,22 +1,26 @@
 package game.gameplay;
 
-import game.Game;
+import game.GGame;
 import game.gameplay.items.GItem;
 
 import java.util.ArrayList;
 
 /**
  * Created by Ramon on 1/18/16.
+ *
+ * GGame.GMain player class
+ * Stores data about player state and abilities
+ *
  */
 public class GPlayer {
 
-    private Game game;
+    private GGame GGame;
     private ArrayList<GItem> inventory = new ArrayList<GItem>();
 
     // TODO: Fix inventory
 
-    public GPlayer(Game game) {
-        this.game = game;
+    public GPlayer(GGame GGame) {
+        this.GGame = GGame;
     }
 
 

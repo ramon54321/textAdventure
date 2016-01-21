@@ -1,6 +1,6 @@
 package game.gameplay.locations;
 
-import game.Game;
+import game.GGame;
 import game.gameplay.items.GISmallBird;
 import game.gameplay.items.GISmallWoodenBox;
 import game.gameplay.items.GISpoon;
@@ -9,8 +9,8 @@ import game.gameplay.items.GISpoon;
  * Created by Ramon on 1/19/16.
  */
 public class GLNassauPort extends GLocation {
-    public GLNassauPort(Game game) {
-        this.game = game;
+    public GLNassauPort(GGame GGame) {
+        this.GGame = GGame;
         this.name = "Nassau Port";
         this.xPos = 0;
         this.yPos = 0;

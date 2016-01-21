@@ -7,6 +7,7 @@ import game.gameplay.items.GISmallWoodenBox;
 import game.gameplay.items.GISpoon;
 import game.gameplay.items.GItem;
 import game.gameplay.locations.GLNassauPort;
+import game.gameplay.locations.GLNassauPub;
 import game.gameplay.locations.GLNassauTownMarket;
 import game.gameplay.locations.GLocation;
 import game.graphics.GFrame;
@@ -23,10 +24,10 @@ import java.util.ArrayList;
 
 /**
  * Created by ramon on 20.12.2015.
- * Main game class, constructing a new game class creates a full new game and window.
+ * Main GGame class, constructing a new GGame class creates a full new GGame and window.
  */
 
-public class Game extends Canvas implements Runnable{
+public class GGame extends Canvas implements Runnable{
 
     //TODO: Add static reference to game thread.
 
@@ -50,6 +51,8 @@ public class Game extends Canvas implements Runnable{
 
     public GLocation currentLocation;
 
+    public int commandMode = 0;
+
     // Management variables
     private int framesRendered = 0;
     private int framesTicked = 0;
@@ -61,7 +64,7 @@ public class Game extends Canvas implements Runnable{
     private BufferedImage mainRenderImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
     public int[] pixels = ((DataBufferInt)mainRenderImage.getRaster().getDataBuffer()).getData();
 
-    public Game() {
+    public GGame() {
         System.out.println("Started...");
         initGame();
     }
@@ -170,13 +173,15 @@ public class Game extends Canvas implements Runnable{
         // TODO: Set up all locations and items
         gLocations.add(new GLNassauPort(this));
         gLocations.add(new GLNassauTownMarket(this));
+        gLocations.add(new GLNassauPub(this));
 
         // TODO: Set up all connections
         for(GLocation location : gLocations) {
             location.makeConnections();
         }
 
-        currentLocation = getLocationByName("Nassau City Market");
+        //currentLocation = getLocationByName("Nassau City Market");
+        currentLocation = getLocationByName("Nassau Pub");
     }
 
     // Management Functions

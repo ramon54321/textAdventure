@@ -1,16 +1,61 @@
 package game.gameplay.locations;
 
-import game.Game;
+import game.GGame;
 import game.gameplay.items.GItem;
 
 import java.util.ArrayList;
 
 /**
  * Created by Ramon on 1/18/16.
+ *
+ * Each location is a derived class.
+ * Connections will follow a hierarchy, where the parent adds to connection to the child, unless
+ * a one way specific connection that requires the child to make the connection.
+ *
+ * Adding new location
+ * Duplicate location subclass and amend constructor, add location in GGame class.
+ *
+ * Items are now added to the locations from the location class itself.
+ *
+ *  +->  Nassau Port
+ *      +-> Nassau Town Market
+ *          --> Nassau Town Market Under Banner
+ *          --> Nassau Town Market Food Stall
+ *          --> Nassau Town Market General Stall
+ *          --> Nassau Town Market Tailor
+ *      --> Nassau Town Square
+ *          --> Nassau Town Square Fountain
+ *          --> Nassau Town Square Behind Barrels
+ *      +-> Nassau Pub
+ *          --> Nassau Pub Backroom
+ *          --> Nassau Pub Lavatory
+ *      --> Nassau Captain Flint's Cove
+ *      --> Nassau Flamingo Lagoon
+ *      --> Nassau Forrest North
+ *          --> Nassau Forrest North Cave Entrance
+ *          --> Nassau Forrest North Cave
+ *          --> Nassau Forrest North Cave Back Room
+ *      --> Nassau Forrest South
+ *      --> Nassau Fort
+ *      --> Nassau Fort Pathway
+ *      --> Nassau Suburb East
+ *      --> Nassau Suburb North
+ *      --> Nassau Boat Yard
+ *      --> Nassau Town Blacksmith
+ *      --> Nassau Town Bank
+ *  --> Boston Harbour
+ *      --> Boston City Hall
+ *      --> Boston City Jail
+ *
+ *  File Updating Marker
+ *
+ *
+ *
+ *
  */
 public class GLocation {
 
-    protected Game game;
+    protected GGame GGame;
 
     public String name = "Unnamed";
     public ArrayList<GItem> items = new ArrayList<GItem>();
@@ -23,8 +68,8 @@ public class GLocation {
 
     }
 
-    public GLocation(Game game, int xPos, int yPos, String name, GItem[] items) {
-        this.game = game;
+    public GLocation(GGame GGame, int xPos, int yPos, String name, GItem[] items) {
+        this.GGame = GGame;
         this.xPos = xPos;
         this.yPos = yPos;
         this.name = name;
@@ -66,7 +111,7 @@ public class GLocation {
     }
 
     public void makeConnectionTo(String to, boolean isTwoWay) {
-        GLocation toLoc =  game.getLocationByName(to);
+        GLocation toLoc =  GGame.getLocationByName(to);
 
         this.connections.add(toLoc);
         if(isTwoWay) {

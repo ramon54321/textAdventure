@@ -15,5 +15,6 @@ public interface GInteractable {
     void drink(GItem with);
     void kill(GItem with);
     void read(GItem with);
+    void talkTo(GItem with);
 
 }
