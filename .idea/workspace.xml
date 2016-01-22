@@ -2,41 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="976b3d85-a1e2-47f6-937a-a751fcd7f538" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/GMain.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/entity/GEntity.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/GPlayer.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/items/GIBarTender.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/items/GINavigationManual.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/items/GISmallBird.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/items/GISmallWoodenBox.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/items/GISpoon.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/items/GItem.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/locations/GLNassauPort.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/locations/GLNassauPub.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/locations/GLNassauTownMarket.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/locations/GLocation.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/graphics/GFrame.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/graphics/GPixel.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/graphics/GScreen.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/input/GCommander.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/interfaces/GInteractable.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/interfaces/GRenderable.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/utilities/GVector2.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/game/Game.java" afterPath="$PROJECT_DIR$/src/game/GGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/GMain.java" afterPath="$PROJECT_DIR$/src/game/GMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/entity/GEntity.java" afterPath="$PROJECT_DIR$/src/game/entity/GEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/gameplay/GPlayer.java" afterPath="$PROJECT_DIR$/src/game/gameplay/GPlayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/gameplay/items/GIBarTender.java" afterPath="$PROJECT_DIR$/src/game/gameplay/items/GIBarTender.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/gameplay/items/GItem.java" afterPath="$PROJECT_DIR$/src/game/gameplay/items/GItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/gameplay/locations/GLNassauPort.java" afterPath="$PROJECT_DIR$/src/game/gameplay/locations/GLNassauPort.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/gameplay/locations/GLNassauPub.java" afterPath="$PROJECT_DIR$/src/game/gameplay/locations/GLNassauPub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/gameplay/locations/GLNassauTownMarket.java" afterPath="$PROJECT_DIR$/src/game/gameplay/locations/GLNassauTownMarket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/gameplay/locations/GLocation.java" afterPath="$PROJECT_DIR$/src/game/gameplay/locations/GLocation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/graphics/GFrame.java" afterPath="$PROJECT_DIR$/src/game/graphics/GFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/graphics/GScreen.java" afterPath="$PROJECT_DIR$/src/game/graphics/GScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/input/GCommander.java" afterPath="$PROJECT_DIR$/src/game/input/GCommander.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/interfaces/GInteractable.java" afterPath="$PROJECT_DIR$/src/game/interfaces/GInteractable.java" />
     </list>
     <ignored path="textAdventure.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,6 +31,7 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
               <folding>
+                <element signature="imports" expanded="false" />
                 <element signature="method#GGame#0;class#GGame#0" expanded="false" />
                 <element signature="method#run#0;class#GGame#0" expanded="false" />
                 <element signature="method#render#0;class#GGame#0" expanded="false" />
@@ -79,7 +47,6 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="140" column="69" selection-start-line="140" selection-start-column="69" selection-end-line="140" selection-end-column="69" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#GCommander#0;class#GCommander#0" expanded="false" />
               </folding>
             </state>
@@ -91,16 +58,20 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#404#405#0" expanded="false" />
+                <element signature="e#438#439#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GLocation.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GLocation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game/gameplay/locations/GLocation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6881497">
-              <caret line="121" column="35" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#GLocation#0;class#GLocation#0" expanded="false" />
@@ -119,7 +90,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#380#381#0" expanded="false" />
+                <element signature="e#424#425#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -129,7 +104,26 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="20" column="93" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="93" />
-              <folding />
+              <folding>
+                <element signature="e#737#738#0" expanded="false" />
+                <element signature="e#784#785#0" expanded="false" />
+                <element signature="e#839#840#0" expanded="false" />
+                <element signature="e#886#887#0" expanded="false" />
+                <element signature="e#938#939#0" expanded="false" />
+                <element signature="e#1010#1011#0" expanded="false" />
+                <element signature="e#1059#1060#0" expanded="false" />
+                <element signature="e#1110#1111#0" expanded="false" />
+                <element signature="e#1161#1162#0" expanded="false" />
+                <element signature="e#1220#1221#0" expanded="false" />
+                <element signature="e#1272#1273#0" expanded="false" />
+                <element signature="e#1329#1330#0" expanded="false" />
+                <element signature="e#1379#1380#0" expanded="false" />
+                <element signature="e#1437#1438#0" expanded="false" />
+                <element signature="e#1487#1488#0" expanded="false" />
+                <element signature="e#1545#1546#0" expanded="false" />
+                <element signature="e#1597#1598#0" expanded="false" />
+                <element signature="e#1654#1655#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -144,11 +138,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GIBarTender.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GIBarTender.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/game/gameplay/items/GIBarTender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.5330033">
+              <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -201,19 +195,20 @@
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/GMain.java" />
         <option value="$PROJECT_DIR$/src/game/GMain.java" />
-        <option value="$PROJECT_DIR$/src/game/gameplay/items/GIBarTender.java" />
         <option value="$PROJECT_DIR$/src/game/gameplay/locations/GLNassauPub.java" />
         <option value="$PROJECT_DIR$/src/game/input/GCommander.java" />
         <option value="$PROJECT_DIR$/src/game/gameplay/locations/GLocation.java" />
         <option value="$PROJECT_DIR$/src/game/Game.java" />
         <option value="$PROJECT_DIR$/src/game/GGame.java" />
+        <option value="$PROJECT_DIR$/src/game/gameplay/items/GIBarTender.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1280" />
-    <option name="height" value="709" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -281,6 +276,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -503,8 +500,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -837,31 +832,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="709" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17990276" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16045381" sideWeight="0.503231" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1815235" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17504051" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16558966" sideWeight="0.66612643" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16544656" sideWeight="0.66612643" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.4943274" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.19709209" sideWeight="0.33387357" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17990276" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17504051" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -897,8 +892,116 @@
     <entry file="file://$PROJECT_DIR$/src/game/GGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#GGame#0;class#GGame#0" expanded="false" />
+            <element signature="method#run#0;class#GGame#0" expanded="false" />
+            <element signature="method#render#0;class#GGame#0" expanded="false" />
+            <element signature="method#tick#0;class#GGame#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/input/GCommander.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="140" column="69" selection-start-line="140" selection-start-column="69" selection-end-line="140" selection-end-column="69" />
+          <folding>
+            <element signature="method#GCommander#0;class#GCommander#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/gameplay/GPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#404#405#0" expanded="false" />
+            <element signature="e#438#439#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/gameplay/locations/GLocation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#GLocation#0;class#GLocation#0" expanded="false" />
+            <element signature="method#GLocation#1;class#GLocation#0" expanded="false" />
+            <element signature="method#containsItem#0;class#GLocation#0" expanded="false" />
+            <element signature="method#getItem#0;class#GLocation#0" expanded="false" />
+            <element signature="method#getAllItemNames#0;class#GLocation#0" expanded="false" />
+            <element signature="method#makeConnectionTo#0;class#GLocation#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/gameplay/locations/GLNassauPub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#380#381#0" expanded="false" />
+            <element signature="e#424#425#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/gameplay/items/GItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="93" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="93" />
+          <folding>
+            <element signature="e#737#738#0" expanded="false" />
+            <element signature="e#784#785#0" expanded="false" />
+            <element signature="e#839#840#0" expanded="false" />
+            <element signature="e#886#887#0" expanded="false" />
+            <element signature="e#938#939#0" expanded="false" />
+            <element signature="e#1010#1011#0" expanded="false" />
+            <element signature="e#1059#1060#0" expanded="false" />
+            <element signature="e#1110#1111#0" expanded="false" />
+            <element signature="e#1161#1162#0" expanded="false" />
+            <element signature="e#1220#1221#0" expanded="false" />
+            <element signature="e#1272#1273#0" expanded="false" />
+            <element signature="e#1329#1330#0" expanded="false" />
+            <element signature="e#1379#1380#0" expanded="false" />
+            <element signature="e#1437#1438#0" expanded="false" />
+            <element signature="e#1487#1488#0" expanded="false" />
+            <element signature="e#1545#1546#0" expanded="false" />
+            <element signature="e#1597#1598#0" expanded="false" />
+            <element signature="e#1654#1655#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/interfaces/GInteractable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/gameplay/items/GIBarTender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/GGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="method#GGame#0;class#GGame#0" expanded="false" />
             <element signature="method#run#0;class#GGame#0" expanded="false" />
             <element signature="method#render#0;class#GGame#0" expanded="false" />
@@ -912,7 +1015,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#GCommander#0;class#GCommander#0" expanded="false" />
           </folding>
         </state>
@@ -930,7 +1032,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#404#405#0" expanded="false" />
+            <element signature="e#438#439#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -954,7 +1060,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#380#381#0" expanded="false" />
+            <element signature="e#424#425#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -962,7 +1072,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="93" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="93" />
-          <folding />
+          <folding>
+            <element signature="e#737#738#0" expanded="false" />
+            <element signature="e#784#785#0" expanded="false" />
+            <element signature="e#839#840#0" expanded="false" />
+            <element signature="e#886#887#0" expanded="false" />
+            <element signature="e#938#939#0" expanded="false" />
+            <element signature="e#1010#1011#0" expanded="false" />
+            <element signature="e#1059#1060#0" expanded="false" />
+            <element signature="e#1110#1111#0" expanded="false" />
+            <element signature="e#1161#1162#0" expanded="false" />
+            <element signature="e#1220#1221#0" expanded="false" />
+            <element signature="e#1272#1273#0" expanded="false" />
+            <element signature="e#1329#1330#0" expanded="false" />
+            <element signature="e#1379#1380#0" expanded="false" />
+            <element signature="e#1437#1438#0" expanded="false" />
+            <element signature="e#1487#1488#0" expanded="false" />
+            <element signature="e#1545#1546#0" expanded="false" />
+            <element signature="e#1597#1598#0" expanded="false" />
+            <element signature="e#1654#1655#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1081,14 +1210,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/gameplay/items/GIBarTender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/GMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2955665">
@@ -1101,7 +1222,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1110,6 +1230,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="method#GGame#0;class#GGame#0" expanded="false" />
             <element signature="method#run#0;class#GGame#0" expanded="false" />
             <element signature="method#render#0;class#GGame#0" expanded="false" />
@@ -1130,7 +1251,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#404#405#0" expanded="false" />
+            <element signature="e#438#439#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1138,7 +1263,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#380#381#0" expanded="false" />
+            <element signature="e#424#425#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1146,7 +1275,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="93" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="93" />
-          <folding />
+          <folding>
+            <element signature="e#737#738#0" expanded="false" />
+            <element signature="e#784#785#0" expanded="false" />
+            <element signature="e#839#840#0" expanded="false" />
+            <element signature="e#886#887#0" expanded="false" />
+            <element signature="e#938#939#0" expanded="false" />
+            <element signature="e#1010#1011#0" expanded="false" />
+            <element signature="e#1059#1060#0" expanded="false" />
+            <element signature="e#1110#1111#0" expanded="false" />
+            <element signature="e#1161#1162#0" expanded="false" />
+            <element signature="e#1220#1221#0" expanded="false" />
+            <element signature="e#1272#1273#0" expanded="false" />
+            <element signature="e#1329#1330#0" expanded="false" />
+            <element signature="e#1379#1380#0" expanded="false" />
+            <element signature="e#1437#1438#0" expanded="false" />
+            <element signature="e#1487#1488#0" expanded="false" />
+            <element signature="e#1545#1546#0" expanded="false" />
+            <element signature="e#1597#1598#0" expanded="false" />
+            <element signature="e#1654#1655#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1155,7 +1303,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="140" column="69" selection-start-line="140" selection-start-column="69" selection-end-line="140" selection-end-column="69" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#GCommander#0;class#GCommander#0" expanded="false" />
           </folding>
         </state>
@@ -1163,8 +1310,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/game/gameplay/locations/GLocation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6881497">
-          <caret line="121" column="35" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#GLocation#0;class#GLocation#0" expanded="false" />
@@ -1174,6 +1321,14 @@
             <element signature="method#getAllItemNames#0;class#GLocation#0" expanded="false" />
             <element signature="method#makeConnectionTo#0;class#GLocation#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/gameplay/items/GIBarTender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5330033">
+          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
