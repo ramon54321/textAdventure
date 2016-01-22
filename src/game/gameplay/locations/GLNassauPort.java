@@ -9,8 +9,8 @@ import game.gameplay.items.GISpoon;
  * Created by Ramon on 1/19/16.
  */
 public class GLNassauPort extends GLocation {
-    public GLNassauPort(GGame GGame) {
-        this.GGame = GGame;
+    public GLNassauPort(GGame gGame) {
+        this.gGame = gGame;
         this.name = "Nassau Port";
         this.xPos = 0;
         this.yPos = 0;

@@ -19,10 +19,10 @@ import game.gameplay.items.GItem;
 
 public class GCommander{
 
-    private GGame GGame;
+    private GGame gGame;
 
     public GCommander(GGame GGame) {
-        this.GGame = GGame;
+        this.gGame = GGame;
         //keyListenThread = new Thread(this);
         //keyListenThread.start();
     }
@@ -41,7 +41,7 @@ public class GCommander{
             String with = "";
 
             String[] availableVerbs = GItem.availableActions;
-            String[] availableNouns = GGame.currentLocation.getAllItemNames();
+            String[] availableNouns = gGame.currentLocation.getAllItemNames();
 
             String[] words = mainCommand.split(" ");
 
@@ -86,8 +86,8 @@ public class GCommander{
                 // TODO: Make general "DO I HAVE" function to check for items in location and inventory
 
                 if (!with.equals("")) {
-                    if (GGame.currentLocation.containsItem(with)) {
-                        sendAction(verb, noun, GGame.currentLocation.getItem(with));
+                    if (gGame.currentLocation.containsItem(with)) {
+                        sendAction(verb, noun, gGame.currentLocation.getItem(with));
                     } else {
                         System.out.println("With that? Can't find that here?");
                     }
@@ -98,7 +98,22 @@ public class GCommander{
         }
         else if (GMain.mainGGame.commandMode == GCommandMode.TALKING) {
             // TODO: Command mode for talking and buying, gets turned on from eg. Bar Tender.
-
+            if(command.equals("a")) {
+                // run the a function for the current inteaction
+                GMain.mainGGame.currentTalkNode.children.get(0).execute();
+            }
+            else if(command.equals("b")) {
+                // run the a function for the current inteaction
+                GMain.mainGGame.currentTalkNode.children.get(1).execute();
+            }
+            else if(command.equals("c")) {
+                // run the a function for the current inteaction
+                GMain.mainGGame.currentTalkNode.children.get(2).execute();
+            }
+            else if(command.equals("d")) {
+                // run the a function for the current inteaction
+                GMain.mainGGame.currentTalkNode.children.get(3).execute();
+            }
         }
     }
 
@@ -112,35 +127,35 @@ public class GCommander{
     }
 
     private void sendAction(String verb, String noun, GItem with) {
-        if(GGame.currentLocation.containsItem(noun)) {
+        if(gGame.currentLocation.containsItem(noun)) {
             //TODO: Complete switch with all interactables
             switch (verb) {
                 case "pick up":
-                    GGame.currentLocation.getItem(noun).pickUp(with);
+                    gGame.currentLocation.getItem(noun).pickUp(with);
                     break;
                 case "break":
-                    GGame.currentLocation.getItem(noun).breakItem(with);
+                    gGame.currentLocation.getItem(noun).breakItem(with);
                     break;
                 case "throw":
-                    GGame.currentLocation.getItem(noun).throwItem(with);
+                    gGame.currentLocation.getItem(noun).throwItem(with);
                     break;
                 case "look at":
-                    GGame.currentLocation.getItem(noun).lookAt(with);
+                    gGame.currentLocation.getItem(noun).lookAt(with);
                     break;
                 case "eat":
-                    GGame.currentLocation.getItem(noun).eat(with);
+                    gGame.currentLocation.getItem(noun).eat(with);
                     break;
                 case "drink":
-                    GGame.currentLocation.getItem(noun).drink(with);
+                    gGame.currentLocation.getItem(noun).drink(with);
                     break;
                 case "kill":
-                    GGame.currentLocation.getItem(noun).kill(with);
+                    gGame.currentLocation.getItem(noun).kill(with);
                     break;
                 case "read":
-                    GGame.currentLocation.getItem(noun).read(with);
+                    gGame.currentLocation.getItem(noun).read(with);
                     break;
                 case "talk to":
-                    GGame.currentLocation.getItem(noun).talkTo(with);
+                    gGame.currentLocation.getItem(noun).talkTo(with);
                     break;
                 default:
                     System.out.println("Can't do that...");

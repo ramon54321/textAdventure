@@ -55,7 +55,7 @@ import java.util.ArrayList;
  */
 public class GLocation {
 
-    protected GGame GGame;
+    protected GGame gGame;
 
     public String name = "Unnamed";
     public ArrayList<GItem> items = new ArrayList<GItem>();
@@ -68,8 +68,8 @@ public class GLocation {
 
     }
 
-    public GLocation(GGame GGame, int xPos, int yPos, String name, GItem[] items) {
-        this.GGame = GGame;
+    public GLocation(GGame gGame, int xPos, int yPos, String name, GItem[] items) {
+        this.gGame = gGame;
         this.xPos = xPos;
         this.yPos = yPos;
         this.name = name;
@@ -111,7 +111,7 @@ public class GLocation {
     }
 
     public void makeConnectionTo(String to, boolean isTwoWay) {
-        GLocation toLoc =  GGame.getLocationByName(to);
+        GLocation toLoc =  gGame.getLocationByName(to);
 
         this.connections.add(toLoc);
         if(isTwoWay) {

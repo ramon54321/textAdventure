@@ -1,5 +1,9 @@
 package game.gameplay.items;
 
+import game.GCommandMode;
+import game.GMain;
+import game.gameplay.talking.GTalkNode;
+
 /**
  * Created by Ramon on 1/18/16.
  *
@@ -7,6 +11,54 @@ package game.gameplay.items;
  *
  */
 public class GIBarTender extends GItem {
+
+    GTalkNode talk_0A = new GTalkNode(){
+        @Override
+        public void execute() {
+            GMain.mainGGame.currentTalkNode = this;
+            System.out.println(
+                    "Bartender: Waddya want?\n\t" +
+                    "a) Nothing...\n\t" +
+                    "b) A beer!\n\t" +
+                    "c) What do you know about this missing schedule everyone is talking about?\n\t" +
+                    "d) Never mind... Im leaving.");
+        }
+    };
+
+    // Level 1
+    GTalkNode talk_1AA = new GTalkNode(talk_0A, 0){
+        @Override
+        public void execute() {
+            GMain.mainGGame.currentTalkNode = this;
+            System.out.println("This is 1a");
+        }
+    };
+    GTalkNode talk_1AB = new GTalkNode(talk_0A, 1){
+        @Override
+        public void execute() {
+            GMain.mainGGame.currentTalkNode = this;
+            System.out.println("This is 1b");
+        }
+    };
+    GTalkNode talk_1AC = new GTalkNode(talk_0A, 2){
+        @Override
+        public void execute() {
+            GMain.mainGGame.currentTalkNode = this;
+            System.out.println("This is 1c");
+        }
+    };
+    GTalkNode talk_1AD = new GTalkNode(talk_0A, 3){
+        @Override
+        public void execute() {
+            GMain.mainGGame.currentTalkNode = this;
+            System.out.println("Bog off then!");
+
+            // Exit talking
+            talkEnd();
+        }
+    };
+
+
 
     public GIBarTender() {
         names =  new String[] {"bartender"};
@@ -20,9 +72,23 @@ public class GIBarTender extends GItem {
 
     @Override
     public void talkTo(GItem with) {
-        System.out.println("Bartender: Waddya want? \n\ta) Nothing...\n\tb) A beer!\n\tc) What do you know about this missing schedule " +
-                "everyone is talking about?\n\td) Never mind... Im leaving.");
-        // if buy blabla
+        // Init talking
+        talkInit();
+
+        talk_0A.execute();
+
         // TODO: Buy items, separate command input
     }
+
+    private void talkInit() {
+        GMain.mainGGame.commandMode = GCommandMode.TALKING;
+        GMain.mainGGame.currentInteraction = this;
+    }
+
+    private void talkEnd() {
+        GMain.mainGGame.currentInteraction = null;
+        GMain.mainGGame.currentTalkNode = null;
+        GMain.mainGGame.commandMode = GCommandMode.NORMAL;
+    }
+
 }

@@ -10,6 +10,7 @@ import game.gameplay.locations.GLNassauPort;
 import game.gameplay.locations.GLNassauPub;
 import game.gameplay.locations.GLNassauTownMarket;
 import game.gameplay.locations.GLocation;
+import game.gameplay.talking.GTalkNode;
 import game.graphics.GFrame;
 import game.graphics.GScreen;
 import game.input.GCommander;
@@ -50,6 +51,8 @@ public class GGame extends Canvas implements Runnable{
     public ArrayList<GLocation> gLocations = new ArrayList<GLocation>();
 
     public GLocation currentLocation;
+    public GItem currentInteraction;
+    public GTalkNode currentTalkNode;
 
     public GCommandMode commandMode = GCommandMode.NORMAL;
 
