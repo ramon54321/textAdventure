@@ -51,7 +51,7 @@ public class GGame extends Canvas implements Runnable{
 
     public GLocation currentLocation;
 
-    public int commandMode = 0;
+    public GCommandMode commandMode = GCommandMode.NORMAL;
 
     // Management variables
     private int framesRendered = 0;

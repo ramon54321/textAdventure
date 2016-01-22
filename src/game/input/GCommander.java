@@ -1,5 +1,6 @@
 package game.input;
 
+import game.GCommandMode;
 import game.GGame;
 import game.GMain;
 import game.gameplay.items.GItem;
@@ -31,7 +32,7 @@ public class GCommander{
         // TODO: Improve text parser
         //System.out.println("Received command: " + command);
 
-        if(GMain.mainGGame.commandMode == 0) {
+        if(GMain.mainGGame.commandMode == GCommandMode.NORMAL) {
             String[] commands = command.split(" with ");
             String mainCommand = commands[0];
 
@@ -95,8 +96,9 @@ public class GCommander{
                 }
             }
         }
-        else if (GMain.mainGGame.commandMode == 1) {
+        else if (GMain.mainGGame.commandMode == GCommandMode.TALKING) {
             // TODO: Command mode for talking and buying, gets turned on from eg. Bar Tender.
+
         }
     }
 

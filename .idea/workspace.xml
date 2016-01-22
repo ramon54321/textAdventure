@@ -2,41 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="976b3d85-a1e2-47f6-937a-a751fcd7f538" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/GMain.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/entity/GEntity.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/GPlayer.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/items/GIBarTender.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/items/GINavigationManual.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/items/GISmallBird.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/items/GISmallWoodenBox.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/items/GISpoon.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/items/GItem.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/locations/GLNassauPort.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/locations/GLNassauPub.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/locations/GLNassauTownMarket.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/gameplay/locations/GLocation.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/graphics/GFrame.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/graphics/GPixel.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/graphics/GScreen.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/input/GCommander.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/interfaces/GInteractable.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/interfaces/GRenderable.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/textAdventure/game/utilities/GVector2.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/game/Game.java" afterPath="$PROJECT_DIR$/src/game/GGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/GMain.java" afterPath="$PROJECT_DIR$/src/game/GMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/entity/GEntity.java" afterPath="$PROJECT_DIR$/src/game/entity/GEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/gameplay/GPlayer.java" afterPath="$PROJECT_DIR$/src/game/gameplay/GPlayer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/gameplay/items/GIBarTender.java" afterPath="$PROJECT_DIR$/src/game/gameplay/items/GIBarTender.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/gameplay/items/GItem.java" afterPath="$PROJECT_DIR$/src/game/gameplay/items/GItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/gameplay/locations/GLNassauPort.java" afterPath="$PROJECT_DIR$/src/game/gameplay/locations/GLNassauPort.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/gameplay/locations/GLNassauPub.java" afterPath="$PROJECT_DIR$/src/game/gameplay/locations/GLNassauPub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/gameplay/locations/GLNassauTownMarket.java" afterPath="$PROJECT_DIR$/src/game/gameplay/locations/GLNassauTownMarket.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game/GCommandMode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/GGame.java" afterPath="$PROJECT_DIR$/src/game/GGame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/gameplay/locations/GLocation.java" afterPath="$PROJECT_DIR$/src/game/gameplay/locations/GLocation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/graphics/GFrame.java" afterPath="$PROJECT_DIR$/src/game/graphics/GFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/graphics/GScreen.java" afterPath="$PROJECT_DIR$/src/game/graphics/GScreen.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/input/GCommander.java" afterPath="$PROJECT_DIR$/src/game/input/GCommander.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/interfaces/GInteractable.java" afterPath="$PROJECT_DIR$/src/game/interfaces/GInteractable.java" />
     </list>
     <ignored path="textAdventure.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/src/game/GGame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+              <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
               <folding>
                 <element signature="method#GGame#0;class#GGame#0" expanded="false" />
                 <element signature="method#run#0;class#GGame#0" expanded="false" />
@@ -73,15 +43,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GCommander.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GCommander.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/game/input/GCommander.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="140" column="69" selection-start-line="140" selection-start-column="69" selection-end-line="140" selection-end-column="69" />
+            <state vertical-scroll-proportion="0.113680154">
+              <caret line="70" column="83" selection-start-line="70" selection-start-column="83" selection-end-line="70" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#GCommander#0;class#GCommander#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GCommandMode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game/GCommandMode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GLocation.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GLocation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game/gameplay/locations/GLocation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6881497">
-              <caret line="121" column="35" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="49" column="2" selection-start-line="49" selection-start-column="2" selection-end-line="49" selection-end-column="2" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#GLocation#0;class#GLocation#0" expanded="false" />
@@ -161,6 +141,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -203,17 +184,18 @@
         <option value="$PROJECT_DIR$/src/game/GMain.java" />
         <option value="$PROJECT_DIR$/src/game/gameplay/items/GIBarTender.java" />
         <option value="$PROJECT_DIR$/src/game/gameplay/locations/GLNassauPub.java" />
-        <option value="$PROJECT_DIR$/src/game/input/GCommander.java" />
-        <option value="$PROJECT_DIR$/src/game/gameplay/locations/GLocation.java" />
         <option value="$PROJECT_DIR$/src/game/Game.java" />
+        <option value="$PROJECT_DIR$/src/game/gameplay/locations/GLocation.java" />
+        <option value="$PROJECT_DIR$/src/game/GCommandMode.java" />
         <option value="$PROJECT_DIR$/src/game/GGame.java" />
+        <option value="$PROJECT_DIR$/src/game/input/GCommander.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="709" />
+    <option name="height" value="773" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -837,7 +819,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="709" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -847,10 +829,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16045381" sideWeight="0.503231" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1815235" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17504051" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19676946" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16558966" sideWeight="0.66612643" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14620355" sideWeight="0.66612643" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.4943274" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1105,19 +1087,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/GGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-          <folding>
-            <element signature="method#GGame#0;class#GGame#0" expanded="false" />
-            <element signature="method#run#0;class#GGame#0" expanded="false" />
-            <element signature="method#render#0;class#GGame#0" expanded="false" />
-            <element signature="method#tick#0;class#GGame#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/interfaces/GInteractable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1150,21 +1119,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/input/GCommander.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="140" column="69" selection-start-line="140" selection-start-column="69" selection-end-line="140" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GCommander#0;class#GCommander#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/gameplay/locations/GLocation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6881497">
-          <caret line="121" column="35" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="2" selection-start-line="49" selection-start-column="2" selection-end-line="49" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#GLocation#0;class#GLocation#0" expanded="false" />
@@ -1173,6 +1131,38 @@
             <element signature="method#getItem#0;class#GLocation#0" expanded="false" />
             <element signature="method#getAllItemNames#0;class#GLocation#0" expanded="false" />
             <element signature="method#makeConnectionTo#0;class#GLocation#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/GCommandMode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/GGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
+          <folding>
+            <element signature="method#GGame#0;class#GGame#0" expanded="false" />
+            <element signature="method#run#0;class#GGame#0" expanded="false" />
+            <element signature="method#render#0;class#GGame#0" expanded="false" />
+            <element signature="method#tick#0;class#GGame#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/input/GCommander.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.113680154">
+          <caret line="70" column="83" selection-start-line="70" selection-start-column="83" selection-end-line="70" selection-end-column="83" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#GCommander#0;class#GCommander#0" expanded="false" />
           </folding>
         </state>
       </provider>
