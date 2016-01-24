@@ -12,7 +12,7 @@ import java.util.ArrayList;
 @Override
 public void execute() {
 GMain.mainGGame.currentTalkNode = this;
-System.out.println(
+GMain.mainGGame.mainGFrame.consoleWrite(
 "Bartender: Waddya want?\n\t" +
 "a) Nothing...\n\t" +
 "b) A beer!\n\t" +
@@ -26,28 +26,28 @@ System.out.println(
 @Override
 public void execute() {
 GMain.mainGGame.currentTalkNode = this;
-System.out.println("This is 1a");
+GMain.mainGGame.mainGFrame.consoleWrite("This is 1a");
 }
 };
  GTalkNode talk_1B = new GTalkNode(talk_0A, 1){
 @Override
 public void execute() {
 GMain.mainGGame.currentTalkNode = this;
-System.out.println("This is 1b");
+GMain.mainGGame.mainGFrame.consoleWrite("This is 1b");
 }
 };
  GTalkNode talk_1C = new GTalkNode(talk_0A, 2){
 @Override
 public void execute() {
 GMain.mainGGame.currentTalkNode = this;
-System.out.println("This is 1c");
+GMain.mainGGame.mainGFrame.consoleWrite("This is 1c");
 }
 };
  GTalkNode talk_1D = new GTalkNode(talk_0A, 3){
 @Override
 public void execute() {
 GMain.mainGGame.currentTalkNode = this;
-System.out.println("Bog off then!\n\t");
+GMain.mainGGame.mainGFrame.consoleWrite("Bog off then!\n\t");
 
 // Exit talking
 talkEnd();

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class GPlayer {
 
     private GGame gGame;
-    private ArrayList<GItem> inventory = new ArrayList<GItem>();
+    public ArrayList<GItem> inventory = new ArrayList<GItem>();
 
     // TODO: Fix inventory
 
@@ -23,5 +23,28 @@ public class GPlayer {
         this.gGame = gGame;
     }
 
+    public boolean hasItemInInventoryByName(String name){
+        for(GItem item : inventory){
+            for(String itemName : item.names)
+            {
+                if(itemName.equals(name)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public GItem getItemInInventoryByName(String name){
+        for(GItem item : inventory){
+            for(String itemName : item.names)
+            {
+                if(itemName.equals(name)){
+                    return item;
+                }
+            }
+        }
+        return null;
+    }
 
 }

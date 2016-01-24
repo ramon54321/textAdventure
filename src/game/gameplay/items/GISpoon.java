@@ -1,5 +1,7 @@
 package game.gameplay.items;
 
+import game.GMain;
+
 /**
  * Created by Ramon on 1/18/16.
  */
@@ -12,21 +14,21 @@ public class GISpoon extends GItem {
 
     @Override
     public void pickUp(GItem with) {
-        System.out.println("You picked up the spoon. Could come in handy.");
+        GMain.mainGGame.mainGFrame.consoleWrite("You picked up the spoon. Could come in handy.");
     }
 
     @Override
     public void eat(GItem with) {
-        System.out.println("I can't chew metal.");
+        GMain.mainGGame.mainGFrame.consoleWrite("I can't chew metal.");
     }
 
     @Override
     public void drink(GItem with) {
-        System.out.println("Its metal, not drinking that.");
+        GMain.mainGGame.mainGFrame.consoleWrite("Its metal, not drinking that.");
     }
 
     @Override
     public void throwItem(GItem with) {
-        System.out.println("Pretty pointless...");
+        GMain.mainGGame.mainGFrame.consoleWrite("Pretty pointless...");
     }
 }

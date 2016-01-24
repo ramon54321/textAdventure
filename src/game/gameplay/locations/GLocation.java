@@ -43,6 +43,12 @@ import java.util.ArrayList;
  *      --> Nassau Boat Yard
  *      --> Nassau Town Blacksmith
  *      --> Nassau Town Bank
+ *      --> Nassau West Hills
+ *      --> Nassau Marsh
+ *      --> Nassau South Beach
+ *      --> Nassau Black Beard Tower
+ *      --> Nassau Clifton Point
+ *      --> Nassau Old Lighthouse
  *  --> Boston Harbour
  *      --> Boston City Hall
  *      --> Boston City Jail

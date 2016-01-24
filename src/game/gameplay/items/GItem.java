@@ -1,5 +1,6 @@
 package game.gameplay.items;
 
+import game.GMain;
 import game.interfaces.GInteractable;
 
 /**
@@ -18,51 +19,51 @@ public class GItem implements GInteractable {
     public boolean pickupAble = false;
 
     public static String[] availableActions = new String[] {
-            "break", "throw", "look at", "eat", "drink", "pick up", "kill", "read", "talk to"
+            "break", "throw", "look at", "eat", "drink", "pick up", "kill", "read", "talk to", "go to"
     };
 
     @Override
     public void breakItem(GItem with) {
-        System.out.println("Broken...");
+        GMain.mainGGame.mainGFrame.consoleWrite("Broken...");
     }
 
     @Override
     public void throwItem(GItem with) {
-        System.out.println("Thrown...");
+        GMain.mainGGame.mainGFrame.consoleWrite("Thrown...");
     }
 
     @Override
     public void lookAt(GItem with) {
-        System.out.println("Can't see that to well actually...");
+        GMain.mainGGame.mainGFrame.consoleWrite("Can't see that to well actually...");
     }
 
     @Override
     public void eat(GItem with) {
-        System.out.println("Not useful...");
+        GMain.mainGGame.mainGFrame.consoleWrite("Not useful...");
     }
 
     @Override
     public void drink(GItem with) {
-        System.out.println("Can't do that, sorry.");
+        GMain.mainGGame.mainGFrame.consoleWrite("Can't do that, sorry.");
     }
 
     @Override
     public void pickUp(GItem with) {
-        System.out.println("Can't pick that up.");
+        GMain.mainGGame.mainGFrame.consoleWrite("Can't pick that up.");
     }
 
     @Override
     public void kill(GItem with) {
-        System.out.println("I can't kill that...");
+        GMain.mainGGame.mainGFrame.consoleWrite("I can't kill that...");
     }
 
     @Override
     public void read(GItem with) {
-        System.out.println("I can't read that...");
+        GMain.mainGGame.mainGFrame.consoleWrite("I can't read that...");
     }
 
     @Override
     public void talkTo(GItem with) {
-        System.out.println("Can't talk to that.");
+        GMain.mainGGame.mainGFrame.consoleWrite("Can't talk to that.");
     }
 }

@@ -2,9 +2,6 @@ package game;
 
 import game.entity.GEntity;
 import game.gameplay.GPlayer;
-import game.gameplay.items.GISmallBird;
-import game.gameplay.items.GISmallWoodenBox;
-import game.gameplay.items.GISpoon;
 import game.gameplay.items.GItem;
 import game.gameplay.locations.GLNassauPort;
 import game.gameplay.locations.GLNassauPub;
@@ -20,7 +17,6 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -40,7 +36,7 @@ public class GGame extends Canvas implements Runnable{
     private final int targetTPS = 60;
 
     // Reference Variables
-    public GFrame mainFrame;
+    public GFrame mainGFrame;
     public GScreen mainGScreen;
     public GCommander mainGCommander;
     public GPlayer mainGPlayer;
@@ -78,6 +74,7 @@ public class GGame extends Canvas implements Runnable{
         long lastTimeTick = System.nanoTime();
         long lastTimeRender = System.nanoTime();
         long lastTimeClock = System.nanoTime();
+        /*
         while(true){
 
             // Render
@@ -109,6 +106,7 @@ public class GGame extends Canvas implements Runnable{
                 lastTimeClock = System.nanoTime();
             }
         }
+        */
     }
 
     private void render(){
@@ -150,19 +148,19 @@ public class GGame extends Canvas implements Runnable{
     //TODO: Add tiles and render tiles
 
     private void initGame(){
-        mainFrame = new GFrame(this);
+        mainGFrame = new GFrame(this);
         mainGScreen = new GScreen(this);
         mainGCommander = new GCommander(this);
         mainGPlayer = new GPlayer(this);
 
         Dimension size = new Dimension(WIDTH * SCALE, HEIGHT * SCALE);
         setPreferredSize(size);
-        mainFrame.setResizable(false);
-        mainFrame.setTitle("Black Flags of the West Indies");
-        mainFrame.add(this);
-        mainFrame.pack();
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setVisible(true);
+        mainGFrame.setResizable(false);
+        mainGFrame.setTitle("Black Flags of the West Indies");
+        mainGFrame.add(this);
+        mainGFrame.pack();
+        mainGFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainGFrame.setVisible(true);
 
         Thread renderThread = new Thread(this);
         renderThread.start();
@@ -174,21 +172,22 @@ public class GGame extends Canvas implements Runnable{
 
     private void setupGameplay() {
         // TODO: Set up all locations and items
-        gLocations.add(new GLNassauPort(this));
-        gLocations.add(new GLNassauTownMarket(this));
-        gLocations.add(new GLNassauPub(this));
+        gLocations.add(new GLNassauPort(this)); // >> market >> pub
+        gLocations.add(new GLNassauTownMarket(this)); // >> port
+        gLocations.add(new GLNassauPub(this)); // >> port
 
         // TODO: Set up all connections
         for(GLocation location : gLocations) {
             location.makeConnections();
         }
 
-        //currentLocation = getLocationByName("Nassau City Market");
-        currentLocation = getLocationByName("Nassau Pub");
+        currentLocation = getLocationByName("Nassau Main Port");
+        //currentLocation = getLocationByName("Nassau Pub");
     }
 
     // Management Functions
     public GLocation getLocationByName(String locationName) {
+        // TODO: Remove case sensitivity
         for(GLocation location : gLocations) {
             if(location.name.equals(locationName)) {
                 return location;
@@ -196,7 +195,6 @@ public class GGame extends Canvas implements Runnable{
         }
         return null;
     }
-
 }
 
 /*

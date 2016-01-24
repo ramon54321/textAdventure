@@ -26,5 +26,6 @@ public class GLNassauPort extends GLocation {
     @Override
     public void makeConnections() {
         makeConnectionTo("Nassau Town Market", true);
+        makeConnectionTo("Nassau Pub", true);
     }
 }

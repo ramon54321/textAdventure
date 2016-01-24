@@ -16,7 +16,7 @@ public class GIBarTender extends GItem {
         @Override
         public void execute() {
             GMain.mainGGame.currentTalkNode = this;
-            System.out.println(
+            GMain.mainGGame.mainGFrame.consoleWrite(
                     "Bartender: Waddya want?\n\t" +
                     "a) Nothing...\n\t" +
                     "b) A beer!\n\t" +
@@ -30,28 +30,28 @@ public class GIBarTender extends GItem {
         @Override
         public void execute() {
             GMain.mainGGame.currentTalkNode = this;
-            System.out.println("This is 1a");
+            GMain.mainGGame.mainGFrame.consoleWrite("This is 1a");
         }
     };
     GTalkNode talk_1AB = new GTalkNode(talk_0A, 1){
         @Override
         public void execute() {
             GMain.mainGGame.currentTalkNode = this;
-            System.out.println("This is 1b");
+            GMain.mainGGame.mainGFrame.consoleWrite("This is 1b");
         }
     };
     GTalkNode talk_1AC = new GTalkNode(talk_0A, 2){
         @Override
         public void execute() {
             GMain.mainGGame.currentTalkNode = this;
-            System.out.println("This is 1c");
+            GMain.mainGGame.mainGFrame.consoleWrite("This is 1c");
         }
     };
     GTalkNode talk_1AD = new GTalkNode(talk_0A, 3){
         @Override
         public void execute() {
             GMain.mainGGame.currentTalkNode = this;
-            System.out.println("Bog off then!");
+            GMain.mainGGame.mainGFrame.consoleWrite("Bog off then!");
 
             // Exit talking
             talkEnd();
@@ -67,7 +67,7 @@ public class GIBarTender extends GItem {
 
     @Override
     public void pickUp(GItem with) {
-        System.out.println("You can't pick up a person!");
+        GMain.mainGGame.mainGFrame.consoleWrite("You can't pick up a person!");
     }
 
     @Override
