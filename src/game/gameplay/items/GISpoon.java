@@ -14,7 +14,8 @@ public class GISpoon extends GItem {
 
     @Override
     public void pickUp(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("You picked up the spoon. Could come in handy.");
+        super.pickUp(with);
+        GMain.mainGGame.mainGFrame.consoleAdd("\nCould come in handy.");
     }
 
     @Override

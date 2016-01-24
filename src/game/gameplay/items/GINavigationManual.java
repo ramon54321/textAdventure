@@ -1,20 +1,24 @@
 package game.gameplay.items;
 
-import game.GCommandMode;
 import game.GMain;
-
-import java.util.ArrayList;
 
 /**
  * Created by Ramon on 1/18/16.
+ *
+ * Basic book that will orient the player
+ *
  */
 public class GINavigationManual extends GItem {
 
     public GINavigationManual() {
         names =  new String[] {"nav book", "navigation book", "navigation manual"};
         pickupAble = true;
-        pages.add("Welcome to the book of the Pirate.\n\nStep 1: How to shoot the cannon!\n\tFire!!!");
-        pages.add("Pirate book, page 2!\n\nStep 2: Bang!!!");
+        pages.add("Welcome to the island of New Providence, and the gold rich town of Nassau." +
+                " Lets start with a little overview of the area.\nYou can move around by typing 'go to' + 'location', such as 'go to nassau pub'." +
+                " You can only move along the paths shown on the map... mostly.\nYou can pick up and interact with items in your inventory and items " +
+                "in the location you are currently in.\nYou can see what there is in your location and inventory by typing 'what is here' and " +
+                "'what do I have' respectively.\n\n\n\ta) Previous Page\td) Next Page\t\tq) Quit Reading");
+        pages.add("Pirate book, page 2");
         pages.add("Pirate book, page 3");
         pages.add("Pirate book, page 4");
         pages.add("Pirate book, page 5");
@@ -23,7 +27,8 @@ public class GINavigationManual extends GItem {
 
     @Override
     public void pickUp(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("You picked up the spoon. Could come in handy.");
+        super.pickUp(with);
+        GMain.mainGGame.mainGFrame.consoleAdd("\nA navigation manual, could always come in handy.");
     }
 
     @Override

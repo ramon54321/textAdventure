@@ -2,6 +2,8 @@ package game;
 
 import game.entity.GEntity;
 import game.gameplay.GPlayer;
+import game.gameplay.events.GEvent;
+import game.gameplay.events.GEventNode;
 import game.gameplay.items.GItem;
 import game.gameplay.locations.*;
 import game.gameplay.talking.GTalkNode;
@@ -50,7 +52,9 @@ public class GGame extends Canvas implements Runnable{
 
     public GLocation currentLocation;
     public GItem currentInteraction;
+    public GEvent currentEvent;
     public GTalkNode currentTalkNode;
+    public GEventNode currentEventNode;
 
     public GCommandMode commandMode = GCommandMode.NORMAL;
 
@@ -124,6 +128,7 @@ public class GGame extends Canvas implements Runnable{
 
         // Render Order
         // TODO: Change to screen.render so its managed
+        // TODO: Image does not always display on startup (maybe not loaded yet?)
         if(gEntities.size() > 0) {
             for (int i = 0; i < gEntities.size(); i++) {
                 gEntities.get(i).render();
@@ -131,7 +136,6 @@ public class GGame extends Canvas implements Runnable{
         }
 
         Graphics2D g2d = (Graphics2D) bs.getDrawGraphics();
-        //g2d.drawImage(mainRenderImage, 0, 0, getWidth(), getHeight(), null);
         g2d.drawImage(currentRegionImage, 0, 0, getWidth(), getHeight(), null);
         g2d.dispose();
 
@@ -140,18 +144,7 @@ public class GGame extends Canvas implements Runnable{
 
     private void tick(){
 
-        try {
-            //gEntities.get(0).move(6, 3);
-            //gEntities.get(0).rotate(0.05);
-        }
-        catch (Exception e) {
-
-        }
-
     }
-
-    //TODO: Add Render and Tick behaviour
-    //TODO: Add tiles and render tiles
 
     private void initGame(){
         mainGFrame = new GFrame(this);
@@ -183,18 +176,16 @@ public class GGame extends Canvas implements Runnable{
         setupGameplay();
 
         setRegionToRender();
-
-        //gEntities.add(new GEntity(this, 40, 40, 1, 0xFF00FF));
     }
 
     private void setupGameplay() {
         // TODO: Set up all locations and items
         gLocations.add(new GLNassauPort(this)); // >> pub >> boatyard >> fort >> charleston port
-        gLocations.add(new GLNassauTownMarket(this)); // >> blacksmith >> townsquare >> suburb north >> suburb east
-        gLocations.add(new GLNassauPub(this)); // >> port >> marsh > townsquare
-        gLocations.add(new GLNassauBank(this)); // >> townsquare >> southbeach
+        gLocations.add(new GLNassauTownMarket(this)); // >> blacksmith >> town square >> suburb north >> suburb east
+        gLocations.add(new GLNassauPub(this)); // >> port >> marsh > town square
+        gLocations.add(new GLNassauBank(this)); // >> town square >> south beach
         gLocations.add(new GLNassauBlackbeardTower(this)); // >>
-        gLocations.add(new GLNassauBlacksmith(this)); // >> townmarket >> townsquare
+        gLocations.add(new GLNassauBlacksmith(this)); // >> town market >> town square
         gLocations.add(new GLNassauBoatYard(this)); // >> port >> suburb north
         gLocations.add(new GLNassauCaptainFlintCove(this)); // >> forrest south
         gLocations.add(new GLNassauCliftonPoint(this)); // >> west hills
@@ -213,7 +204,6 @@ public class GGame extends Canvas implements Runnable{
         gLocations.add(new GLCharlestonPort(this)); // >> nassau port
 
 
-        // TODO: Set up all connections
         for(GLocation location : gLocations) {
             location.makeConnections();
         }
@@ -223,7 +213,6 @@ public class GGame extends Canvas implements Runnable{
 
     // Management Functions
     public GLocation getLocationByName(String locationName) {
-        // TODO: Remove case sensitivity
         for(GLocation location : gLocations) {
             if(location.name.equalsIgnoreCase(locationName)) {
                 return location;
@@ -239,18 +228,8 @@ public class GGame extends Canvas implements Runnable{
         else if(currentLocation.name.contains("Charleston")){
             currentRegionImage = map_Charleston;
         }
-        for(int i = 0; i < 5; i++) {
+        for(int i = 0; i < 10; i++) {
             render();
         }
     }
 }
-
-/*
-
-Add Entity
-gEntities.add(new GEntity(this, 40, 14, 1, 0xFFFFFF));
-
-Move Entity
-gEntities.get(0).move(10, 0.25);
-
- */

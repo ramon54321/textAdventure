@@ -3,6 +3,7 @@ package game.input;
 import game.GCommandMode;
 import game.GGame;
 import game.GMain;
+import game.gameplay.events.GEPublicFight;
 import game.gameplay.items.GItem;
 import game.gameplay.locations.GLocation;
 
@@ -42,6 +43,10 @@ public class GCommander{
             }
             if (command.equalsIgnoreCase("2") || command.equalsIgnoreCase("what do i have") || command.equalsIgnoreCase("what do i have?")) {
                 showInventory();
+                return;
+            }
+            if (command.equalsIgnoreCase("3") || command.equalsIgnoreCase("what is here") || command.equalsIgnoreCase("what is here?")) {
+                showItemsInLocation();
                 return;
             }
         }
@@ -162,6 +167,33 @@ public class GCommander{
                 GMain.mainGGame.currentInteraction.readEnd();
             }
         }
+        else if (GMain.mainGGame.commandMode == GCommandMode.EVENT) {
+            // TODO: Command mode for events
+            if(command.equalsIgnoreCase("a")) {
+                if(GMain.mainGGame.currentEventNode.children.size() < 1)
+                    return;
+                // run the a function for the current inteaction
+                GMain.mainGGame.currentEventNode.children.get(0).execute();
+            }
+            else if(command.equalsIgnoreCase("b")) {
+                if(GMain.mainGGame.currentEventNode.children.size() < 2)
+                    return;
+                // run the a function for the current inteaction
+                GMain.mainGGame.currentEventNode.children.get(1).execute();
+            }
+            else if(command.equalsIgnoreCase("c")) {
+                if(GMain.mainGGame.currentEventNode.children.size() < 3)
+                    return;
+                // run the a function for the current inteaction
+                GMain.mainGGame.currentEventNode.children.get(2).execute();
+            }
+            else if(command.equalsIgnoreCase("d")) {
+                if(GMain.mainGGame.currentEventNode.children.size() < 4)
+                    return;
+                // run the a function for the current inteaction
+                GMain.mainGGame.currentEventNode.children.get(3).execute();
+            }
+        }
     }
 
     private boolean arrayHasString(String[] arrayToCheck, String stringToFind) {
@@ -226,9 +258,13 @@ public class GCommander{
             return;
         }
         // TODO: Random event will happen here.
-        GMain.mainGGame.currentLocation = gLocation;
-        GMain.mainGGame.setRegionToRender();
-        showLocation();
+        // calc random
+        new GEPublicFight(gLocation);
+        return;
+
+        //GMain.mainGGame.currentLocation = gLocation;
+        //GMain.mainGGame.setRegionToRender();
+        //showLocation();
     }
 
     public void showLocation(){
@@ -242,6 +278,14 @@ public class GCommander{
         GMain.mainGGame.mainGFrame.consoleWrite("I have:");
         // TODO: add nothing message
         for(GItem child : GMain.mainGGame.mainGPlayer.inventory){
+            GMain.mainGGame.mainGFrame.consoleAdd("\n\t" + child.names[0]);
+        }
+    }
+
+    public void showItemsInLocation(){
+        GMain.mainGGame.mainGFrame.consoleWrite("Items here:");
+        // TODO: add nothing message
+        for(GItem child : GMain.mainGGame.currentLocation.items){
             GMain.mainGGame.mainGFrame.consoleAdd("\n\t" + child.names[0]);
         }
     }

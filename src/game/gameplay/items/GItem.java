@@ -19,9 +19,9 @@ import java.util.ArrayList;
 public class GItem implements GInteractable {
 
     public String[] names = new String[] {"Unnamed"};
+    public boolean pickupAble = false;
     public ArrayList<String> pages = new ArrayList<String>();
     public int currentPage = 1;
-    public boolean pickupAble = false;
 
     public static String[] availableActions = new String[] {
             "break", "throw", "look at", "eat", "drink", "pick up", "kill", "read", "talk to", "go to"
@@ -54,7 +54,13 @@ public class GItem implements GInteractable {
 
     @Override
     public void pickUp(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("Can't pick that up.");
+        if(!pickupAble) {
+            GMain.mainGGame.mainGFrame.consoleWrite("Can't pick that up.");
+        }
+        else {
+            GMain.mainGGame.mainGFrame.consoleWrite("Picking up " + names[0] + ".");
+            GMain.mainGGame.mainGPlayer.pickUpItem(this);
+        }
     }
 
     @Override

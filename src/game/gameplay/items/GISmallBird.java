@@ -14,7 +14,8 @@ public class GISmallBird extends GItem {
 
     @Override
     public void pickUp(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("You picked up the bird! Now what?");
+        super.pickUp(with);
+        GMain.mainGGame.mainGFrame.consoleAdd("\nUnfortunately it is dead, maybe you can eat it.");
     }
 
     @Override

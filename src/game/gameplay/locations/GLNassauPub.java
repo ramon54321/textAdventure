@@ -1,7 +1,7 @@
 package game.gameplay.locations;
 
 import game.GGame;
-import game.gameplay.items.GIBarTender;
+import game.gameplay.items.GIBarTenderNassauPub;
 
 /**
  * Created by Ramon on 1/19/16.
@@ -16,7 +16,7 @@ public class GLNassauPub extends GLocation {
     }
 
     private void addItems() {
-        items.add(new GIBarTender());
+        items.add(new GIBarTenderNassauPub());
     }
 
     @Override

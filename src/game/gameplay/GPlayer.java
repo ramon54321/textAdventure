@@ -1,6 +1,7 @@
 package game.gameplay;
 
 import game.GGame;
+import game.GMain;
 import game.gameplay.items.GItem;
 
 import java.util.ArrayList;
@@ -45,6 +46,11 @@ public class GPlayer {
             }
         }
         return null;
+    }
+
+    public void pickUpItem(GItem item){
+        inventory.add(item);
+        GMain.mainGGame.currentLocation.items.remove(item);
     }
 
 }

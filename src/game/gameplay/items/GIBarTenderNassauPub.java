@@ -10,7 +10,7 @@ import game.gameplay.talking.GTalkNode;
  * A unique bartender class needs to be created for each bartender in order to have the correct speech.
  *
  */
-public class GIBarTender extends GItem {
+public class GIBarTenderNassauPub extends GItem {
 
     GTalkNode talk_0A = new GTalkNode(){
         @Override
@@ -60,7 +60,7 @@ public class GIBarTender extends GItem {
 
 
 
-    public GIBarTender() {
+    public GIBarTenderNassauPub() {
         names =  new String[] {"bartender"};
         pickupAble = true;
     }
