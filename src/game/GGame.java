@@ -12,6 +12,7 @@ import game.graphics.GFrame;
 import game.graphics.GScreen;
 import game.input.GCommander;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -29,9 +30,9 @@ public class GGame extends Canvas implements Runnable{
     //TODO: Add static reference to game thread.
 
     // Global variables
-    public final int WIDTH = 200;
-    public final int HEIGHT = WIDTH / 16 * 9;
-    public final int SCALE = 4;
+    public final int WIDTH = 1000;
+    public final int HEIGHT = 486;// WIDTH / 16 * 9;
+    public final int SCALE = 1;
     private final int targetFPS = 144;
     private final int targetTPS = 60;
 
@@ -42,6 +43,9 @@ public class GGame extends Canvas implements Runnable{
     public GPlayer mainGPlayer;
 
     public ArrayList<GEntity> gEntities = new ArrayList<GEntity>();
+
+    // Assets
+    public BufferedImage map_Nassau;
 
     // Gameplay
     public ArrayList<GLocation> gLocations = new ArrayList<GLocation>();
@@ -74,7 +78,7 @@ public class GGame extends Canvas implements Runnable{
         long lastTimeTick = System.nanoTime();
         long lastTimeRender = System.nanoTime();
         long lastTimeClock = System.nanoTime();
-        /*
+
         while(true){
 
             // Render
@@ -106,7 +110,7 @@ public class GGame extends Canvas implements Runnable{
                 lastTimeClock = System.nanoTime();
             }
         }
-        */
+
     }
 
     private void render(){
@@ -126,7 +130,8 @@ public class GGame extends Canvas implements Runnable{
         }
 
         Graphics2D g2d = (Graphics2D) bs.getDrawGraphics();
-        g2d.drawImage(mainRenderImage, 0, 0, getWidth(), getHeight(), null);
+        //g2d.drawImage(mainRenderImage, 0, 0, getWidth(), getHeight(), null);
+        g2d.drawImage(map_Nassau, 0, 0, getWidth(), getHeight(), null);
         g2d.dispose();
 
         bs.show();
@@ -152,6 +157,14 @@ public class GGame extends Canvas implements Runnable{
         mainGScreen = new GScreen(this);
         mainGCommander = new GCommander(this);
         mainGPlayer = new GPlayer(this);
+
+        //Assets
+        try {
+            map_Nassau = ImageIO.read(this.getClass().getResource("/game/resources/images/Nassau.jpg"));
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
 
         Dimension size = new Dimension(WIDTH * SCALE, HEIGHT * SCALE);
         setPreferredSize(size);
@@ -181,7 +194,7 @@ public class GGame extends Canvas implements Runnable{
             location.makeConnections();
         }
 
-        currentLocation = getLocationByName("Nassau Main Port");
+        currentLocation = getLocationByName("Nassau Port");
         //currentLocation = getLocationByName("Nassau Pub");
     }
 

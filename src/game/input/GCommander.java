@@ -52,7 +52,9 @@ public class GCommander{
             String with = "";
 
             String[] availableVerbs = GItem.availableActions;
-            String[] availableNouns = gGame.currentLocation.getAllItemNames();
+            String[] availableNouns = GMain.mainGGame.currentLocation.getAllItemNames();
+
+            // If there is an error above ... make sure current location is not null by having incorrect name in get location.
 
             String[] words = mainCommand.split(" ");
 
