@@ -34,13 +34,16 @@ public class GCommander{
         //System.out.println("Received command: " + command);
 
         // Preset Commands that do not need parsing
-        if(command.equals("where am i") || command.equals("where am I") || command.equals("where am i?") || command.equals("where am I?")){
-            showLocation();
-            return;
-        }
-        if(command.equals("what do i have") || command.equals("what do I have") || command.equals("what do i have?") || command.equals("what do I have?") || command.equals("inventory")){
-            showInventory();
-            return;
+        // TODO: Use ignore case instead
+        if(GMain.mainGGame.commandMode == GCommandMode.NORMAL) {
+            if (command.equalsIgnoreCase("1") || command.equalsIgnoreCase("where am i") || command.equalsIgnoreCase("where am i?")) {
+                showLocation();
+                return;
+            }
+            if (command.equalsIgnoreCase("2") || command.equalsIgnoreCase("what do i have") || command.equalsIgnoreCase("what do i have?")) {
+                showInventory();
+                return;
+            }
         }
 
         if(GMain.mainGGame.commandMode == GCommandMode.NORMAL) {
@@ -77,7 +80,7 @@ public class GCommander{
 
 
                 // special cases
-                if(verb.equals("go to")) {
+                if(verb.equalsIgnoreCase("go to")) {
                     noun = mainCommand.split("go to ")[1];
                     goTo(noun);
                     return;
@@ -106,7 +109,7 @@ public class GCommander{
 
                 // TODO: Make general "DO I HAVE" function to check for items in location and inventory
 
-                if (!with.equals("")) {
+                if (!with.equalsIgnoreCase("")) {
                     if (gGame.currentLocation.containsItem(with)) {
                         sendAction(verb, noun, gGame.currentLocation.getItem(with));
                     } else {
@@ -119,36 +122,51 @@ public class GCommander{
         }
         else if (GMain.mainGGame.commandMode == GCommandMode.TALKING) {
             // TODO: Command mode for talking and buying, gets turned on from eg. Bar Tender.
-            if(command.equals("a")) {
+            if(command.equalsIgnoreCase("a")) {
                 if(GMain.mainGGame.currentTalkNode.children.size() < 1)
                     return;
                 // run the a function for the current inteaction
                 GMain.mainGGame.currentTalkNode.children.get(0).execute();
             }
-            else if(command.equals("b")) {
+            else if(command.equalsIgnoreCase("b")) {
                 if(GMain.mainGGame.currentTalkNode.children.size() < 2)
                     return;
                 // run the a function for the current inteaction
                 GMain.mainGGame.currentTalkNode.children.get(1).execute();
             }
-            else if(command.equals("c")) {
+            else if(command.equalsIgnoreCase("c")) {
                 if(GMain.mainGGame.currentTalkNode.children.size() < 3)
                     return;
                 // run the a function for the current inteaction
                 GMain.mainGGame.currentTalkNode.children.get(2).execute();
             }
-            else if(command.equals("d")) {
+            else if(command.equalsIgnoreCase("d")) {
                 if(GMain.mainGGame.currentTalkNode.children.size() < 4)
                     return;
                 // run the a function for the current inteaction
                 GMain.mainGGame.currentTalkNode.children.get(3).execute();
             }
         }
+        else if (GMain.mainGGame.commandMode == GCommandMode.READING) {
+            // TODO: Command mode for talking and buying, gets turned on from eg. Bar Tender.
+            if(command.equalsIgnoreCase("a")) {
+                // run the a function for the current inteaction
+                GMain.mainGGame.currentInteraction.previousPage();
+            }
+            else if(command.equalsIgnoreCase("d")) {
+                // run the a function for the current inteaction
+                GMain.mainGGame.currentInteraction.nextPage();
+            }
+            else if(command.equalsIgnoreCase("q")) {
+                // run the a function for the current inteaction
+                GMain.mainGGame.currentInteraction.readEnd();
+            }
+        }
     }
 
     private boolean arrayHasString(String[] arrayToCheck, String stringToFind) {
         for(String str : arrayToCheck) {
-            if (stringToFind.equals(str)) {
+            if (stringToFind.equalsIgnoreCase(str)) {
                 return true;
             }
         }
@@ -207,19 +225,20 @@ public class GCommander{
             GMain.mainGGame.mainGFrame.consoleWrite("I can't go there from here, I will have to find another way around.");
             return;
         }
-        GMain.mainGGame.mainGFrame.consoleWrite("I am on my way!");
         // TODO: Random event will happen here.
         GMain.mainGGame.currentLocation = gLocation;
+        GMain.mainGGame.setRegionToRender();
+        showLocation();
     }
 
-    private void showLocation(){
+    public void showLocation(){
         GMain.mainGGame.mainGFrame.consoleWrite("I am in " + GMain.mainGGame.currentLocation.name + "\n\tConnections:");
         for(GLocation child : GMain.mainGGame.currentLocation.connections){
             GMain.mainGGame.mainGFrame.consoleAdd("\n\t\t" + child.name);
         }
     }
 
-    private void showInventory(){
+    public void showInventory(){
         GMain.mainGGame.mainGFrame.consoleWrite("I have:");
         // TODO: add nothing message
         for(GItem child : GMain.mainGGame.mainGPlayer.inventory){

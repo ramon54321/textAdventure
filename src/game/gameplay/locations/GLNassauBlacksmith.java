@@ -6,10 +6,10 @@ import game.gameplay.items.GINavigationManual;
 /**
  * Created by Ramon on 1/19/16.
  */
-public class GLNassauTownMarket extends GLocation {
-    public GLNassauTownMarket(GGame gGame) {
+public class GLNassauBlacksmith extends GLocation {
+    public GLNassauBlacksmith(GGame gGame) {
         this.gGame = gGame;
-        this.name = "Nassau Town Market";
+        this.name = "Nassau Blacksmith";
         this.xPos = 0;
         this.yPos = 0;
         addItems();
@@ -21,9 +21,7 @@ public class GLNassauTownMarket extends GLocation {
 
     @Override
     public void makeConnections() {
-        makeConnectionTo("Nassau Blacksmith", true);
+        makeConnectionTo("Nassau Town Market", true);
         makeConnectionTo("Nassau Town Square", true);
-        makeConnectionTo("Nassau Suburb North", true);
-        makeConnectionTo("Nassau Suburb East", true);
     }
 }

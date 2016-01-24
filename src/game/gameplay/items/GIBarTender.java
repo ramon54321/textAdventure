@@ -89,6 +89,7 @@ public class GIBarTender extends GItem {
         GMain.mainGGame.currentInteraction = null;
         GMain.mainGGame.currentTalkNode = null;
         GMain.mainGGame.commandMode = GCommandMode.NORMAL;
+        GMain.mainGGame.mainGCommander.showLocation();
     }
 
 }

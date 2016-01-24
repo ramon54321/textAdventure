@@ -87,7 +87,7 @@ public class GLocation {
     public boolean containsItem(String itemName) {
         for(GItem item : items) {
             for(String name : item.names) {
-                if (name.equals(itemName)) {
+                if (name.equalsIgnoreCase(itemName)) {
                     return true;
                 }
             }
@@ -98,7 +98,7 @@ public class GLocation {
     public GItem getItem(String itemName) {
         for(GItem item : items) {
             for(String name : item.names) {
-                if (name.equals(itemName)) {
+                if (name.equalsIgnoreCase(itemName)) {
                     return item;
                 }
             }
@@ -119,9 +119,13 @@ public class GLocation {
     public void makeConnectionTo(String to, boolean isTwoWay) {
         GLocation toLoc =  gGame.getLocationByName(to);
 
-        this.connections.add(toLoc);
+        if(!this.connections.contains(toLoc)) {
+            this.connections.add(toLoc);
+        }
         if(isTwoWay) {
-            toLoc.connections.add(this);
+            if(!toLoc.connections.contains(this)) {
+                toLoc.connections.add(this);
+            }
         }
     }
 

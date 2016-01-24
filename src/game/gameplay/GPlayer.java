@@ -27,7 +27,7 @@ public class GPlayer {
         for(GItem item : inventory){
             for(String itemName : item.names)
             {
-                if(itemName.equals(name)){
+                if(itemName.equalsIgnoreCase(name)){
                     return true;
                 }
             }
@@ -39,7 +39,7 @@ public class GPlayer {
         for(GItem item : inventory){
             for(String itemName : item.names)
             {
-                if(itemName.equals(name)){
+                if(itemName.equalsIgnoreCase(name)){
                     return item;
                 }
             }

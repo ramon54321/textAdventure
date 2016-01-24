@@ -25,21 +25,28 @@ public class GFrame extends JFrame implements KeyListener{
         container = getContentPane();
         container.add(mainTextField, BorderLayout.NORTH);
         container.add(mainLabelOut, BorderLayout.SOUTH);
+
+        mainTextField.setBackground(Color.BLACK);
+        mainTextField.setForeground(Color.ORANGE);
+        mainTextField.setFont(new Font("Geneva", Font.ITALIC, 16));
         mainTextField.addKeyListener(this);
         mainTextField.setBorder(border);
         mainTextField.setBorder(BorderFactory.createCompoundBorder(
                 mainTextField.getBorder(),
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 
+        mainLabelOut.setBackground(Color.BLACK);
+        mainLabelOut.setForeground(Color.ORANGE);
+        mainLabelOut.setFont(new Font("Geneva", Font.PLAIN, 12));
         mainLabelOut.setBorder(border);
         mainLabelOut.setBorder(BorderFactory.createCompoundBorder(
                 mainLabelOut.getBorder(),
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         mainLabelOut.setEditable(false);
         mainLabelOut.setLineWrap(true);
-        mainLabelOut.setMinimumSize(new Dimension(500, 180));
-        mainLabelOut.setPreferredSize(new Dimension(500, 180));
-        mainLabelOut.setMaximumSize(new Dimension(500, 180));
+        mainLabelOut.setMinimumSize(new Dimension(500, 2100));
+        mainLabelOut.setPreferredSize(new Dimension(500, 210));
+        mainLabelOut.setMaximumSize(new Dimension(500, 210));
         mainLabelOut.setText("Hello game started...");
     }
 

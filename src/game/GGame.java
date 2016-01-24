@@ -3,10 +3,7 @@ package game;
 import game.entity.GEntity;
 import game.gameplay.GPlayer;
 import game.gameplay.items.GItem;
-import game.gameplay.locations.GLNassauPort;
-import game.gameplay.locations.GLNassauPub;
-import game.gameplay.locations.GLNassauTownMarket;
-import game.gameplay.locations.GLocation;
+import game.gameplay.locations.*;
 import game.gameplay.talking.GTalkNode;
 import game.graphics.GFrame;
 import game.graphics.GScreen;
@@ -46,6 +43,7 @@ public class GGame extends Canvas implements Runnable{
 
     // Assets
     public BufferedImage map_Nassau;
+    public BufferedImage map_Charleston;
 
     // Gameplay
     public ArrayList<GLocation> gLocations = new ArrayList<GLocation>();
@@ -65,6 +63,7 @@ public class GGame extends Canvas implements Runnable{
 
     // Graphics
     private BufferedImage mainRenderImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+    public BufferedImage currentRegionImage = map_Nassau;
     public int[] pixels = ((DataBufferInt)mainRenderImage.getRaster().getDataBuffer()).getData();
 
     public GGame() {
@@ -79,6 +78,7 @@ public class GGame extends Canvas implements Runnable{
         long lastTimeRender = System.nanoTime();
         long lastTimeClock = System.nanoTime();
 
+        /*
         while(true){
 
             // Render
@@ -110,6 +110,7 @@ public class GGame extends Canvas implements Runnable{
                 lastTimeClock = System.nanoTime();
             }
         }
+        */
 
     }
 
@@ -131,7 +132,7 @@ public class GGame extends Canvas implements Runnable{
 
         Graphics2D g2d = (Graphics2D) bs.getDrawGraphics();
         //g2d.drawImage(mainRenderImage, 0, 0, getWidth(), getHeight(), null);
-        g2d.drawImage(map_Nassau, 0, 0, getWidth(), getHeight(), null);
+        g2d.drawImage(currentRegionImage, 0, 0, getWidth(), getHeight(), null);
         g2d.dispose();
 
         bs.show();
@@ -161,6 +162,7 @@ public class GGame extends Canvas implements Runnable{
         //Assets
         try {
             map_Nassau = ImageIO.read(this.getClass().getResource("/game/resources/images/Nassau.jpg"));
+            map_Charleston = ImageIO.read(this.getClass().getResource("/game/resources/images/Charleston.jpg"));
         }
         catch (Exception e){
             e.printStackTrace();
@@ -180,14 +182,36 @@ public class GGame extends Canvas implements Runnable{
 
         setupGameplay();
 
+        setRegionToRender();
+
         //gEntities.add(new GEntity(this, 40, 40, 1, 0xFF00FF));
     }
 
     private void setupGameplay() {
         // TODO: Set up all locations and items
-        gLocations.add(new GLNassauPort(this)); // >> market >> pub
-        gLocations.add(new GLNassauTownMarket(this)); // >> port
-        gLocations.add(new GLNassauPub(this)); // >> port
+        gLocations.add(new GLNassauPort(this)); // >> pub >> boatyard >> fort >> charleston port
+        gLocations.add(new GLNassauTownMarket(this)); // >> blacksmith >> townsquare >> suburb north >> suburb east
+        gLocations.add(new GLNassauPub(this)); // >> port >> marsh > townsquare
+        gLocations.add(new GLNassauBank(this)); // >> townsquare >> southbeach
+        gLocations.add(new GLNassauBlackbeardTower(this)); // >>
+        gLocations.add(new GLNassauBlacksmith(this)); // >> townmarket >> townsquare
+        gLocations.add(new GLNassauBoatYard(this)); // >> port >> suburb north
+        gLocations.add(new GLNassauCaptainFlintCove(this)); // >> forrest south
+        gLocations.add(new GLNassauCliftonPoint(this)); // >> west hills
+        gLocations.add(new GLNassauFlamingoLagoon(this)); // >> forrest north
+        gLocations.add(new GLNassauForrestNorth(this)); // >> flamingo lagoon
+        gLocations.add(new GLNassauForrestSouth(this)); // >> suburb east >> cap flint cove
+        gLocations.add(new GLNassauFort(this)); // >> port
+        gLocations.add(new GLNassauMarsh(this)); // >> pub >> square >> west hills
+        gLocations.add(new GLNassauOldLighthouse(this)); // >> west hills
+        gLocations.add(new GLNassauSouthBeach(this)); // >> bank
+        gLocations.add(new GLNassauSuburbEast(this)); // >> market >> forrest south
+        gLocations.add(new GLNassauSuburbNorth(this)); // >> forrest north >> boat yard >> market
+        gLocations.add(new GLNassauTownSquare(this)); // >> blacksmith >> market >> bank >> pub >> marsh
+        gLocations.add(new GLNassauWestHills(this)); // >> marsh >> old lighthouse >> clifton point
+
+        gLocations.add(new GLCharlestonPort(this)); // >> nassau port
+
 
         // TODO: Set up all connections
         for(GLocation location : gLocations) {
@@ -195,18 +219,29 @@ public class GGame extends Canvas implements Runnable{
         }
 
         currentLocation = getLocationByName("Nassau Port");
-        //currentLocation = getLocationByName("Nassau Pub");
     }
 
     // Management Functions
     public GLocation getLocationByName(String locationName) {
         // TODO: Remove case sensitivity
         for(GLocation location : gLocations) {
-            if(location.name.equals(locationName)) {
+            if(location.name.equalsIgnoreCase(locationName)) {
                 return location;
             }
         }
         return null;
+    }
+
+    public void setRegionToRender(){
+        if(currentLocation.name.contains("Nassau")){
+            currentRegionImage = map_Nassau;
+        }
+        else if(currentLocation.name.contains("Charleston")){
+            currentRegionImage = map_Charleston;
+        }
+        for(int i = 0; i < 5; i++) {
+            render();
+        }
     }
 }
 

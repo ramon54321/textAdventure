@@ -1,7 +1,10 @@
 package game.gameplay.items;
 
+import game.GCommandMode;
 import game.GMain;
 import game.interfaces.GInteractable;
+
+import java.util.ArrayList;
 
 /**
  * Created by Ramon on 1/18/16.
@@ -16,6 +19,8 @@ import game.interfaces.GInteractable;
 public class GItem implements GInteractable {
 
     public String[] names = new String[] {"Unnamed"};
+    public ArrayList<String> pages = new ArrayList<String>();
+    public int currentPage = 1;
     public boolean pickupAble = false;
 
     public static String[] availableActions = new String[] {
@@ -65,5 +70,39 @@ public class GItem implements GInteractable {
     @Override
     public void talkTo(GItem with) {
         GMain.mainGGame.mainGFrame.consoleWrite("Can't talk to that.");
+    }
+
+
+
+
+
+    @Override
+    public void previousPage() {
+        if(currentPage > 1){
+            currentPage--;
+            GMain.mainGGame.mainGFrame.consoleWrite(pages.get(currentPage - 1));
+        }
+    }
+
+    @Override
+    public void nextPage() {
+        if(currentPage < pages.size()){
+            currentPage++;
+            GMain.mainGGame.mainGFrame.consoleWrite(pages.get(currentPage - 1));
+        }
+    }
+
+    public void readInit() {
+        GMain.mainGGame.commandMode = GCommandMode.READING;
+        GMain.mainGGame.currentInteraction = this;
+        currentPage = 1;
+        GMain.mainGGame.mainGFrame.consoleWrite(pages.get(currentPage - 1));
+    }
+
+    @Override
+    public void readEnd() {
+        GMain.mainGGame.currentInteraction = null;
+        GMain.mainGGame.commandMode = GCommandMode.NORMAL;
+        GMain.mainGGame.mainGCommander.showLocation();
     }
 }

@@ -17,4 +17,8 @@ public interface GInteractable {
     void read(GItem with);
     void talkTo(GItem with);
 
+    void previousPage();
+    void nextPage();
+    void readEnd();
+
 }
