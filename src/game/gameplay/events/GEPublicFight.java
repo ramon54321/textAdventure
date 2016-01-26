@@ -1,7 +1,6 @@
 package game.gameplay.events;
 
 import game.GMain;
-import game.gameplay.locations.GLocation;
 
 /**
  * Created by Ramon on 1/24/16.
@@ -54,8 +53,7 @@ public class GEPublicFight extends GEvent {
         }
     };
 
-    public GEPublicFight(GLocation locationToContinueTo){
-        this.locationToContinueTo = locationToContinueTo;
+    public GEPublicFight(){
         eventInit();
         event_0A.execute();
     }

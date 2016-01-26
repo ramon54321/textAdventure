@@ -13,7 +13,7 @@ public class GLCharlestonPort extends GLocation {
         this.gGame = gGame;
         this.name = "Charleston Port";
         this.xPos = 0;
-        this.yPos = 0;
+        this.yPos = 100;
         addItems();
     }
 

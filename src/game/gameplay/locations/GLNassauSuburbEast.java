@@ -10,8 +10,8 @@ public class GLNassauSuburbEast extends GLocation {
     public GLNassauSuburbEast(GGame gGame) {
         this.gGame = gGame;
         this.name = "Nassau Suburb East";
-        this.xPos = 0;
-        this.yPos = 0;
+        this.xPos = 5;
+        this.yPos = -3;
         addItems();
     }
 

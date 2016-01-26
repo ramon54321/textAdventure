@@ -10,8 +10,8 @@ public class GLNassauBoatYard extends GLocation {
     public GLNassauBoatYard(GGame gGame) {
         this.gGame = gGame;
         this.name = "Nassau Boat Yard";
-        this.xPos = 0;
-        this.yPos = 0;
+        this.xPos = 3;
+        this.yPos = 1;
         addItems();
     }
 

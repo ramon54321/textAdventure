@@ -10,8 +10,8 @@ public class GLNassauWestHills extends GLocation {
     public GLNassauWestHills(GGame gGame) {
         this.gGame = gGame;
         this.name = "Nassau West Hills";
-        this.xPos = 0;
-        this.yPos = 0;
+        this.xPos = -12;
+        this.yPos = -3;
         addItems();
     }
 

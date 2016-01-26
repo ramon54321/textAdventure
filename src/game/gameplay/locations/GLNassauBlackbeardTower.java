@@ -10,7 +10,7 @@ public class GLNassauBlackbeardTower extends GLocation {
     public GLNassauBlackbeardTower(GGame gGame) {
         this.gGame = gGame;
         this.name = "Nassau Blackbeards Tower";
-        this.xPos = 0;
+        this.xPos = 14;
         this.yPos = 0;
         addItems();
     }

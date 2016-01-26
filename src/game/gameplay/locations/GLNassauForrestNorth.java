@@ -10,7 +10,7 @@ public class GLNassauForrestNorth extends GLocation {
     public GLNassauForrestNorth(GGame gGame) {
         this.gGame = gGame;
         this.name = "Nassau Forrest North";
-        this.xPos = 0;
+        this.xPos = 8;
         this.yPos = 0;
         addItems();
     }
