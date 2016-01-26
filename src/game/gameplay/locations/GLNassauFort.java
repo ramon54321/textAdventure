@@ -10,8 +10,8 @@ public class GLNassauFort extends GLocation {
     public GLNassauFort(GGame gGame) {
         this.gGame = gGame;
         this.name = "Nassau Fort";
-        this.xPos = 0;
-        this.yPos = 0;
+        this.xPos = -1;
+        this.yPos = 1;
         addItems();
     }
 

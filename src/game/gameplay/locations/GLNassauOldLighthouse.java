@@ -10,8 +10,8 @@ public class GLNassauOldLighthouse extends GLocation {
     public GLNassauOldLighthouse(GGame gGame) {
         this.gGame = gGame;
         this.name = "Nassau Old Lighthouse";
-        this.xPos = 0;
-        this.yPos = 0;
+        this.xPos = -17;
+        this.yPos = -3;
         addItems();
     }
 

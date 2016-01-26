@@ -10,8 +10,8 @@ public class GLNassauTownMarket extends GLocation {
     public GLNassauTownMarket(GGame gGame) {
         this.gGame = gGame;
         this.name = "Nassau Town Market";
-        this.xPos = 0;
-        this.yPos = 0;
+        this.xPos = 2;
+        this.yPos = -1;
         addItems();
     }
 

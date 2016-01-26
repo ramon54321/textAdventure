@@ -10,8 +10,8 @@ public class GLNassauTownSquare extends GLocation {
     public GLNassauTownSquare(GGame gGame) {
         this.gGame = gGame;
         this.name = "Nassau Town Square";
-        this.xPos = 0;
-        this.yPos = 0;
+        this.xPos = 1;
+        this.yPos = -2;
         addItems();
     }
 

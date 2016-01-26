@@ -10,8 +10,8 @@ public class GLNassauFlamingoLagoon extends GLocation {
     public GLNassauFlamingoLagoon(GGame gGame) {
         this.gGame = gGame;
         this.name = "Nassau Flamingo Lagoon";
-        this.xPos = 0;
-        this.yPos = 0;
+        this.xPos = 9;
+        this.yPos = 1;
         addItems();
     }
 

@@ -221,6 +221,11 @@ public class GGame extends Canvas implements Runnable{
         return null;
     }
 
+    public void setLocation(GLocation locationToSetTo){
+        int distance = (int) Math.sqrt((locationToSetTo.xPos - currentLocation.xPos)*(locationToSetTo.xPos - currentLocation.xPos) + (locationToSetTo.yPos - currentLocation.yPos)*(locationToSetTo.yPos - currentLocation.yPos));
+        mainGCommander.waitInConsole(distance, locationToSetTo);
+    }
+
     public void setRegionToRender(){
         if(currentLocation.name.contains("Nassau")){
             currentRegionImage = map_Nassau;
@@ -232,4 +237,10 @@ public class GGame extends Canvas implements Runnable{
             render();
         }
     }
+
+    public void printInfo(String message){
+        System.out.println(" - G INFO: " + message);
+    }
+
+
 }

@@ -10,8 +10,8 @@ public class GLNassauBank extends GLocation {
     public GLNassauBank(GGame gGame) {
         this.gGame = gGame;
         this.name = "Nassau Bank";
-        this.xPos = 0;
-        this.yPos = 0;
+        this.xPos = 1;
+        this.yPos = -3;
         addItems();
     }
 

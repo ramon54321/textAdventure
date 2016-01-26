@@ -10,8 +10,8 @@ public class GLNassauCaptainFlintCove extends GLocation {
     public GLNassauCaptainFlintCove(GGame gGame) {
         this.gGame = gGame;
         this.name = "Nassau Captain Flints Cove";
-        this.xPos = 0;
-        this.yPos = 0;
+        this.xPos = 6;
+        this.yPos = -7;
         addItems();
     }
 

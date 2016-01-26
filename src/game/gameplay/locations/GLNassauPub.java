@@ -11,7 +11,7 @@ public class GLNassauPub extends GLocation {
         this.gGame = gGame;
         this.name = "Nassau Pub";
         this.xPos = 0;
-        this.yPos = 0;
+        this.yPos = -1;
         addItems();
     }
 

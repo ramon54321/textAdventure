@@ -7,7 +7,7 @@ import game.gameplay.events.GEPublicFight;
 import game.gameplay.items.GItem;
 import game.gameplay.locations.GLocation;
 
-import java.sql.Time;
+import java.net.SocketTimeoutException;
 
 /**
  * Created by Ramon on 1/18/16.
@@ -259,18 +259,56 @@ public class GCommander{
             GMain.mainGGame.mainGFrame.consoleWrite("I can't go there from here, I will have to find another way around.");
             return;
         }
-        // TODO: Random event will happen here.
-        // calc random
-        new GEPublicFight(gLocation);
-        return;
-
-        //GMain.mainGGame.currentLocation = gLocation;
-        //GMain.mainGGame.setRegionToRender();
-        //showLocation();
+        GMain.mainGGame.setLocation(gLocation);
     }
 
-    public void waitInConsole(){
-        long nanotimeStart = System.nanoTime();
+
+    public void waitInConsole(int ticks, GLocation gLocation){
+        Thread myThread = new Thread(){
+            @Override
+            public void run() {
+
+                String myString = "";
+                for(int i = 0; i < ticks; i++){
+                    String adder = "";
+                    for(int x = 0; x < (ticks - i); x++){
+                        adder = adder + " -";
+                    }
+                    adder = adder + "|";
+                    myString = (myString + " >");
+                    GMain.mainGGame.mainGFrame.consoleWrite("|-" + myString + adder);
+                    try {
+                        this.sleep(80);
+                    }
+                    catch(Exception e){
+
+                    }
+                    // Random event happens here
+                    // TODO: Random event will happen here.
+                    // calc random
+                    double dice = Math.random();
+                    if(dice < 0.001) {
+                        new GEPublicFight();
+                        while(GMain.mainGGame.currentEvent != null){
+                            try {
+                                this.sleep(1);
+                            }
+                            catch(Exception e){
+
+                            }
+                        }
+                    }
+                }
+
+                GMain.mainGGame.currentLocation = gLocation;
+                GMain.mainGGame.setRegionToRender();
+                GMain.mainGGame.mainGCommander.showLocation();
+
+                GMain.mainGGame.printInfo("Location change Thread has completed.");
+            }
+        };
+
+        myThread.start();
     }
 
     public void showLocation(){

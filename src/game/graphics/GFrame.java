@@ -28,7 +28,8 @@ public class GFrame extends JFrame implements KeyListener{
 
         mainTextField.setBackground(Color.BLACK);
         mainTextField.setForeground(Color.ORANGE);
-        mainTextField.setFont(new Font("Geneva", Font.ITALIC, 16));
+        mainTextField.setFont(new Font("Courier", Font.ITALIC, 16));
+        //mainTextField.setEditable(false);
         mainTextField.addKeyListener(this);
         mainTextField.setBorder(border);
         mainTextField.setBorder(BorderFactory.createCompoundBorder(
@@ -37,7 +38,7 @@ public class GFrame extends JFrame implements KeyListener{
 
         mainLabelOut.setBackground(Color.BLACK);
         mainLabelOut.setForeground(Color.ORANGE);
-        mainLabelOut.setFont(new Font("Geneva", Font.PLAIN, 12));
+        mainLabelOut.setFont(new Font("Courier", Font.PLAIN, 12));
         mainLabelOut.setBorder(border);
         mainLabelOut.setBorder(BorderFactory.createCompoundBorder(
                 mainLabelOut.getBorder(),
@@ -72,6 +73,9 @@ public class GFrame extends JFrame implements KeyListener{
             GGame.mainGCommander.parseCommand(mainTextField.getText());
             mainTextField.setText("");
         }
+        //else{
+        //    mainTextField.setText(mainTextField.getText() + new Character(e.getKeyChar()));
+        //}
     }
 
     @Override

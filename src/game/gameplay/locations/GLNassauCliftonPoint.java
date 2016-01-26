@@ -10,8 +10,8 @@ public class GLNassauCliftonPoint extends GLocation {
     public GLNassauCliftonPoint(GGame gGame) {
         this.gGame = gGame;
         this.name = "Nassau Clifton Point";
-        this.xPos = 0;
-        this.yPos = 0;
+        this.xPos = -17;
+        this.yPos = -7;
         addItems();
     }
 

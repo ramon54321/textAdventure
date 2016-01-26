@@ -10,8 +10,8 @@ public class GLNassauBlacksmith extends GLocation {
     public GLNassauBlacksmith(GGame gGame) {
         this.gGame = gGame;
         this.name = "Nassau Blacksmith";
-        this.xPos = 0;
-        this.yPos = 0;
+        this.xPos = 2;
+        this.yPos = -1;
         addItems();
     }
 
