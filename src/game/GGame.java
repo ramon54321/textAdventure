@@ -228,7 +228,7 @@ public class GGame extends Canvas implements Runnable{
         else if(currentLocation.name.contains("Charleston")){
             currentRegionImage = map_Charleston;
         }
-        for(int i = 0; i < 10; i++) {
+        for(int i = 0; i < 100; i++) {
             render();
         }
     }

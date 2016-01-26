@@ -11,7 +11,7 @@ import game.GMain;
 public class GINavigationManual extends GItem {
 
     public GINavigationManual() {
-        names =  new String[] {"nav book", "navigation book", "navigation manual"};
+        names =  new String[] {"guide book", "navigation book", "navigation manual", "nav book"};
         pickupAble = true;
         pages.add("Welcome to the island of New Providence, and the gold rich town of Nassau." +
                 " Lets start with a little overview of the area.\nYou can move around by typing 'go to' + 'location', such as 'go to nassau pub'." +

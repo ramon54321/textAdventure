@@ -47,7 +47,8 @@ public class GFrame extends JFrame implements KeyListener{
         mainLabelOut.setMinimumSize(new Dimension(500, 2100));
         mainLabelOut.setPreferredSize(new Dimension(500, 210));
         mainLabelOut.setMaximumSize(new Dimension(500, 210));
-        mainLabelOut.setText("Hello game started...");
+        mainLabelOut.setText("Welcome to Black Flags of the West Indies. To get started, use the basic commands.\n\n" +
+                "\t'what is here'\n\t'what do I have'\n\t'go to ___'\n\t'pick up ___'\n\nType 1, 2 or 3 and enter, for quick information at any time.");
     }
 
     public void consoleWrite(String string){

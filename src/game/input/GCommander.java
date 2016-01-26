@@ -7,6 +7,8 @@ import game.gameplay.events.GEPublicFight;
 import game.gameplay.items.GItem;
 import game.gameplay.locations.GLocation;
 
+import java.sql.Time;
+
 /**
  * Created by Ramon on 1/18/16.
  *
@@ -265,6 +267,10 @@ public class GCommander{
         //GMain.mainGGame.currentLocation = gLocation;
         //GMain.mainGGame.setRegionToRender();
         //showLocation();
+    }
+
+    public void waitInConsole(){
+        long nanotimeStart = System.nanoTime();
     }
 
     public void showLocation(){

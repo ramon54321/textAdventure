@@ -15,10 +15,6 @@ public class GEvent {
 
     }
 
-    public void initEvent(){
-
-    }
-
     public void eventInit() {
         GMain.mainGGame.commandMode = GCommandMode.EVENT;
         GMain.mainGGame.currentEvent = this;
