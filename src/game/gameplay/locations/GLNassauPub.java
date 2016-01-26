@@ -1,10 +1,11 @@
 package game.gameplay.locations;
 
 import game.GGame;
+import game.GMain;
 import game.gameplay.items.GIBarTenderNassauPub;
 
 /**
- * Created by Ramon on 1/19/16.
+ * Created by Ramon and Santeri on 1/19/16.
  */
 public class GLNassauPub extends GLocation {
     public GLNassauPub(GGame gGame) {
@@ -24,5 +25,10 @@ public class GLNassauPub extends GLocation {
         makeConnectionTo("Nassau Port", true);
         makeConnectionTo("Nassau Marsh", true);
         makeConnectionTo("Nassau Town Square", true);
+    }
+
+    @Override
+    public void showEntryInfo() {
+        GMain.mainGGame.mainGFrame.consoleAdd("\n\nThe pub is mostly empty, except for the quirky-looking bartender. \nYou should probably talk to him...");
     }
 }
