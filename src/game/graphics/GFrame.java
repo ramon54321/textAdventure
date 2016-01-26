@@ -28,7 +28,7 @@ public class GFrame extends JFrame implements KeyListener{
 
         mainTextField.setBackground(Color.BLACK);
         mainTextField.setForeground(Color.ORANGE);
-        mainTextField.setFont(new Font("Courier", Font.ITALIC, 16));
+        mainTextField.setFont(new Font("Courier New", Font.ITALIC, 16));
         //mainTextField.setEditable(false);
         mainTextField.addKeyListener(this);
         mainTextField.setBorder(border);
@@ -38,7 +38,7 @@ public class GFrame extends JFrame implements KeyListener{
 
         mainLabelOut.setBackground(Color.BLACK);
         mainLabelOut.setForeground(Color.ORANGE);
-        mainLabelOut.setFont(new Font("Courier", Font.PLAIN, 12));
+        mainLabelOut.setFont(new Font("Courier New", Font.PLAIN, 12));
         mainLabelOut.setBorder(border);
         mainLabelOut.setBorder(BorderFactory.createCompoundBorder(
                 mainLabelOut.getBorder(),

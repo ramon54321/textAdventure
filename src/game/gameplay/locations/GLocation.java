@@ -1,6 +1,7 @@
 package game.gameplay.locations;
 
 import game.GGame;
+import game.GMain;
 import game.gameplay.items.GItem;
 
 import java.util.ArrayList;
@@ -82,6 +83,10 @@ public class GLocation {
         for(GItem item : items) {
             this.items.add(item);
         }
+    }
+
+    public void showEntryInfo(){
+        GMain.mainGGame.mainGFrame.consoleAdd("\n\nStrange area this is...");
     }
 
     public boolean containsItem(String itemName) {

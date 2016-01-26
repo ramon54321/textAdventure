@@ -2,6 +2,7 @@ package game.gameplay.items;
 
 import game.GCommandMode;
 import game.GMain;
+import game.gameplay.GPersonality;
 import game.gameplay.talking.GTalkNode;
 
 /**
@@ -12,6 +13,7 @@ import game.gameplay.talking.GTalkNode;
  */
 public class GIBarTenderNassauPub extends GItem {
 
+    GPersonality personality = new GPersonality("William");
     boolean hasHadBeer = false;
 
     GTalkNode talk_0A = new GTalkNode(){

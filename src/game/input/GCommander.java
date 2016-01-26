@@ -272,7 +272,7 @@ public class GCommander{
                 for(int i = 0; i < ticks; i++){
                     String adder = "";
                     for(int x = 0; x < (ticks - i); x++){
-                        adder = adder + " -";
+                        adder = adder + "--";
                     }
                     adder = adder + "|";
                     myString = (myString + " >");
@@ -287,7 +287,7 @@ public class GCommander{
                     // TODO: Random event will happen here.
                     // calc random
                     double dice = Math.random();
-                    if(dice < 0.001) {
+                    if(dice < 0.01) {
                         new GEPublicFight();
                         while(GMain.mainGGame.currentEvent != null){
                             try {
@@ -303,6 +303,7 @@ public class GCommander{
                 GMain.mainGGame.currentLocation = gLocation;
                 GMain.mainGGame.setRegionToRender();
                 GMain.mainGGame.mainGCommander.showLocation();
+                GMain.mainGGame.currentLocation.showEntryInfo();
 
                 GMain.mainGGame.printInfo("Location change Thread has completed.");
             }
