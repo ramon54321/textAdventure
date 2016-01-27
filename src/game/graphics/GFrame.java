@@ -2,6 +2,7 @@ package game.graphics;
 
 import game.GGame;
 import game.GMain;
+import game.input.GCommander;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -54,7 +55,11 @@ public class GFrame extends JFrame implements KeyListener{
     }
 
     public void consoleWrite(String string){
-        mainLabelOut.setText(string);
+        mainLabelOut.setText(string + "\n");
+    }
+
+    public void consoleClear(){
+        mainLabelOut.setText("");
     }
 
     public void consoleAdd(String string){
@@ -63,15 +68,32 @@ public class GFrame extends JFrame implements KeyListener{
     }
 
     public void consoleAddLine(String string){
+        for(char ch : string.toCharArray()){
+            consoleAdd(Character.toString(ch));
+            try{Thread.sleep(10);}catch (Exception e){}
+        }
+        consoleAdd("\n");
+    }
+
+    public static String getInput(){
+        while(GCommander.lastCommand == null){
+            try{Thread.sleep(10);}catch (Exception e){}
+        }
+        System.out.println("Got command: " + GCommander.lastCommand);
+        String temp = GCommander.lastCommand;
+        GCommander.lastCommand = null;
+        return temp;
+    }
+
+    public void consoleAddLineNT(String string){
         Thread myThread = new Thread(){
             @Override
             public void run() {
-
-                consoleAdd("\n");
                 for(char ch : string.toCharArray()){
                     consoleAdd(Character.toString(ch));
                     try{Thread.sleep(10);}catch (Exception e){}
                 }
+                consoleAdd("\n");
 
                 GMain.mainGGame.printInfo("Print Thread has completed.");
             }

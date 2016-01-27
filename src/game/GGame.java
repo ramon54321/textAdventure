@@ -2,12 +2,8 @@ package game;
 
 import game.entity.GEntity;
 import game.gameplay.GPlayer;
-import game.gameplay.combat.GCombat;
-import game.gameplay.events.GEvent;
-import game.gameplay.events.GEventNode;
 import game.gameplay.items.GItem;
 import game.gameplay.locations.*;
-import game.gameplay.talking.GTalkNode;
 import game.graphics.GFrame;
 import game.graphics.GScreen;
 import game.input.GCommander;
@@ -53,10 +49,12 @@ public class GGame extends Canvas implements Runnable{
 
     public GLocation currentLocation;
     public GItem currentInteraction;
-    public GEvent currentEvent;
-    public GTalkNode currentTalkNode;
-    public GEventNode currentEventNode;
-    public GCombat currentCombat;
+
+    public boolean isMoving = false;
+    //public GEvent currentEvent;
+    //public GTalkNode currentTalkNode;
+    //public GEventNode currentEventNode;
+    //public GCombat currentCombat;
 
     public GCommandMode commandMode = GCommandMode.NORMAL;
 

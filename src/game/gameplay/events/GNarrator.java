@@ -1,6 +1,6 @@
 package game.gameplay.events;
 
-import java.util.Scanner;
+import game.graphics.GFrame;
 
 /**
  * Created by Ramon on 1/26/16.
@@ -15,9 +15,7 @@ public class GNarrator {
 
                 while (true) {
                     try {
-                        Scanner reader = new Scanner(System.in);
-                        choiceIndex = Integer.parseInt(reader.nextLine()) - 1;
-
+                        choiceIndex = Integer.parseInt(GFrame.getInput()) - 1;
                         break;
 
                     } catch (NumberFormatException ne) {

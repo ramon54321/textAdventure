@@ -1,5 +1,7 @@
 package game.gameplay.events;
 
+import game.GMain;
+
 import java.util.ArrayList;
 
 /**
@@ -15,12 +17,22 @@ public class GForkNode extends GNavigator{
     }
 
     public void showOptions() {
+        GMain.mainGGame.mainGFrame.consoleAddLine("");
         for (int i = 0 ; i < actionNodes.size() ; ++i)
-            System.out.println((i+1) + " .. " + actionNodes.get(i).optionText);
+            GMain.mainGGame.mainGFrame.consoleAddLine((i+1) + " .. " + actionNodes.get(i).optionText);
     }
 
     public void runOption(int index) {
         actionNodes.get(index).executeAction();
+    }
+
+    public GActionNode getActionNodeByOptionText(String optionText){
+        for(GActionNode node : actionNodes){
+            if(node.optionText.equalsIgnoreCase(optionText)){
+                return node;
+            }
+        }
+        return null;
     }
 
 }

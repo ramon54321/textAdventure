@@ -3,13 +3,9 @@ package game.input;
 import game.GCommandMode;
 import game.GGame;
 import game.GMain;
-import game.gameplay.combat.GCSeaBattle;
-import game.gameplay.events.GEPublicFight;
-import game.gameplay.events.GESailContact;
+import game.gameplay.events.conversations.GLEventNassauPub;
 import game.gameplay.items.GItem;
 import game.gameplay.locations.GLocation;
-
-import java.net.SocketTimeoutException;
 
 /**
  * Created by Ramon on 1/18/16.
@@ -134,6 +130,7 @@ public class GCommander{
         else if (GMain.mainGGame.commandMode == GCommandMode.LIVE) {
             // TODO: Command mode for talking and buying, gets turned on from eg. Bar Tender.
             lastCommand = command;
+            System.out.println("Last command is now: " + lastCommand);
         }
     }
 
@@ -206,9 +203,10 @@ public class GCommander{
         Thread myThread = new Thread(){
             @Override
             public void run() {
-
                 String myString = "";
+                GMain.mainGGame.isMoving = true;
                 for(int i = 0; i < ticks; i++){
+
                     String adder = "";
                     for(int x = 0; x < (ticks - i); x++){
                         adder = adder + "--";
@@ -216,36 +214,21 @@ public class GCommander{
                     adder = adder + "|";
                     myString = (myString + " >");
                     GMain.mainGGame.mainGFrame.consoleWrite("|-" + myString + adder);
-                    try {
-                        this.sleep(80);
-                    }
-                    catch(Exception e){
 
-                    }
-                    // Random event happens here
-                    // TODO: Random event will happen here.
-                    // calc random
+                    try{this.sleep(80);}catch(Exception e){}
+
                     double dice = Math.random();
-                    if(dice < 0) {
+                    if(dice < 0.02) {
                         if(ticks > 20) { //Sea voyage
-                            //new GE
-                            new GESailContact();
+                            new GLEventNassauPub();
                         }
                         else {
-                            new GEPublicFight();
-                        }
-                        while(GMain.mainGGame.currentEvent != null){
-                            System.out.println("waiting in waitinconsole");
-                            try {
-                                this.sleep(1);
-                            }
-                            catch(Exception e){
-
-                            }
+                            //new GEPublicFight();
                         }
                     }
                 }
 
+                GMain.mainGGame.isMoving = false;
                 GMain.mainGGame.currentLocation = gLocation;
                 GMain.mainGGame.setRegionToRender();
                 GMain.mainGGame.mainGCommander.showLocation();
@@ -261,7 +244,7 @@ public class GCommander{
     public void showLocation(){
         GMain.mainGGame.mainGFrame.consoleWrite("I am in " + GMain.mainGGame.currentLocation.name + "\n\tConnections:");
         for(GLocation child : GMain.mainGGame.currentLocation.connections){
-            GMain.mainGGame.mainGFrame.consoleAdd("\n\t\t" + child.name);
+            GMain.mainGGame.mainGFrame.consoleAddLine("\t\t" + child.name);
         }
     }
 
@@ -269,7 +252,7 @@ public class GCommander{
         GMain.mainGGame.mainGFrame.consoleWrite("I have:");
         // TODO: add nothing message
         for(GItem child : GMain.mainGGame.mainGPlayer.inventory){
-            GMain.mainGGame.mainGFrame.consoleAdd("\n\t" + child.names[0]);
+            GMain.mainGGame.mainGFrame.consoleAddLine("\t" + child.names[0]);
         }
     }
 
@@ -277,7 +260,7 @@ public class GCommander{
         GMain.mainGGame.mainGFrame.consoleWrite("Items here:");
         // TODO: add nothing message
         for(GItem child : GMain.mainGGame.currentLocation.items){
-            GMain.mainGGame.mainGFrame.consoleAdd("\n\t" + child.names[0]);
+            GMain.mainGGame.mainGFrame.consoleAddLine("\t" + child.names[0]);
         }
     }
 }

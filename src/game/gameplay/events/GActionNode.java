@@ -1,5 +1,7 @@
 package game.gameplay.events;
 
+import game.GMain;
+
 /**
  * Created by Ramon on 1/26/16.
  */
@@ -16,6 +18,7 @@ public class GActionNode extends GNavigator{
         if (actionContent == null)
             return ;
         else
+            GMain.mainGGame.mainGFrame.consoleClear();
             actionContent.doAction();
     }
 
@@ -39,4 +42,6 @@ public class GActionNode extends GNavigator{
     public void setOptionAction(Action action) {
         actionContent = action;
     }
+
+
 }
