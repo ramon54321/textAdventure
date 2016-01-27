@@ -15,21 +15,24 @@ public class GISpoon extends GItem {
     @Override
     public void pickUp(GItem with) {
         super.pickUp(with);
-        GMain.mainGGame.mainGFrame.consoleAdd("\nCould come in handy.");
+        GMain.mainGGame.mainGFrame.consoleAddLine("Could come in handy.");
     }
 
     @Override
     public void eat(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("I can't chew metal.");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("I can't chew metal.");
     }
 
     @Override
     public void drink(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("Its metal, not drinking that.");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("Its metal, not drinking that.");
     }
 
     @Override
     public void throwItem(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("Pretty pointless...");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("Pretty pointless...");
     }
 }

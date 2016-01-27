@@ -6,9 +6,20 @@ import game.gameplay.events.*;
 /**
  * Created by Ramon on 1/26/16.
  */
-public class GLEventNassauPub extends GLiveEvent{
+public class GLEventNassauPub extends GLiveEvent implements Runnable{
 
-    public GLEventNassauPub(){
+    public GLEventNassauPub(boolean useNewThread){
+        if(useNewThread) {
+            Thread newThread = new Thread(this);
+            newThread.start();
+        }
+        else{
+            run();
+        }
+    }
+
+    @Override
+    public void run() {
         eventStart();
 
         GForkNode bar = new GForkNode("Ask for a beer.", "Go to pool table.", "Leave bar.");
@@ -56,34 +67,34 @@ public class GLEventNassauPub extends GLiveEvent{
             currentObject = barPool;
         });
 
-                    barPool.actionNodes.get(0).setOptionAction(() -> {
-                        GMain.mainGGame.mainGFrame.consoleAddLine("Pool player: Well watch me pot this one in.");
-                        currentObject = barMatch;
-                    });
+        barPool.actionNodes.get(0).setOptionAction(() -> {
+            GMain.mainGGame.mainGFrame.consoleAddLine("Pool player: Well watch me pot this one in.");
+            currentObject = barMatch;
+        });
 
-                                barMatch.actionNodes.get(0).setOptionAction(() -> {
-                                    GMain.mainGGame.mainGFrame.consoleAddLine("Pool player: Ah the pirates, we don't mind them, as long as they leave us alone.\n" +
-                                            "I heard some of them are talking about some grand prize.");
+        barMatch.actionNodes.get(0).setOptionAction(() -> {
+            GMain.mainGGame.mainGFrame.consoleAddLine("Pool player: Ah the pirates, we don't mind them, as long as they leave us alone.\n" +
+                    "I heard some of them are talking about some grand prize.");
 
-                                    // Change this action for next round
-                                    barMatch.actionNodes.get(0).setOptionText("Ask more about the pirates in the town.");
-                                    barMatch.actionNodes.get(0).setOptionAction(() -> {
-                                        GMain.mainGGame.mainGFrame.consoleAddLine("Pool player: Still about them eh? You want to become one?");
-                                        try{Thread.sleep(300);}catch (Exception e){}
-                                        GMain.mainGGame.mainGFrame.consoleAddLine("Pool players: Hahahaha (The players laugh at the joke.)");
-                                        try{Thread.sleep(1500);}catch (Exception e){}
-                                        GMain.mainGGame.mainGFrame.consoleAddLine("Pool player: Go talk to that Guthrie woman in the tavern, she has a lot to do with them.");
-                                        barMatch.actionNodes.remove(0);
-                                    });
-                                });
+            // Change this action for next round
+            barMatch.actionNodes.get(0).setOptionText("Ask more about the pirates in the town.");
+            barMatch.actionNodes.get(0).setOptionAction(() -> {
+                GMain.mainGGame.mainGFrame.consoleAddLine("Pool player: Still about them eh? You want to become one?");
+                try{Thread.sleep(300);}catch (Exception e){}
+                GMain.mainGGame.mainGFrame.consoleAddLine("Pool players: Hahahaha (The players laugh at the joke.)");
+                try{Thread.sleep(1500);}catch (Exception e){}
+                GMain.mainGGame.mainGFrame.consoleAddLine("Pool player: Go talk to that Guthrie woman in the tavern, she has a lot to do with them.");
+                barMatch.actionNodes.remove(0);
+            });
+        });
 
-                                barMatch.actionNodes.get(1).setOptionAction(() -> {
-                                    GMain.mainGGame.mainGFrame.consoleAddLine("Later mate.");
-                                    try{Thread.sleep(200);}catch (Exception e){}
-                                    GMain.mainGGame.mainGFrame.consoleAddLine("(You walk to the bar counter)");
-                                    try{Thread.sleep(800);}catch (Exception e){}
-                                    currentObject = bar;
-                                });
+        barMatch.actionNodes.get(1).setOptionAction(() -> {
+            GMain.mainGGame.mainGFrame.consoleAddLine("Later mate.");
+            try{Thread.sleep(200);}catch (Exception e){}
+            GMain.mainGGame.mainGFrame.consoleAddLine("(You walk to the bar counter)");
+            try{Thread.sleep(800);}catch (Exception e){}
+            currentObject = bar;
+        });
 
         bar.actionNodes.get(2).setOptionAction(() -> {
             GMain.mainGGame.mainGFrame.consoleAddLine("Cheers!");

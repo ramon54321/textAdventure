@@ -198,8 +198,7 @@ public class GCommander{
         GMain.mainGGame.setLocation(gLocation);
     }
 
-
-    public void waitInConsole(int ticks, GLocation gLocation){
+    public void moveToNewLocation(int ticks, GLocation gLocation){
         Thread myThread = new Thread(){
             @Override
             public void run() {
@@ -213,14 +212,14 @@ public class GCommander{
                     }
                     adder = adder + "|";
                     myString = (myString + " >");
-                    GMain.mainGGame.mainGFrame.consoleWrite("|-" + myString + adder);
+                    GMain.mainGGame.mainGFrame.consoleWrite("|" + myString + adder);
 
                     try{this.sleep(80);}catch(Exception e){}
 
                     double dice = Math.random();
                     if(dice < 0.02) {
                         if(ticks > 20) { //Sea voyage
-                            new GLEventNassauPub();
+                            new GLEventNassauPub(false);
                         }
                         else {
                             //new GEPublicFight();
@@ -242,14 +241,16 @@ public class GCommander{
     }
 
     public void showLocation(){
-        GMain.mainGGame.mainGFrame.consoleWrite("I am in " + GMain.mainGGame.currentLocation.name + "\n\tConnections:");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("I am in " + GMain.mainGGame.currentLocation.name + "\n\tConnections:");
         for(GLocation child : GMain.mainGGame.currentLocation.connections){
             GMain.mainGGame.mainGFrame.consoleAddLine("\t\t" + child.name);
         }
     }
 
     public void showInventory(){
-        GMain.mainGGame.mainGFrame.consoleWrite("I have:");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("I have:");
         // TODO: add nothing message
         for(GItem child : GMain.mainGGame.mainGPlayer.inventory){
             GMain.mainGGame.mainGFrame.consoleAddLine("\t" + child.names[0]);
@@ -257,7 +258,8 @@ public class GCommander{
     }
 
     public void showItemsInLocation(){
-        GMain.mainGGame.mainGFrame.consoleWrite("Items here:");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("Items here:");
         // TODO: add nothing message
         for(GItem child : GMain.mainGGame.currentLocation.items){
             GMain.mainGGame.mainGFrame.consoleAddLine("\t" + child.names[0]);

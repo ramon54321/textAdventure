@@ -29,6 +29,6 @@ public class GLNassauPub extends GLocation {
 
     @Override
     public void showEntryInfo() {
-        GMain.mainGGame.mainGFrame.consoleAdd("\n\nThe pub is mostly empty, except for the quirky-looking bartender. \nYou should probably talk to him...");
+        GMain.mainGGame.mainGFrame.consoleAddLine("\nThe pub is mostly empty, except for the quirky-looking bartender. \nYou should probably talk to him...");
     }
 }

@@ -28,7 +28,7 @@ public class GINavigationManual extends GItem {
     @Override
     public void pickUp(GItem with) {
         super.pickUp(with);
-        GMain.mainGGame.mainGFrame.consoleAdd("\nA navigation manual, could always come in handy.");
+        GMain.mainGGame.mainGFrame.consoleAddLine("A navigation manual, could always come in handy.");
     }
 
     @Override
@@ -38,6 +38,7 @@ public class GINavigationManual extends GItem {
 
     @Override
     public void throwItem(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("Pretty pointless...");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("Pretty pointless...");
     }
 }

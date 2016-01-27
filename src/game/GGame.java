@@ -29,8 +29,8 @@ public class GGame extends Canvas implements Runnable{
     public final int WIDTH = 1000;
     public final int HEIGHT = 486;// WIDTH / 16 * 9;
     public final int SCALE = 1;
-    private final int targetFPS = 144;
-    private final int targetTPS = 60;
+    //private final int targetFPS = 144;
+    //private final int targetTPS = 60;
 
     // Reference Variables
     public GFrame mainGFrame;
@@ -49,21 +49,18 @@ public class GGame extends Canvas implements Runnable{
 
     public GLocation currentLocation;
     public GItem currentInteraction;
-
     public boolean isMoving = false;
-    //public GEvent currentEvent;
-    //public GTalkNode currentTalkNode;
-    //public GEventNode currentEventNode;
-    //public GCombat currentCombat;
 
     public GCommandMode commandMode = GCommandMode.NORMAL;
 
     // Management variables
+    /*
     private int framesRendered = 0;
     private int framesTicked = 0;
     public long tickDeltaTime = 0;
     private int lastFPS;
     private int lastTPS;
+    */
 
     // Graphics
     private BufferedImage mainRenderImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
@@ -77,17 +74,12 @@ public class GGame extends Canvas implements Runnable{
 
     // Game Loop
     public void run(){
+        /*
         // This method is run in a new thread and loops constantly in while.
         long lastTimeTick = System.nanoTime();
         long lastTimeRender = System.nanoTime();
         long lastTimeClock = System.nanoTime();
 
-
-
-
-
-
-        /*
         while(true){
 
             // Render
@@ -120,7 +112,6 @@ public class GGame extends Canvas implements Runnable{
             }
         }
         */
-
     }
 
     private void render(){
@@ -131,8 +122,6 @@ public class GGame extends Canvas implements Runnable{
         }
         mainGScreen.clear();
 
-        // Render Order
-        // TODO: Change to screen.render so its managed
         // TODO: Image does not always display on startup (maybe not loaded yet?)
         if(gEntities.size() > 0) {
             for (int i = 0; i < gEntities.size(); i++) {
@@ -232,7 +221,7 @@ public class GGame extends Canvas implements Runnable{
 
     public void setLocation(GLocation locationToSetTo){
         int distance = (int) Math.sqrt((locationToSetTo.xPos - currentLocation.xPos)*(locationToSetTo.xPos - currentLocation.xPos) + (locationToSetTo.yPos - currentLocation.yPos)*(locationToSetTo.yPos - currentLocation.yPos));
-        mainGCommander.waitInConsole(distance, locationToSetTo);
+        mainGCommander.moveToNewLocation(distance, locationToSetTo);
     }
 
     public void setRegionToRender(){

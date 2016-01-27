@@ -15,26 +15,30 @@ public class GISmallWoodenBox extends GItem {
     @Override
     public void pickUp(GItem with) {
         super.pickUp(with);
-        GMain.mainGGame.mainGFrame.consoleAdd("\nA wooden box... could put things in it maybe.");
+        GMain.mainGGame.mainGFrame.consoleAddLine("A wooden box... could put things in it maybe.");
     }
 
     @Override
     public void breakItem(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("Well done, you broke it, now what is it useful for?");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("Well done, you broke it, now what is it useful for?");
     }
 
     @Override
     public void eat(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("A Box? Sorry I can't eat a box...");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("A Box? Sorry I can't eat a box...");
     }
 
     @Override
     public void drink(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("You want me to drink the box? Really? Nah sorry not doing that.");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("You want me to drink the box? Really? Nah sorry not doing that.");
     }
 
     @Override
     public void lookAt(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("Ooohh pretty... a box...");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("Ooohh pretty... a box...");
     }
 }

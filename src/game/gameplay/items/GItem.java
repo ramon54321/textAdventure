@@ -29,53 +29,62 @@ public class GItem implements GInteractable {
 
     @Override
     public void breakItem(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("Broken...");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("Broken...");
     }
 
     @Override
     public void throwItem(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("Thrown...");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("Thrown...");
     }
 
     @Override
     public void lookAt(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("Can't see that to well actually...");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("Can't see that to well actually...");
     }
 
     @Override
     public void eat(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("Not useful...");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("Not useful...");
     }
 
     @Override
     public void drink(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("Can't do that, sorry.");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("Can't do that, sorry.");
     }
 
     @Override
     public void pickUp(GItem with) {
+        GMain.mainGGame.mainGFrame.consoleClear();
         if(!pickupAble) {
-            GMain.mainGGame.mainGFrame.consoleWrite("Can't pick that up.");
+            GMain.mainGGame.mainGFrame.consoleAddLine("Can't pick that up.");
         }
         else {
-            GMain.mainGGame.mainGFrame.consoleWrite("Picking up " + names[0] + ".");
+            GMain.mainGGame.mainGFrame.consoleAddLine("Picking up " + names[0] + ".");
             GMain.mainGGame.mainGPlayer.pickUpItem(this);
         }
     }
 
     @Override
     public void kill(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("I can't kill that...");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("I can't kill that...");
     }
 
     @Override
     public void read(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("I can't read that...");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("I can't read that...");
     }
 
     @Override
     public void talkTo(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("Can't talk to that.");
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("Can't talk to that.");
     }
 
 

@@ -16,14 +16,13 @@ public class GNarrator {
                 while (true) {
                     try {
                         choiceIndex = Integer.parseInt(GFrame.getInput()) - 1;
+                        ((GForkNode) navObject).runOption( choiceIndex );
                         break;
 
-                    } catch (NumberFormatException ne) {
+                    } catch (Exception e) {
                         continue;
                     }
                 }
-
-                ((GForkNode) navObject).runOption( choiceIndex );
                 break;
             case "action" :
                 ((GActionNode) navObject).executeAction();

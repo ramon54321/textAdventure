@@ -5,6 +5,9 @@ import game.GMain;
 
 /**
  * Created by Ramon on 1/26/16.
+ *
+ * All events not started during movement need to start in own thread!!!
+ *
  */
 public class GLiveEvent {
 

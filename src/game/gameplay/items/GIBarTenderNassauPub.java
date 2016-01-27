@@ -26,14 +26,6 @@ public class GIBarTenderNassauPub extends GItem {
 
     @Override
     public void talkTo(GItem with) {
-        Thread myThread = new Thread(){
-            @Override
-            public void run() {
-                new GLEventNassauPub();
-
-                GMain.mainGGame.printInfo("LiveEvent Thread has completed.");
-            }
-        };
-        myThread.start();
+        new GLEventNassauPub(true);
     }
 }
