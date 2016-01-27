@@ -6,7 +6,7 @@ import game.GMain;
  * Created by Ramon on 1/24/16.
  */
 public class GEPublicFight extends GEvent {
-
+/*
     GEventNode event_0A = new GEventNode(){
         @Override
         public void execute() {
@@ -57,4 +57,5 @@ public class GEPublicFight extends GEvent {
         eventInit();
         event_0A.execute();
     }
+    */
 }

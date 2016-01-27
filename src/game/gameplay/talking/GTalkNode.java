@@ -71,6 +71,7 @@ talkEnd();
  *
  */
 public class GTalkNode {
+    /*
     public ArrayList<GTalkNode> children = new ArrayList<GTalkNode>();
     private GTalkNode parent = null;
 
@@ -106,5 +107,5 @@ public class GTalkNode {
         // Do something
 
     }
-
+*/
 }

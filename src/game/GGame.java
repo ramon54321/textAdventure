@@ -2,6 +2,7 @@ package game;
 
 import game.entity.GEntity;
 import game.gameplay.GPlayer;
+import game.gameplay.combat.GCombat;
 import game.gameplay.events.GEvent;
 import game.gameplay.events.GEventNode;
 import game.gameplay.items.GItem;
@@ -55,6 +56,7 @@ public class GGame extends Canvas implements Runnable{
     public GEvent currentEvent;
     public GTalkNode currentTalkNode;
     public GEventNode currentEventNode;
+    public GCombat currentCombat;
 
     public GCommandMode commandMode = GCommandMode.NORMAL;
 
@@ -81,6 +83,11 @@ public class GGame extends Canvas implements Runnable{
         long lastTimeTick = System.nanoTime();
         long lastTimeRender = System.nanoTime();
         long lastTimeClock = System.nanoTime();
+
+
+
+
+
 
         /*
         while(true){
@@ -148,6 +155,7 @@ public class GGame extends Canvas implements Runnable{
 
     private void initGame(){
         mainGFrame = new GFrame(this);
+
         mainGScreen = new GScreen(this);
         mainGCommander = new GCommander(this);
         mainGPlayer = new GPlayer(this);
@@ -161,6 +169,7 @@ public class GGame extends Canvas implements Runnable{
             e.printStackTrace();
         }
 
+
         Dimension size = new Dimension(WIDTH * SCALE, HEIGHT * SCALE);
         setPreferredSize(size);
         mainGFrame.setResizable(false);
@@ -173,9 +182,11 @@ public class GGame extends Canvas implements Runnable{
         Thread renderThread = new Thread(this);
         renderThread.start();
 
+
         setupGameplay();
 
         setRegionToRender();
+
     }
 
     private void setupGameplay() {

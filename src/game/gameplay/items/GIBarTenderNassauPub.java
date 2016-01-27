@@ -3,7 +3,7 @@ package game.gameplay.items;
 import game.GCommandMode;
 import game.GMain;
 import game.gameplay.GPersonality;
-import game.gameplay.talking.GTalkNode;
+import game.gameplay.events.GLiveEvent;
 
 /**
  * Created by Ramon on 1/18/16.
@@ -16,6 +16,7 @@ public class GIBarTenderNassauPub extends GItem {
     GPersonality personality = new GPersonality("William");
     boolean hasHadBeer = false;
 
+    /*
     GTalkNode talk_0A = new GTalkNode(){
         @Override
         public void execute() {
@@ -158,7 +159,7 @@ public class GIBarTenderNassauPub extends GItem {
             talkEnd();
         }
     };
-
+*/
 
 
     public GIBarTenderNassauPub() {
@@ -168,7 +169,7 @@ public class GIBarTenderNassauPub extends GItem {
 
     @Override
     public void pickUp(GItem with) {
-        GMain.mainGGame.mainGFrame.consoleWrite("You can't pick up a person!");
+        GMain.mainGGame.mainGFrame.consoleAddLine("You can't pick up a person!");
     }
 
     @Override
@@ -176,14 +177,26 @@ public class GIBarTenderNassauPub extends GItem {
         // Init talking
         talkInit();
 
-        talk_0A.execute();
+        //talk_0A.execute();
 
         // TODO: Buy items, separate command input
     }
 
     private void talkInit() {
-        GMain.mainGGame.commandMode = GCommandMode.TALKING;
+        GMain.mainGGame.commandMode = GCommandMode.LIVE;
         GMain.mainGGame.currentInteraction = this;
+        //new GLiveEvent(new GForkNode("Never mind...", "I want a beer!", "Where is the toilet?"));
+
+
+        Thread myThread = new Thread(){
+            @Override
+            public void run() {
+                new GLiveEvent();
+
+                GMain.mainGGame.printInfo("LiveEvent Thread has completed.");
+            }
+        };
+        myThread.start();
     }
 
     private void talkEnd() {

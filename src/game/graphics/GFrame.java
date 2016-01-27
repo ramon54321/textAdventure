@@ -1,6 +1,7 @@
 package game.graphics;
 
 import game.GGame;
+import game.GMain;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -59,6 +60,23 @@ public class GFrame extends JFrame implements KeyListener{
     public void consoleAdd(String string){
         String current = mainLabelOut.getText();
         mainLabelOut.setText(current + string);
+    }
+
+    public void consoleAddLine(String string){
+        Thread myThread = new Thread(){
+            @Override
+            public void run() {
+
+                consoleAdd("\n");
+                for(char ch : string.toCharArray()){
+                    consoleAdd(Character.toString(ch));
+                    try{Thread.sleep(10);}catch (Exception e){}
+                }
+
+                GMain.mainGGame.printInfo("Print Thread has completed.");
+            }
+        };
+        myThread.start();
     }
 
     @Override

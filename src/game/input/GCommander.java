@@ -3,7 +3,9 @@ package game.input;
 import game.GCommandMode;
 import game.GGame;
 import game.GMain;
+import game.gameplay.combat.GCSeaBattle;
 import game.gameplay.events.GEPublicFight;
+import game.gameplay.events.GESailContact;
 import game.gameplay.items.GItem;
 import game.gameplay.locations.GLocation;
 
@@ -24,6 +26,8 @@ import java.net.SocketTimeoutException;
 public class GCommander{
 
     private GGame gGame;
+
+    public static String lastCommand;
 
     public GCommander(GGame GGame) {
         this.gGame = GGame;
@@ -127,74 +131,9 @@ public class GCommander{
                 }
             }
         }
-        else if (GMain.mainGGame.commandMode == GCommandMode.TALKING) {
+        else if (GMain.mainGGame.commandMode == GCommandMode.LIVE) {
             // TODO: Command mode for talking and buying, gets turned on from eg. Bar Tender.
-            if(command.equalsIgnoreCase("a")) {
-                if(GMain.mainGGame.currentTalkNode.children.size() < 1)
-                    return;
-                // run the a function for the current inteaction
-                GMain.mainGGame.currentTalkNode.children.get(0).execute();
-            }
-            else if(command.equalsIgnoreCase("b")) {
-                if(GMain.mainGGame.currentTalkNode.children.size() < 2)
-                    return;
-                // run the a function for the current inteaction
-                GMain.mainGGame.currentTalkNode.children.get(1).execute();
-            }
-            else if(command.equalsIgnoreCase("c")) {
-                if(GMain.mainGGame.currentTalkNode.children.size() < 3)
-                    return;
-                // run the a function for the current inteaction
-                GMain.mainGGame.currentTalkNode.children.get(2).execute();
-            }
-            else if(command.equalsIgnoreCase("d")) {
-                if(GMain.mainGGame.currentTalkNode.children.size() < 4)
-                    return;
-                // run the a function for the current inteaction
-                GMain.mainGGame.currentTalkNode.children.get(3).execute();
-            }
-        }
-        else if (GMain.mainGGame.commandMode == GCommandMode.READING) {
-            // TODO: Command mode for talking and buying, gets turned on from eg. Bar Tender.
-            if(command.equalsIgnoreCase("a")) {
-                // run the a function for the current inteaction
-                GMain.mainGGame.currentInteraction.previousPage();
-            }
-            else if(command.equalsIgnoreCase("d")) {
-                // run the a function for the current inteaction
-                GMain.mainGGame.currentInteraction.nextPage();
-            }
-            else if(command.equalsIgnoreCase("q")) {
-                // run the a function for the current inteaction
-                GMain.mainGGame.currentInteraction.readEnd();
-            }
-        }
-        else if (GMain.mainGGame.commandMode == GCommandMode.EVENT) {
-            // TODO: Command mode for events
-            if(command.equalsIgnoreCase("a")) {
-                if(GMain.mainGGame.currentEventNode.children.size() < 1)
-                    return;
-                // run the a function for the current inteaction
-                GMain.mainGGame.currentEventNode.children.get(0).execute();
-            }
-            else if(command.equalsIgnoreCase("b")) {
-                if(GMain.mainGGame.currentEventNode.children.size() < 2)
-                    return;
-                // run the a function for the current inteaction
-                GMain.mainGGame.currentEventNode.children.get(1).execute();
-            }
-            else if(command.equalsIgnoreCase("c")) {
-                if(GMain.mainGGame.currentEventNode.children.size() < 3)
-                    return;
-                // run the a function for the current inteaction
-                GMain.mainGGame.currentEventNode.children.get(2).execute();
-            }
-            else if(command.equalsIgnoreCase("d")) {
-                if(GMain.mainGGame.currentEventNode.children.size() < 4)
-                    return;
-                // run the a function for the current inteaction
-                GMain.mainGGame.currentEventNode.children.get(3).execute();
-            }
+            lastCommand = command;
         }
     }
 
@@ -287,9 +226,16 @@ public class GCommander{
                     // TODO: Random event will happen here.
                     // calc random
                     double dice = Math.random();
-                    if(dice < 0.01) {
-                        new GEPublicFight();
+                    if(dice < 0) {
+                        if(ticks > 20) { //Sea voyage
+                            //new GE
+                            new GESailContact();
+                        }
+                        else {
+                            new GEPublicFight();
+                        }
                         while(GMain.mainGGame.currentEvent != null){
+                            System.out.println("waiting in waitinconsole");
                             try {
                                 this.sleep(1);
                             }

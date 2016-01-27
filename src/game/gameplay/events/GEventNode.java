@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * Created by Ramon on 1/24/16.
  */
 public class GEventNode {
+    /*
     public ArrayList<GEventNode> children = new ArrayList<GEventNode>();
     private GEventNode parent = null;
 
@@ -41,4 +42,5 @@ public class GEventNode {
         // Do something
 
     }
+    */
 }
