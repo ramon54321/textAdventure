@@ -2,6 +2,7 @@ package game;
 
 import game.entity.GEntity;
 import game.gameplay.GPlayer;
+import game.gameplay.events.GLiveEvent;
 import game.gameplay.items.GItem;
 import game.gameplay.locations.*;
 import game.graphics.GFrame;
@@ -49,9 +50,10 @@ public class GGame extends Canvas implements Runnable{
 
     public GLocation currentLocation;
     public GItem currentInteraction;
+    public GLiveEvent currentLiveEvent;
     public boolean isMoving = false;
 
-    public GCommandMode commandMode = GCommandMode.NORMAL;
+    //public GCommandMode commandMode = GCommandMode.NORMAL;
 
     // Management variables
     /*

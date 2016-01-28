@@ -20,13 +20,17 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
 
     @Override
     public void run() {
-        eventStart();
+        eventStart(this);
 
-        GForkNode bar = new GForkNode("Ask for a beer.", "Go to pool table.", "Leave bar.");
-        GForkNode barPool = new GForkNode("Just watch and chat.");
-        GForkNode barMatch = new GForkNode("Talk about the pirate situation in Nassau.", "Go back to bar counter.");
+        GForkNode bar = new GForkNode(this,"Ask for a beer.", "Go to pool table.", "Leave bar.");
+        GForkNode barPool = new GForkNode(this,"Just watch and chat.");
+        GForkNode barMatch = new GForkNode(this,"Talk about the pirate situation in Nassau.", "Go back to bar counter.");
 
         currentObject = bar;
+
+        GMain.mainGGame.mainGFrame.consoleAddLine("** Nassau Pub **");
+        GMain.mainGGame.mainGFrame.consoleAddLine(" - Pirates always come to the pub to rest, always makes for good conversation.");
+        GMain.mainGGame.mainGFrame.consoleAddLine(" - The pub often contains hints and the latest information on whats happening.");
 
         bar.actionNodes.get(0).setOptionAction(() -> {
             GMain.mainGGame.mainGFrame.consoleAddLine("Bartender: A beer eh? I'l get ya one.");
@@ -100,7 +104,7 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
             GMain.mainGGame.mainGFrame.consoleAddLine("Cheers!");
             try{Thread.sleep(600);}catch (Exception e){}
             //leave bar
-            isRunning = false;
+            eventEnd();
         });
 
         currentObject = bar;
@@ -109,7 +113,6 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
             GNarrator.narrate(currentObject);
         }
 
-        eventEnd();
-        GMain.mainGGame.printInfo("LiveEvent completed.");
+        GMain.mainGGame.printInfo("LiveEvent Thread complete.");
     }
 }

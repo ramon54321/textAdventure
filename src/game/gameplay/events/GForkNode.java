@@ -10,8 +10,10 @@ import java.util.ArrayList;
 public class GForkNode extends GNavigator{
 
     public ArrayList<GActionNode> actionNodes = new ArrayList<GActionNode>();
+    public GLiveEvent parentEvent;
 
-    public GForkNode (String... optionTexts) {
+    public GForkNode (GLiveEvent parentEvent, String... optionTexts) {
+        this.parentEvent = parentEvent;
         for (String option : optionTexts)
             actionNodes.add(new GActionNode(option, null));
     }

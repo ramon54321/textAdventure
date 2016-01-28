@@ -18,17 +18,31 @@ public class GLiveEvent {
 
     }
 
-    public void eventStart(){
-        GMain.mainGGame.commandMode = GCommandMode.LIVE;
+    public void eventStart(GLiveEvent liveEvent){
+        // TODO: make sure other event thread stops
+        while(GMain.mainGGame.currentLiveEvent != null) {
+            GMain.mainGGame.currentLiveEvent.eventKill();
+            System.out.println("Killing other event.");
+        }
+        System.out.println("Other event killed.");
+        GMain.mainGGame.currentLiveEvent = liveEvent;
         GMain.mainGGame.mainGFrame.consoleClear();
     }
 
+    // Used for normal ending of event in event itself
     public void eventEnd(){
-        GMain.mainGGame.commandMode = GCommandMode.NORMAL;
+        isRunning = false;
+        GMain.mainGGame.currentLiveEvent = null;
         if(!GMain.mainGGame.isMoving) {
             GMain.mainGGame.mainGCommander.showLocation();
             GMain.mainGGame.currentLocation.showEntryInfo();
         }
+    }
+
+    // Used to stop thread quietly in background, will NOT inform user
+    public void eventKill(){
+        isRunning = false;
+        GMain.mainGGame.currentLiveEvent = null;
     }
 
 }

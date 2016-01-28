@@ -10,11 +10,12 @@ import game.gameplay.events.conversations.GLEventNassauPub;
  * A unique bartender class needs to be created for each bartender in order to have the correct speech.
  *
  */
-public class GIBarTenderNassauPub extends GItem {
+public class GIBarTender extends GItem {
 
     public GPersonality personality = new GPersonality("William");
 
-    public GIBarTenderNassauPub() {
+
+    public GIBarTender() {
         names =  new String[] {"bartender"};
         pickupAble = true;
     }
@@ -26,6 +27,6 @@ public class GIBarTenderNassauPub extends GItem {
 
     @Override
     public void talkTo(GItem with) {
-        new GLEventNassauPub(true);
+        //new GLEventNassauPub(true);
     }
 }

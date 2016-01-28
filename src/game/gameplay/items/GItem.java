@@ -108,7 +108,7 @@ public class GItem implements GInteractable {
     }
 
     public void readInit() {
-        GMain.mainGGame.commandMode = GCommandMode.READING;
+        //GMain.mainGGame.commandMode = GCommandMode.READING;
         GMain.mainGGame.currentInteraction = this;
         currentPage = 1;
         GMain.mainGGame.mainGFrame.consoleWrite(pages.get(currentPage - 1));
@@ -117,7 +117,7 @@ public class GItem implements GInteractable {
     @Override
     public void readEnd() {
         GMain.mainGGame.currentInteraction = null;
-        GMain.mainGGame.commandMode = GCommandMode.NORMAL;
+        //GMain.mainGGame.commandMode = GCommandMode.NORMAL;
         GMain.mainGGame.mainGCommander.showLocation();
     }
 }

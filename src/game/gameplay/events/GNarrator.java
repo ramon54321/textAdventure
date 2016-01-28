@@ -12,13 +12,16 @@ public class GNarrator {
             case "fork" :
                 ((GForkNode) navObject).showOptions();
                 int choiceIndex;
-
-                while (true) {
+                while (((GForkNode) navObject).parentEvent.isRunning) {
                     try {
-                        choiceIndex = Integer.parseInt(GFrame.getInput()) - 1;
-                        ((GForkNode) navObject).runOption( choiceIndex );
+                        choiceIndex = Integer.parseInt(GFrame.getInput(((GForkNode) navObject).parentEvent)) - 1;
+                        if(((GForkNode) navObject).parentEvent.isRunning) {
+                            ((GForkNode) navObject).runOption(choiceIndex);
+                        }
+                        else{
+                            System.out.println("Command received when no longer running, ignoring...");
+                        }
                         break;
-
                     } catch (Exception e) {
                         continue;
                     }
@@ -28,7 +31,7 @@ public class GNarrator {
                 ((GActionNode) navObject).executeAction();
                 break;
             case "null" :
-                System.out.println("encountered null NavigatorObject");
+                System.out.println("Encountered null NavigatorObject");
                 break;
         }
     }

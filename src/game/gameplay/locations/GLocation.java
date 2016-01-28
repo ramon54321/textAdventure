@@ -86,7 +86,12 @@ public class GLocation {
     }
 
     public void showEntryInfo(){
+        GMain.mainGGame.mainGCommander.showLocation();
         GMain.mainGGame.mainGFrame.consoleAddLine("\nStrange area this is...");
+    }
+
+    public void startEntryEvent() {
+        showEntryInfo();
     }
 
     public boolean containsItem(String itemName) {

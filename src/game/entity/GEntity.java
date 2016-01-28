@@ -40,10 +40,12 @@ public class GEntity implements GRenderable {
         }
     }
 
+    /*
     public void move(double x, double y) {
         position.x += (x * ((double) GGame.tickDeltaTime)) / 1000000;
         position.y += (y * ((double) GGame.tickDeltaTime)) / 1000000;
     }
+    */
 
     public void moveTo(int x, int y) {
         position.x = x;

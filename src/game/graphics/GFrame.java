@@ -2,6 +2,7 @@ package game.graphics;
 
 import game.GGame;
 import game.GMain;
+import game.gameplay.events.GLiveEvent;
 import game.input.GCommander;
 
 import javax.swing.*;
@@ -76,11 +77,10 @@ public class GFrame extends JFrame implements KeyListener{
         consoleAdd("\n");
     }
 
-    public static String getInput(){
-        while(GCommander.lastCommand == null){
-            try{Thread.sleep(10);}catch (Exception e){}
+    public static String getInput(GLiveEvent loopBreakerEvent){
+        while(GCommander.lastCommand == null && loopBreakerEvent.isRunning){
+            try{Thread.sleep(50);}catch (Exception e){}
         }
-        System.out.println("Got command: " + GCommander.lastCommand);
         String temp = GCommander.lastCommand;
         GCommander.lastCommand = null;
         return temp;

@@ -27,33 +27,24 @@ public class GCommander{
 
     public GCommander(GGame GGame) {
         this.gGame = GGame;
-        //keyListenThread = new Thread(this);
-        //keyListenThread.start();
     }
 
     public void parseCommand(String command) {
+        if(command.length() > 1) {
 
-        // TODO: Improve text parser
-        //System.out.println("Received command: " + command);
-
-        // Preset Commands that do not need parsing
-        // TODO: Use ignore case instead
-        if(GMain.mainGGame.commandMode == GCommandMode.NORMAL) {
-            if (command.equalsIgnoreCase("1") || command.equalsIgnoreCase("where am i") || command.equalsIgnoreCase("where am i?")) {
+            if (command.equalsIgnoreCase("where am i") || command.equalsIgnoreCase("where am i?")) {
                 showLocation();
                 return;
             }
-            if (command.equalsIgnoreCase("2") || command.equalsIgnoreCase("what do i have") || command.equalsIgnoreCase("what do i have?")) {
+            if (command.equalsIgnoreCase("what do i have") || command.equalsIgnoreCase("what do i have?")) {
                 showInventory();
                 return;
             }
-            if (command.equalsIgnoreCase("3") || command.equalsIgnoreCase("what is here") || command.equalsIgnoreCase("what is here?")) {
+            if (command.equalsIgnoreCase("what is here") || command.equalsIgnoreCase("what is here?")) {
                 showItemsInLocation();
                 return;
             }
-        }
 
-        if(GMain.mainGGame.commandMode == GCommandMode.NORMAL) {
             String[] commands = command.split(" with ");
             String mainCommand = commands[0];
 
@@ -87,7 +78,7 @@ public class GCommander{
 
 
                 // special cases
-                if(verb.equalsIgnoreCase("go to")) {
+                if (verb.equalsIgnoreCase("go to")) {
                     noun = mainCommand.split("go to ")[1];
                     goTo(noun);
                     return;
@@ -127,8 +118,8 @@ public class GCommander{
                 }
             }
         }
-        else if (GMain.mainGGame.commandMode == GCommandMode.LIVE) {
-            // TODO: Command mode for talking and buying, gets turned on from eg. Bar Tender.
+        else {
+            // Live mode
             lastCommand = command;
             System.out.println("Last command is now: " + lastCommand);
         }
@@ -186,16 +177,18 @@ public class GCommander{
     }
 
     private void goTo(String locationName){
-        GLocation gLocation = GMain.mainGGame.getLocationByName(locationName);
-        if(gLocation == null) {
-            GMain.mainGGame.mainGFrame.consoleWrite("I don't know where that is...");
-            return;
+        if(GMain.mainGGame.currentLiveEvent == null) {
+            GLocation gLocation = GMain.mainGGame.getLocationByName(locationName);
+            if (gLocation == null) {
+                GMain.mainGGame.mainGFrame.consoleWrite("I don't know where that is...");
+                return;
+            }
+            if (!GMain.mainGGame.currentLocation.connections.contains(gLocation)) {
+                GMain.mainGGame.mainGFrame.consoleWrite("I can't go there from here, I will have to find another way around.");
+                return;
+            }
+            GMain.mainGGame.setLocation(gLocation);
         }
-        if(!GMain.mainGGame.currentLocation.connections.contains(gLocation)){
-            GMain.mainGGame.mainGFrame.consoleWrite("I can't go there from here, I will have to find another way around.");
-            return;
-        }
-        GMain.mainGGame.setLocation(gLocation);
     }
 
     public void moveToNewLocation(int ticks, GLocation gLocation){
@@ -230,8 +223,7 @@ public class GCommander{
                 GMain.mainGGame.isMoving = false;
                 GMain.mainGGame.currentLocation = gLocation;
                 GMain.mainGGame.setRegionToRender();
-                GMain.mainGGame.mainGCommander.showLocation();
-                GMain.mainGGame.currentLocation.showEntryInfo();
+                GMain.mainGGame.currentLocation.startEntryEvent();
 
                 GMain.mainGGame.printInfo("Location change Thread has completed.");
             }
