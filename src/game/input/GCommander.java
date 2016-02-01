@@ -1,8 +1,8 @@
 package game.input;
 
-import game.GCommandMode;
 import game.GGame;
 import game.GMain;
+import game.gameplay.events.GForkNode;
 import game.gameplay.events.conversations.GLEventNassauPub;
 import game.gameplay.items.GItem;
 import game.gameplay.locations.GLocation;
@@ -30,7 +30,25 @@ public class GCommander{
     }
 
     public void parseCommand(String command) {
-        if(command.length() > 1) {
+
+        // Back up to event
+        if(command.equalsIgnoreCase("")){
+            /*
+
+            Get current event
+            reprint last info and options
+
+             */
+
+            GMain.mainGGame.mainGFrame.consoleClear();
+            GMain.mainGGame.mainGFrame.consoleAddLine("Event Options:");
+            if(GMain.mainGGame.currentLiveEvent.currentObject != null) {
+                ((GForkNode) (GMain.mainGGame.currentLiveEvent.currentObject)).showOptions();
+            }
+
+            GMain.mainGGame.printInfo("Location change Thread has completed.");
+        }
+        else if(command.length() > 1 && GMain.mainGGame.isMoving == false) {
 
             if (command.equalsIgnoreCase("where am i") || command.equalsIgnoreCase("where am i?")) {
                 showLocation();
@@ -137,6 +155,7 @@ public class GCommander{
     private void sendAction(String verb, String noun, GItem with) {
         System.out.println("Verb: " + verb + " ... Noun: " + noun);
         if(gGame.currentLocation.containsItem(noun)) {
+            System.out.println("Found item");
             //TODO: Complete switch with all interactables
             switch (verb) {
                 case "pick up":
@@ -177,59 +196,54 @@ public class GCommander{
     }
 
     private void goTo(String locationName){
-        if(GMain.mainGGame.currentLiveEvent == null) {
-            GLocation gLocation = GMain.mainGGame.getLocationByName(locationName);
-            if (gLocation == null) {
-                GMain.mainGGame.mainGFrame.consoleWrite("I don't know where that is...");
-                return;
-            }
-            if (!GMain.mainGGame.currentLocation.connections.contains(gLocation)) {
-                GMain.mainGGame.mainGFrame.consoleWrite("I can't go there from here, I will have to find another way around.");
-                return;
-            }
-            GMain.mainGGame.setLocation(gLocation);
+
+        GLocation gLocation = GMain.mainGGame.getLocationByName(locationName);
+        if (gLocation == null) {
+            GMain.mainGGame.mainGFrame.consoleWrite("I don't know where that is...");
+            return;
         }
+        if (!GMain.mainGGame.currentLocation.connections.contains(gLocation)) {
+            GMain.mainGGame.mainGFrame.consoleWrite("I can't go there from here, I will have to find another way around.");
+            return;
+        }
+        if(GMain.mainGGame.currentLiveEvent != null) {
+            GMain.mainGGame.currentLiveEvent.eventKill();
+        }
+        GMain.mainGGame.setLocation(gLocation);
     }
 
     public void moveToNewLocation(int ticks, GLocation gLocation){
-        Thread myThread = new Thread(){
-            @Override
-            public void run() {
-                String myString = "";
-                GMain.mainGGame.isMoving = true;
-                for(int i = 0; i < ticks; i++){
+        String myString = "";
+        GMain.mainGGame.isMoving = true;
+        for(int i = 0; i < ticks; i++){
 
-                    String adder = "";
-                    for(int x = 0; x < (ticks - i); x++){
-                        adder = adder + "--";
-                    }
-                    adder = adder + "|";
-                    myString = (myString + " >");
-                    GMain.mainGGame.mainGFrame.consoleWrite("|" + myString + adder);
-
-                    try{this.sleep(80);}catch(Exception e){}
-
-                    double dice = Math.random();
-                    if(dice < 0.02) {
-                        if(ticks > 20) { //Sea voyage
-                            new GLEventNassauPub(false);
-                        }
-                        else {
-                            //new GEPublicFight();
-                        }
-                    }
-                }
-
-                GMain.mainGGame.isMoving = false;
-                GMain.mainGGame.currentLocation = gLocation;
-                GMain.mainGGame.setRegionToRender();
-                GMain.mainGGame.currentLocation.startEntryEvent();
-
-                GMain.mainGGame.printInfo("Location change Thread has completed.");
+            String adder = "";
+            for(int x = 0; x < (ticks - i); x++){
+                adder = adder + "--";
             }
-        };
+            adder = adder + "|";
+            myString = (myString + " >");
+            GMain.mainGGame.mainGFrame.consoleWrite("|" + myString + adder);
 
-        myThread.start();
+            try{Thread.sleep(80);}catch(Exception e){}
+
+            double dice = Math.random();
+            if(dice < 0.02) {
+                if(ticks > 20) { //Sea voyage
+                    new GLEventNassauPub(false);
+                }
+                else {
+                    //new GEPublicFight();
+                }
+            }
+        }
+
+        GMain.mainGGame.isMoving = false;
+        GMain.mainGGame.currentLocation = gLocation;
+        GMain.mainGGame.setRegionToRender();
+        GMain.mainGGame.currentLocation.startEntryEvent();
+
+        GMain.mainGGame.printInfo("Location change Thread has completed.");
     }
 
     public void showLocation(){
@@ -244,7 +258,7 @@ public class GCommander{
         GMain.mainGGame.mainGFrame.consoleClear();
         GMain.mainGGame.mainGFrame.consoleAddLine("I have:");
         // TODO: add nothing message
-        for(GItem child : GMain.mainGGame.mainGPlayer.inventory){
+        for(GItem child : GMain.mainGGame.mainWorldData.mainPlayer.inventory){
             GMain.mainGGame.mainGFrame.consoleAddLine("\t" + child.names[0]);
         }
     }

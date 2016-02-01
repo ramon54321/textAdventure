@@ -16,6 +16,7 @@ public class GISmallWoodenBox extends GItem {
     public void pickUp(GItem with) {
         super.pickUp(with);
         GMain.mainGGame.mainGFrame.consoleAddLine("A wooden box... could put things in it maybe.");
+        System.out.println("Final print");
     }
 
     @Override

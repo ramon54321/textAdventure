@@ -1,6 +1,5 @@
 package game.gameplay.events;
 
-import game.GCommandMode;
 import game.GMain;
 
 /**
@@ -19,7 +18,6 @@ public class GLiveEvent {
     }
 
     public void eventStart(GLiveEvent liveEvent){
-        // TODO: make sure other event thread stops
         while(GMain.mainGGame.currentLiveEvent != null) {
             GMain.mainGGame.currentLiveEvent.eventKill();
             System.out.println("Killing other event.");

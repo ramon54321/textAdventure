@@ -1,6 +1,5 @@
 package game.gameplay.items;
 
-import game.GCommandMode;
 import game.GMain;
 import game.interfaces.GInteractable;
 
@@ -65,8 +64,9 @@ public class GItem implements GInteractable {
         }
         else {
             GMain.mainGGame.mainGFrame.consoleAddLine("Picking up " + names[0] + ".");
-            GMain.mainGGame.mainGPlayer.pickUpItem(this);
+            GMain.mainGGame.mainWorldData.mainPlayer.pickUpItem(this);
         }
+        System.out.println("Passed Item pick up super");
     }
 
     @Override

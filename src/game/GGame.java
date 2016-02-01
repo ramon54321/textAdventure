@@ -2,6 +2,7 @@ package game;
 
 import game.entity.GEntity;
 import game.gameplay.GPlayer;
+import game.gameplay.GWorldData;
 import game.gameplay.events.GLiveEvent;
 import game.gameplay.items.GItem;
 import game.gameplay.locations.*;
@@ -37,7 +38,8 @@ public class GGame extends Canvas implements Runnable{
     public GFrame mainGFrame;
     public GScreen mainGScreen;
     public GCommander mainGCommander;
-    public GPlayer mainGPlayer;
+    //public GPlayer mainGPlayer;
+    public GWorldData mainWorldData;
 
     public ArrayList<GEntity> gEntities = new ArrayList<GEntity>();
 
@@ -52,8 +54,6 @@ public class GGame extends Canvas implements Runnable{
     public GItem currentInteraction;
     public GLiveEvent currentLiveEvent;
     public boolean isMoving = false;
-
-    //public GCommandMode commandMode = GCommandMode.NORMAL;
 
     // Management variables
     /*
@@ -144,10 +144,10 @@ public class GGame extends Canvas implements Runnable{
 
     private void initGame(){
         mainGFrame = new GFrame(this);
-
         mainGScreen = new GScreen(this);
         mainGCommander = new GCommander(this);
-        mainGPlayer = new GPlayer(this);
+        //mainGPlayer = new GPlayer(this);
+        mainWorldData = new GWorldData();
 
         //Assets
         try {
@@ -227,7 +227,10 @@ public class GGame extends Canvas implements Runnable{
     }
 
     public void setRegionToRender(){
-        if(currentLocation.name.contains("Nassau")){
+        if(currentLocation.name.contains("Nassau Pub")){
+            currentRegionImage = map_Charleston;
+        }
+        else if(currentLocation.name.contains("Nassau")){
             currentRegionImage = map_Nassau;
         }
         else if(currentLocation.name.contains("Charleston")){

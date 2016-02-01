@@ -15,13 +15,12 @@ import java.util.ArrayList;
  */
 public class GPlayer {
 
-    private GGame gGame;
     public ArrayList<GItem> inventory = new ArrayList<GItem>();
 
     // TODO: Fix inventory
 
-    public GPlayer(GGame gGame) {
-        this.gGame = gGame;
+    public GPlayer() {
+
     }
 
     public boolean hasItemInInventoryByName(String name){

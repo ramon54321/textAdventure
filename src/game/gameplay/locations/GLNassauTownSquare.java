@@ -1,6 +1,7 @@
 package game.gameplay.locations;
 
 import game.GGame;
+import game.gameplay.events.conversations.GLEventNassauTownSquare;
 import game.gameplay.items.GINavigationManual;
 
 /**
@@ -26,5 +27,10 @@ public class GLNassauTownSquare extends GLocation {
         makeConnectionTo("Nassau Bank", true);
         makeConnectionTo("Nassau Pub", true);
         makeConnectionTo("Nassau Marsh", true);
+    }
+
+    @Override
+    public void startEntryEvent() {
+        new GLEventNassauTownSquare(true);
     }
 }

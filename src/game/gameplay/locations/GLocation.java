@@ -61,7 +61,7 @@ import java.util.ArrayList;
  *
  */
 public class GLocation {
-
+    
     protected GGame gGame;
 
     public String name = "Unnamed";

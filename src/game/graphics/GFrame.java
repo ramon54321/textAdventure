@@ -20,6 +20,7 @@ public class GFrame extends JFrame implements KeyListener{
     public Container container;
     public JTextField mainTextField = new JTextField(10);
     public JTextArea mainLabelOut = new JTextArea();
+    public int linesWritten = 0;
 
     Border border = BorderFactory.createLineBorder(Color.BLACK);
 
@@ -62,6 +63,7 @@ public class GFrame extends JFrame implements KeyListener{
 
     public void consoleClear(){
         mainLabelOut.setText("");
+        linesWritten = 0;
     }
 
     public void consoleAdd(String string){
@@ -70,11 +72,14 @@ public class GFrame extends JFrame implements KeyListener{
     }
 
     public void consoleAddLine(String string){
+        if(linesWritten >= 12)
+            consoleClear();
         for(char ch : string.toCharArray()){
             consoleAdd(Character.toString(ch));
-            try{Thread.sleep(10);}catch (Exception e){}
+            try{Thread.sleep(16);}catch (Exception e){}
         }
         consoleAdd("\n");
+        linesWritten++;
     }
 
     public static String getInput(GLiveEvent loopBreakerEvent){
@@ -92,7 +97,7 @@ public class GFrame extends JFrame implements KeyListener{
             public void run() {
                 for(char ch : string.toCharArray()){
                     consoleAdd(Character.toString(ch));
-                    try{Thread.sleep(10);}catch (Exception e){}
+                    try{Thread.sleep(16);}catch (Exception e){}
                 }
                 consoleAdd("\n");
 
@@ -109,14 +114,21 @@ public class GFrame extends JFrame implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
-        //System.out.println("Key Typed: " + e.getKeyCode());
         if(e.getKeyCode() == 10) {
-            GGame.mainGCommander.parseCommand(mainTextField.getText());
-            mainTextField.setText("");
+
+            Thread myThread = new Thread(){
+                @Override
+                public void run() {
+
+                    String temp = mainTextField.getText();
+                    mainTextField.setText("");
+                    GGame.mainGCommander.parseCommand(temp);
+
+                }
+            };
+
+            myThread.start();
         }
-        //else{
-        //    mainTextField.setText(mainTextField.getText() + new Character(e.getKeyChar()));
-        //}
     }
 
     @Override
