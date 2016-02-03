@@ -34,12 +34,12 @@ public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
         try{Thread.sleep(700);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("(You reach Eleanor Guthrie)");
         try{Thread.sleep(400);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor Guthrie: Hello James, what you doing here?");
+        GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor Guthrie: Hello James, what are you doing here?");
         currentObject = tavernEntry;
     }
 
     private void goToMaxRoom(){
-        GMain.mainGGame.mainGFrame.consoleAddLine("(You push past the people an up the stairs to Max's room)");
+        GMain.mainGGame.mainGFrame.consoleAddLine("(You push past the people and up the stairs to Max's room)");
         try{Thread.sleep(700);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("(You open the door and Max is lying on the bed)");
         try{Thread.sleep(400);}catch (Exception e){}
@@ -139,13 +139,13 @@ public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
         try{Thread.sleep(2800);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("You: A nation of thieves!");
         try{Thread.sleep(400);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("(Mr Scott barges in from the door!)");
+        GMain.mainGGame.mainGFrame.consoleAddLine("(Mr. Scott barges in from the door!)");
         try{Thread.sleep(2800);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("Mr Scott: You want to turn pirates into farmers and soldiers?");
+        GMain.mainGGame.mainGFrame.consoleAddLine("Mr. Scott: You want to turn pirates into farmers and soldiers?");
         try{Thread.sleep(2800);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("Mr Scott: Captain Flint, I believe you have no idea how to handle these pirates!");
+        GMain.mainGGame.mainGFrame.consoleAddLine("Mr. Scott: Captain Flint, I believe you have no idea how to handle these pirates!");
         try{Thread.sleep(2800);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("You: They're not animals, Mr.Scott. They're men starved of hope.");
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: They're not animals, Mr. Scott. They're men starved of hope.");
         try{Thread.sleep(2800);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("You: Give that back to them, who's to say what could happen?");
         try{Thread.sleep(2800);}catch (Exception e){}
@@ -153,13 +153,13 @@ public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
         try{Thread.sleep(2800);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("You: Odysseus, on his journey home to Ithaca, was visited by a ghost.");
         try{Thread.sleep(2800);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("You: The ghost tells him that once he reaches his home, once he slays all his enemies and sets his house in order.");
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: The ghost tells him that once he reaches his home, once he slays all his enemies and sets his house in order,");
         try{Thread.sleep(2800);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("You: He must do one last thing before he can rest.");
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: he must do one last thing before he can rest.");
         try{Thread.sleep(2800);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("You: The ghost tells him to pick up an oar and walk inland.");
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: The ghost tells him to pick up an oar and walk inland,");
         try{Thread.sleep(2800);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("You: And keep walking until somebody mistakes that oar for a shovel.");
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: and keep walking until somebody mistakes that oar for a shovel.");
         try{Thread.sleep(2800);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("You: For that would be the place that no man had ever been troubled by the sea.");
         try{Thread.sleep(2800);}catch (Exception e){}
@@ -187,7 +187,7 @@ public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
         try{Thread.sleep(1600);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor: And you didn't mention this before, the blinding fact that you don't have the schedule.");
         try{Thread.sleep(1200);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("Billy: Yes him!");
+        GMain.mainGGame.mainGFrame.consoleAddLine("Billy: Yes, him!");
         try{Thread.sleep(1000);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("You: It wasn't important, everything is under control, and as you can see, we are close!");
         try{Thread.sleep(2800);}catch (Exception e){}
@@ -197,13 +197,13 @@ public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
         try{Thread.sleep(1500);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor: Get the schedule, come talk to me again.");
         try{Thread.sleep(2800);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("Mr Scott: You cannot actually be considering this Eleanor, the man is deranged!");
+        GMain.mainGGame.mainGFrame.consoleAddLine("Mr. Scott: You cannot actually be considering this Eleanor, the man is deranged!");
         try{Thread.sleep(300);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("Billy: We must leave and find him!");
         try{Thread.sleep(2000);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor: It's my money Mr Scott.");
+        GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor: It's my money Mr. Scott.");
         try{Thread.sleep(1000);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("Mr Scott: It's your father's!");
+        GMain.mainGGame.mainGFrame.consoleAddLine("Mr. Scott: It's your father's!");
         try{Thread.sleep(2000);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor: Well, good thing he isn't here then...");
         try{Thread.sleep(2800);}catch (Exception e){}
