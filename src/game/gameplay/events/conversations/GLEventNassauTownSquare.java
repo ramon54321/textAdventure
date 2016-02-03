@@ -12,7 +12,7 @@ import game.gameplay.events.GNarrator;
  */
 public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
 
-    GForkNode entryFork = new GForkNode(this, "Go to Eleanor's Tavern.", "Go to Max's room.");
+    GForkNode entryFork = new GForkNode(this, "Go to Eleanor's Tavern.", "Go to Max's room.", "Talk to The Punmaster of Nassau");
 
     GForkNode tavernEntry = new GForkNode(this, "Ask about business.", "Tell her a story of a Spaniard named Vasquez.");
     GForkNode maxEntry = new GForkNode(this, "Have a chat.");
@@ -45,6 +45,45 @@ public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
         try{Thread.sleep(400);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("Max: Bonjour monsoir, trie bien? Mon ami?");
         currentObject = maxEntry;
+    }
+
+    private void talkToPunmaster(){
+        GMain.mainGGame.mainGFrame.consoleAddLine("(You see the most legendary person of Nassau - The Punmaster - standing in a corner.)");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("(You approach Him.)");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: Oy, you almighty Punmaster. I challenge thee to an ocean pun battle.");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Punmaster: I don't quite sea what you mean... I definitely never make ocean puns on porpoise.");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: Water you talking about, you just did it again!");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Punmaster: That's a load of carp! It was just a fluke.");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: You're just fishing for compliments!");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Punmaster: Well you’re a little lake to be starting now.");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: Stop being so shellfish!");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Punmaster: Astern attitude doesn't befit you.");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: These puns seem rather hoki, if you ask me.");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Punmaster: You think? I sure am jella about how long this list of puns is!");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: *hic* I think someone piked the punch!");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Punmaster: I think the waiter sprat in your soup.");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: Did I say that? I’m such a slipmouth.");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Punmaster: That was quite the snapper comeback.");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: ...");
+        try{Thread.sleep(5000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("(You lost the battle.)");
+        currentObject = entryFork;
     }
 
     private void askAboutBusiness(){
@@ -250,6 +289,7 @@ public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
         // Entry
         entryFork.actionNodes.get(0).setOptionAction(() -> goToTavern());
         entryFork.actionNodes.get(1).setOptionAction(() -> goToMaxRoom());
+        entryFork.actionNodes.get(2).setOptionAction(() -> talkToPunmaster());
 
         // Tavern Entry
         tavernEntry.actionNodes.get(0).setOptionAction(() -> askAboutBusiness());
