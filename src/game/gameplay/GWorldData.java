@@ -43,6 +43,7 @@ public class GWorldData {
         mission4_FoundTheCook,
         mission5_FoughtSingleton,
         mission6_ReqHelpFromPoolPlayersToRepairShip,
-        mission7_TalkToEleanorAbourWoodSupply
+        mission7_TalkToEleanorAboutWoodSupply
+        //mission8_
     }
 }

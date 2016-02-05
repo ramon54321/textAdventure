@@ -170,7 +170,7 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
                     try{Thread.sleep(300);}catch (Exception e){}
                     GMain.mainGGame.mainGFrame.consoleAddLine("Pool players: Hahahaha (The players laugh at the joke.)");
                     try{Thread.sleep(1500);}catch (Exception e){}
-                    GMain.mainGGame.mainGFrame.consoleAddLine("Pool player: Go talk to that Guthrie woman in the tavern, she has a lot to do with them.");
+                    GMain.mainGGame.mainGFrame.consoleAddLine("Pool player: Go talk to that Eleanor Guthrie woman in the tavern, she has a lot to do with them.");
                     // set flag of spoken to pool players here so upper block will run next time
                     GMain.mainGGame.mainWorldData.worldFlags.add(GWorldData.GFlags.mission1_TalkToPoolPlayers);
                 }

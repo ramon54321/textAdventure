@@ -21,6 +21,6 @@ public class GLNassauFlamingoLagoon extends GLocation {
 
     @Override
     public void makeConnections() {
-        makeConnectionTo("Nassau Forrest North", true);
+        makeConnectionTo("Nassau Forest North", true);
     }
 }

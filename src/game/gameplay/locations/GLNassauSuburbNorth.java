@@ -21,7 +21,7 @@ public class GLNassauSuburbNorth extends GLocation {
 
     @Override
     public void makeConnections() {
-        makeConnectionTo("Nassau Forrest North", true);
+        makeConnectionTo("Nassau Forest North", true);
         makeConnectionTo("Nassau Boat Yard", true);
         makeConnectionTo("Nassau Town Market", true);
     }
