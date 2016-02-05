@@ -12,7 +12,7 @@ import game.gameplay.events.GNarrator;
  */
 public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
 
-    GForkNode entryFork = new GForkNode(this, "Go to Eleanor's Tavern.", "Go to Max's room.", "Talk to The Punmaster of Nassau");
+    GForkNode entryFork = new GForkNode(this, "Go to Eleanor's Tavern.", "Go to Max's room.", "Talk to The Punmaster of Nassau.");
 
     GForkNode tavernEntry = new GForkNode(this, "Ask about business.", "Tell her a story of a Spaniard named Vasquez.");
     GForkNode maxEntry = new GForkNode(this, "Have a chat.");
@@ -93,6 +93,11 @@ public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
         try{Thread.sleep(800);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor Guthrie: As usual. Why don't you come talk to me when you can earn me money!");
         tavernEntry.actionNodes.remove(0);
+    }
+
+    private void askForWood(){
+        GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor Guthrie: Business eh? Since when do you care about my business...");
+
     }
 
     private void tellStoryOfSpaniard(){
@@ -274,7 +279,7 @@ public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
 
         GMain.mainGGame.mainWorldData.worldFlags.add(GWorldData.GFlags.mission2_TellStoryToEleanorAboutSpaniard);
 
-        tavernEntry.actionNodes.remove(0);
+        tavernEntry.actionNodes.remove(1);
 
     }
 
@@ -295,11 +300,21 @@ public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
 
         // Tavern Entry
         tavernEntry.actionNodes.get(0).setOptionAction(() -> askAboutBusiness());
-        if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission2_TellStoryToEleanorAboutSpaniard)) {
-            //tavernEntry.actionNodes.get(1).setOptionAction(() -> proposeDeal());
+        if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission4_FoundTheCook) && !GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission5_FoughtSingleton)) {
+            tavernEntry.actionNodes.get(1).setOptionText("Propose Deal.");
+            // tavernEntry.actionNodes.get(1).setOptionAction(() -> proposeDeal());
+        }
+        else if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission6_ReqHelpFromPoolPlayersToRepairShip) && !GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission7_TalkToEleanorAbourWoodSupply)) {
+            tavernEntry.actionNodes.get(1).setOptionText("Ask for wood.");
+            tavernEntry.actionNodes.get(1).setOptionAction(() -> askForWood());
+        }
+        else if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission1_TalkToPoolPlayers) && !GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission2_TellStoryToEleanorAboutSpaniard))
+        {
+            tavernEntry.actionNodes.get(1).setOptionText("Tell a story about a Spaniard named Vasquez.");
+            tavernEntry.actionNodes.get(1).setOptionAction(() -> tellStoryOfSpaniard());
         }
         else {
-            tavernEntry.actionNodes.get(1).setOptionAction(() -> tellStoryOfSpaniard());
+            tavernEntry.actionNodes.remove(1);
         }
 
         // Max Entry

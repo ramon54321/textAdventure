@@ -30,12 +30,17 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
     private void toPool(){
         GMain.mainGGame.mainGFrame.consoleAddLine("(You walk to the pool table)");
         try{Thread.sleep(800);}catch (Exception e){}
-        if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.pub_HasAccessToHelp)) {//flag has access to help from pub members
-            currentObject = barHelp1;
-        }
-        else {
+
+        if(!GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission6_ReqHelpFromPoolPlayersToRepairShip)) {//flag has access to help from pub members
             GMain.mainGGame.mainGFrame.consoleAddLine("Pool player: Here to play or watch mate?");
             currentObject = barPool;
+        }
+        else {
+            GMain.mainGGame.mainGFrame.consoleAddLine("(There is no one here)");
+            try{Thread.sleep(800);}catch (Exception e){}
+            GMain.mainGGame.mainGFrame.consoleAddLine("(You walk back to the bar counter)");
+            try{Thread.sleep(800);}catch (Exception e){}
+            currentObject = barEntry;
         }
     }
     private void drinkBeer(){
@@ -123,6 +128,7 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
             currentObject = bar;
         });
 
+        /*
         barHelp1.actionNodes.get(0).setOptionAction(() -> {
             GMain.mainGGame.mainGFrame.consoleAddLine("Pool player 2: We will be glad to help!");
             try{Thread.sleep(700);}catch (Exception e){}
@@ -132,6 +138,8 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
             GMain.mainGGame.mainWorldData.worldFlags.add(GWorldData.GFlags.visitedPub_AskedForShipRepairs);
             barHelp1.actionNodes.remove(0);
         });
+        */
+
         barHelp1.actionNodes.get(1).setOptionAction(() -> goToCounter());
 
         barEntry.actionNodes.get(1).setOptionAction(() -> toPool());
@@ -152,7 +160,7 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
             // Change this action for next round
             barMatch.actionNodes.get(0).setOptionText("Ask more about the pirates in the town.");
             barMatch.actionNodes.get(0).setOptionAction(() -> {
-                if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.pub_SpokenToPoolPlayers)) {//flag has spoken to pool players before
+                if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission1_TalkToPoolPlayers)) {//flag has spoken to pool players before
                     GMain.mainGGame.mainGFrame.consoleAddLine("Pool player 3: Ah the laddy is back!");
                     try{Thread.sleep(300);}catch (Exception e){}
                     GMain.mainGGame.mainGFrame.consoleAddLine("Pool player: You spoken to Eleanor yet?");
@@ -164,9 +172,9 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
                     try{Thread.sleep(1500);}catch (Exception e){}
                     GMain.mainGGame.mainGFrame.consoleAddLine("Pool player: Go talk to that Guthrie woman in the tavern, she has a lot to do with them.");
                     // set flag of spoken to pool players here so upper block will run next time
-                    GMain.mainGGame.mainWorldData.worldFlags.add(GWorldData.GFlags.pub_SpokenToPoolPlayers);
+                    GMain.mainGGame.mainWorldData.worldFlags.add(GWorldData.GFlags.mission1_TalkToPoolPlayers);
                 }
-                if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.pub_SpokenToEleanorAboutDeal)) {//Flag has spoken to eleanor
+                if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission5_FoughtSingleton) && !GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission6_ReqHelpFromPoolPlayersToRepairShip)) {//Flag has spoken to eleanor
                     barMatch.actionNodes.get(0).setOptionText("Tell them about your conversation with Eleanor Guthrie.");
                     barMatch.actionNodes.get(0).setOptionAction(() -> {
                         GMain.mainGGame.mainGFrame.consoleAddLine("Pool player: Seems like you have a rather promising story there capt.");
@@ -181,8 +189,23 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
                         }
                         try{Thread.sleep(1600);}catch (Exception e){}
                         GMain.mainGGame.mainGFrame.consoleAddLine("Pool player 3: We are at your service captain, anything you need, you know where to find us!");
+                        try{Thread.sleep(1800);}catch (Exception e){}
+                        GMain.mainGGame.mainGFrame.consoleAddLine("Pool player: We will need tools and wood.");
+                        try{Thread.sleep(1800);}catch (Exception e){}
+                        GMain.mainGGame.mainGFrame.consoleAddLine("Pool player 2: I can manage to get us tools, but wood we sure need.");
+                        try{Thread.sleep(1800);}catch (Exception e){}
+                        GMain.mainGGame.mainGFrame.consoleAddLine("Pool player 3: Yes for sure, did you see the damage we need to fix.");
+                        try{Thread.sleep(1800);}catch (Exception e){}
+                        GMain.mainGGame.mainGFrame.consoleAddLine("You: Very well, I will arrange you get what you require.");
+                        try{Thread.sleep(1800);}catch (Exception e){}
+                        GMain.mainGGame.mainGFrame.consoleAddLine("(You walk away)");
+                        try{Thread.sleep(4000);}catch (Exception e){}
+                        GMain.mainGGame.mainGFrame.consoleClear();
+                        GMain.mainGGame.mainGFrame.consoleAddLine("** Try talking to Eleanor about wood supply **");
+
                         //flag set help available in pub
                         GMain.mainGGame.mainWorldData.worldFlags.add(GWorldData.GFlags.pub_HasAccessToHelp);
+                        GMain.mainGGame.mainWorldData.worldFlags.add(GWorldData.GFlags.mission6_ReqHelpFromPoolPlayersToRepairShip);
                     });
                 }
                 else {
