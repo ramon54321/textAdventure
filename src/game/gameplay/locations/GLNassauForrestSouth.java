@@ -9,7 +9,7 @@ import game.gameplay.items.GINavigationManual;
 public class GLNassauForrestSouth extends GLocation {
     public GLNassauForrestSouth(GGame gGame) {
         this.gGame = gGame;
-        this.name = "Nassau Forrest South";
+        this.name = "Nassau Forest South";
         this.xPos = 5;
         this.yPos = -5;
         addItems();

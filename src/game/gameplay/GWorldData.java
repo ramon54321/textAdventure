@@ -39,6 +39,10 @@ public class GWorldData {
         other_FixedShip,
         mission1_TalkToPoolPlayers,
         mission2_TellStoryToEleanorAboutSpaniard,
-        mission3_TalkToGatesAtPubAndSetOffToFindTheCook
+        mission3_TalkToGatesAtPubAndSetOffToFindTheCook,
+        mission4_FoundTheCook,
+        mission5_FoughtSingleton,
+        mission6_ReqHelpFromPoolPlayersToRepairShip,
+        mission7_TalkToEleanorAbourWoodSupply
     }
 }
