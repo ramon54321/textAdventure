@@ -86,6 +86,96 @@ public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
         currentObject = entryFork;
     }
 
+    private void proposeDeal(){
+        GMain.mainGGame.mainGFrame.consoleAddLine("(You are in the tavern with Eleanor)");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: Here's the cook!");
+        try{Thread.sleep(1600);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: He played it dumb and burned the damn schedule!");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor: WHAT?! Kill him!");
+        try{Thread.sleep(600);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: No! That's the last thing we can do. We must spare his life, or else there goes our only chance at L'Urca de Lima.");
+        try{Thread.sleep(3200);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor: That motherfuc-");
+        try{Thread.sleep(600);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Cook: The name's John, actually. John Silver. For your fortune, I memorized the schedule.");
+        //Cook has told his name to you, Eleanor, and Gates.
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Cook: So your only chance to get to Lima's treasures is by taking me with you.");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: Or then we just make you write the schedule down!");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor: That sounds good. Here's some paper for you. Start writing now, you..!");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("(John Silver is writing down the schedule...");
+        try{Thread.sleep(6000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("John: There you go! (John gives the schedule to you)");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("(You read the schedule...)");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: Where's the rest of it? This leads to a rather large chunk of ocean. We can't find the ship without the rest of the schedule.");
+        try{Thread.sleep(3200);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor: Go on, write it down now!");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("John: That wouldn't be very smart for my part, would it?");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("What's to say you wouldn't kill me right after I give it to you? This is my insurance.");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("John: Take me with you, and I'll tell you the rest when we reach the point where we need it.");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: And what's to say we don't kill you then?");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("John: Well, we have a few weeks until that. We might become friends by then!");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: Alright, you're coming with us then. But no tricks, or you're dead!");
+        try{Thread.sleep(3200);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Gates: Eleanor, we have another issue. The ship's crew is planning a vote to promote Singleton as our captain, and get rid of Captain Flint!");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Gates: We can't let that happen, or we never get to L'Urca de Lima!");
+        try{Thread.sleep(3200);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor: Oh no, we have to do something...");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: With a bit of money, I could inspire our men to vote for me.");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor: You want to buy your crew's votes?");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: That's the only thing we can do right now. The voting happens today, so we need their votes right now!");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor: How much do you need? One hundred? Two hundred?");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: Actually...");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: I was thinking more like a thousand.");
+        try{Thread.sleep(1200);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor: A THOUSAND pieces of eight just to inspire your crew?! That's bullsh-");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Gates: Think of it as an investment for the future.");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Gates: With just a thousand pieces of eight we will earn you five million dollars by taking down L'Urca de Lima.");
+        try{Thread.sleep(2400);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor: ...");
+        try{Thread.sleep(4000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor: Well, I guess you're right. Here's your money.");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: Thank you ma'am!");
+        try{Thread.sleep(4000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("Singleton (from outside): YOU MOTHERFU@*€R, COME 'ERE YOU LITTLE D1£K AND I'LL F*£K YOU SIDEWAYS!!");
+        try{Thread.sleep(4000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("You: What the...");
+        try{Thread.sleep(2000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("(You rush outside to see what's going on)");
+        try{Thread.sleep(4000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("(You see Singleton, face red with anger, yelling at you.)");
+        try{Thread.sleep(4000);}catch (Exception e){}
+        GMain.mainGGame.mainGFrame.consoleAddLine("(Singleton swings a punch at you.)");
+
+        //TODO: New fight with Singleton
+
+        //Set flag, mission 5 fought Singleton
+        tavernEntry.actionNodes.remove(1);
+    }
+
     private void askAboutBusiness(){
         GMain.mainGGame.mainGFrame.consoleAddLine("Eleanor Guthrie: Business eh? Since when do you care about my business...");
         try{Thread.sleep(1200);}catch (Exception e){}
@@ -296,7 +386,7 @@ public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
         // Tavern Entry
         tavernEntry.actionNodes.get(0).setOptionAction(() -> askAboutBusiness());
         if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission2_TellStoryToEleanorAboutSpaniard)) {
-            //tavernEntry.actionNodes.get(1).setOptionAction(() -> proposeDeal());
+            tavernEntry.actionNodes.get(1).setOptionAction(() -> proposeDeal());
         }
         else {
             tavernEntry.actionNodes.get(1).setOptionAction(() -> tellStoryOfSpaniard());
