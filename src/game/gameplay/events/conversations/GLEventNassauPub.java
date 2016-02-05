@@ -82,6 +82,40 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
         GMain.mainGGame.mainGFrame.consoleAddLine(" - Pirates always come to the pub to rest, always makes for good conversation.");
         GMain.mainGGame.mainGFrame.consoleAddLine(" - The pub often contains hints and the latest information on whats happening.");
 
+        if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission2_TellStoryToEleanorAboutSpaniard) && !GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission3_TalkToGatesAtPubAndSetOffToFindTheCook)){
+            GMain.mainGGame.mainGFrame.consoleClear();
+            GMain.mainGGame.mainGFrame.consoleAddLine("Gates: Ahhh Captain, we need to talk!");
+            try{Thread.sleep(2200);}catch (Exception e){}
+            GMain.mainGGame.mainGFrame.consoleAddLine("You: Yes we do...");
+            try{Thread.sleep(2200);}catch (Exception e){}
+            GMain.mainGGame.mainGFrame.consoleAddLine("Gates: I have been thinking, do you rememb...");
+            try{Thread.sleep(1000);}catch (Exception e){}
+            GMain.mainGGame.mainGFrame.consoleAddLine("You: the cook?");
+            try{Thread.sleep(1700);}catch (Exception e){}
+            GMain.mainGGame.mainGFrame.consoleAddLine("Gates: Yes, how did you know?");
+            try{Thread.sleep(2200);}catch (Exception e){}
+            GMain.mainGGame.mainGFrame.consoleAddLine("You: Billy told me he was never searched.");
+            try{Thread.sleep(1600);}catch (Exception e){}
+            GMain.mainGGame.mainGFrame.consoleAddLine("Gates: Damnit Billy! How could you let that slip.");
+            try{Thread.sleep(2200);}catch (Exception e){}
+            GMain.mainGGame.mainGFrame.consoleAddLine("Billy: Sorry sir.");
+            try{Thread.sleep(1000);}catch (Exception e){}
+            GMain.mainGGame.mainGFrame.consoleAddLine("You: Look, let's just get to the point, where is he?");
+            try{Thread.sleep(2200);}catch (Exception e){}
+            GMain.mainGGame.mainGFrame.consoleAddLine("Gates: Probably out in the forest, some of the men said they saw him go that way.");
+            try{Thread.sleep(2000);}catch (Exception e){}
+            GMain.mainGGame.mainGFrame.consoleAddLine("You: Lets go.");
+            try{Thread.sleep(2200);}catch (Exception e){}
+            GMain.mainGGame.mainGFrame.consoleAddLine("(You, Billy and Gates leave the pub)");
+            try{Thread.sleep(4000);}catch (Exception e){}
+            GMain.mainGGame.mainGFrame.consoleClear();
+            GMain.mainGGame.mainGFrame.consoleAddLine("** Search the forests for the cook **");
+
+            GMain.mainGGame.mainWorldData.worldFlags.add(GWorldData.GFlags.mission3_TalkToGatesAtPubAndSetOffToFindTheCook);
+
+            eventKill();
+        }
+
         barEntry.actionNodes.get(0).setOptionAction(() -> {
             GMain.mainGGame.mainGFrame.consoleAddLine("Bartender: How ar' ya.");
             // Flags here for information
@@ -139,7 +173,7 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
                         try{Thread.sleep(700);}catch (Exception e){}
                         GMain.mainGGame.mainGFrame.consoleAddLine("Pool player 2: Il sail with ya.");
                         try{Thread.sleep(800);}catch (Exception e){}
-                        if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission_FixedShip)) {//Flag sailable has ship
+                        if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.other_FixedShip)) {//Flag sailable has ship
                             GMain.mainGGame.mainGFrame.consoleAddLine("Pool player: So would I! If ya need a crew man, Il be ya lad!");
                         }
                         else {// has broken ship

@@ -233,6 +233,8 @@ public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
         GMain.mainGGame.mainGFrame.consoleAddLine("** Find the cook **");
         GMain.mainGGame.mainGFrame.consoleAddLine("** Ask Gates -> He is usually in either the Pub or Town Market **");
 
+        GMain.mainGGame.mainWorldData.worldFlags.add(GWorldData.GFlags.mission2_TellStoryToEleanorAboutSpaniard);
+
         tavernEntry.actionNodes.remove(0);
 
     }
@@ -253,11 +255,11 @@ public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
 
         // Tavern Entry
         tavernEntry.actionNodes.get(0).setOptionAction(() -> askAboutBusiness());
-        if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission_TellStoryToEleanorAboutSpaniard)) {
+        if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission2_TellStoryToEleanorAboutSpaniard)) {
             //tavernEntry.actionNodes.get(1).setOptionAction(() -> proposeDeal());
         }
         else {
-            tavernEntry.actionNodes.get(1).setOptionAction(() -> tellStoryOfSpaniard()); // Will be replaced by self
+            tavernEntry.actionNodes.get(1).setOptionAction(() -> tellStoryOfSpaniard());
         }
 
         // Max Entry

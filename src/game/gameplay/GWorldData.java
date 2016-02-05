@@ -36,7 +36,9 @@ public class GWorldData {
         pub_HasAccessToHelp,
         pub_SpokenToPoolPlayers,
         pub_SpokenToEleanorAboutDeal,
-        mission_FixedShip,
-        mission_TellStoryToEleanorAboutSpaniard
+        other_FixedShip,
+        mission1_TalkToPoolPlayers,
+        mission2_TellStoryToEleanorAboutSpaniard,
+        mission3_TalkToGatesAtPubAndSetOffToFindTheCook
     }
 }
