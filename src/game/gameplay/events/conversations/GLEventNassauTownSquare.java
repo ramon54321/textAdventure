@@ -54,7 +54,7 @@ public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
         try{Thread.sleep(3000);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("You: Oy, you almighty Punmaster. I challenge thee to an ocean pun battle.");
         try{Thread.sleep(3000);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("(Ship just got real!");
+        GMain.mainGGame.mainGFrame.consoleAddLine("(Ship just got real!)");
         try{Thread.sleep(3000);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("Punmaster: I don't quite sea what you mean... I definitely never make ocean puns on porpoise.");
         try{Thread.sleep(3000);}catch (Exception e){}
