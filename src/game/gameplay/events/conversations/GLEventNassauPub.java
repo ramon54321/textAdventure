@@ -44,17 +44,44 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
             currentObject = barEntry;
         }
     }
+
+    //Beer drinking stuff
+
+    int beerCount = 0;
+
     private void drinkBeer(){
         try{Thread.sleep(900);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("(You drink the beer in a giant gulp)");
+        beerCount++;
         try{Thread.sleep(1500);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("(You start to feel a little light headed actually)");
-        bar.actionNodes.remove(bar.getActionNodeByOptionText("Drink beer."));
+        if (beerCount >= 5) {
+            GMain.mainGGame.mainGFrame.consoleAddLine("(You can't feel a thing anymore. Your vision starts slowly blurring.....)");
+            try{Thread.sleep(2500);}catch (Exception e){}
+            GMain.mainGGame.killPlayer();
+        }
+        if (beerCount == 1) {
+            GMain.mainGGame.mainGFrame.consoleAddLine("(You start to feel a little light-headed.)");
+            bar.actionNodes.remove(bar.getActionNodeByOptionText("Drink beer."));
+        }
+        if (beerCount == 2) {
+            GMain.mainGGame.mainGFrame.consoleAddLine("(You start to feel even more light-headed now.)");
+            bar.actionNodes.remove(bar.getActionNodeByOptionText("Drink beer."));
+        }
+        if (beerCount == 3) {
+            GMain.mainGGame.mainGFrame.consoleAddLine("(You start to feel seriously light-headed now. You should probably stop drinking soon...)");
+            bar.actionNodes.remove(bar.getActionNodeByOptionText("Drink beer."));
+        }
+        if (beerCount == 4) {
+            GMain.mainGGame.mainGFrame.consoleAddLine("(There's a heavy buzz in your head. You feel extremely dizzy.)");
+            try{Thread.sleep(2500);}catch (Exception e){}
+            GMain.mainGGame.mainGFrame.consoleAddLine("(You should stop drinking immediately.)");
+            bar.actionNodes.remove(bar.getActionNodeByOptionText("Drink beer."));
+        }
     }
     private void getBeer(){
-        GMain.mainGGame.mainGFrame.consoleAddLine("Bartender: A beer eh? I'l get ya one.");
+        GMain.mainGGame.mainGFrame.consoleAddLine("Bartender: A beer eh? I'll get ya one.");
         try{Thread.sleep(600);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("(The bartender goes to pour you a beer)");
+        GMain.mainGGame.mainGFrame.consoleAddLine("(The bartender goes to pour you a beer.)");
         try{Thread.sleep(1500);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("Bartender: Here you go!");
         bar.actionNodes.add(new GActionNode("Drink beer.", () -> drinkBeer()));
@@ -63,13 +90,34 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
         bar.actionNodes.get(0).setOptionText("Ask for another beer!");
         bar.actionNodes.get(0).setOptionAction(() -> getAnotherBeer());
     }
+
     private void getAnotherBeer(){
-        GMain.mainGGame.mainGFrame.consoleAddLine("Bartender: Another one? Going for it tonight are we...");
-        try{Thread.sleep(600);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("(The bartender goes to pour you another beer)");
-        try{Thread.sleep(1500);}catch (Exception e){}
-        GMain.mainGGame.mainGFrame.consoleAddLine("Bartender: Here you go matey!");
-        bar.actionNodes.add(new GActionNode("Drink beer.", () -> drinkBeer()));
+        if (beerCount == 1) {
+            GMain.mainGGame.mainGFrame.consoleAddLine("Bartender: Another one? Going for it tonight are we...");
+            try {Thread.sleep(600);} catch (Exception e) {}
+            GMain.mainGGame.mainGFrame.consoleAddLine("(The bartender goes to pour you another beer)");
+            try {Thread.sleep(1500);} catch (Exception e) {}
+            GMain.mainGGame.mainGFrame.consoleAddLine("Bartender: Here you go matey!");
+            bar.actionNodes.add(new GActionNode("Drink beer.", () -> drinkBeer()));
+        }
+        if (beerCount == 2 || beerCount == 3) {
+            GMain.mainGGame.mainGFrame.consoleAddLine("Bartender: Still going, eh? Yer a heavy drinker, aren't ya...");
+            try {Thread.sleep(600);} catch (Exception e) {}
+            GMain.mainGGame.mainGFrame.consoleAddLine("(The bartender goes to pour you another beer.)");
+            try {Thread.sleep(1500);} catch (Exception e) {}
+            GMain.mainGGame.mainGFrame.consoleAddLine("Bartender: Here you go matey!");
+            bar.actionNodes.add(new GActionNode("Drink beer.", () -> drinkBeer()));
+        }
+        if (beerCount == 4) {
+            GMain.mainGGame.mainGFrame.consoleAddLine("Bartender: Are ya sure ya can handle so many beers? These are quite strong mate...");
+            try {Thread.sleep(2000);} catch (Exception e) {}
+            GMain.mainGGame.mainGFrame.consoleAddLine("Bartender: Eh, it's yer funeral, not mine.");
+            try {Thread.sleep(600);} catch (Exception e) {}
+            GMain.mainGGame.mainGFrame.consoleAddLine("(The bartender goes to pour you another beer...)");
+            try {Thread.sleep(1500);} catch (Exception e) {}
+            GMain.mainGGame.mainGFrame.consoleAddLine("Bartender: Here you go matey! Be careful now...");
+            bar.actionNodes.add(new GActionNode("Drink beer.", () -> drinkBeer()));
+        }
     }
 
     private void goToCounter(){
@@ -90,7 +138,7 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
 
         //GMain.mainGGame.mainGDatabase.conversations.get("mission4_gatesInPub").narrateConversation();
 
-        new GLEFight(true, GMain.mainGGame.person_singleton);
+        //new GLEFight(true, GMain.mainGGame.person_singleton);
 
         if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission2_TellStoryToEleanorAboutSpaniard) && !GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission3_TalkToGatesAtPubAndSetOffToFindTheCook)){
             GMain.mainGGame.mainGFrame.consoleClear();

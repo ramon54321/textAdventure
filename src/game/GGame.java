@@ -230,6 +230,30 @@ public class GGame extends Canvas implements Runnable{
         return null;
     }
 
+    /**
+     * DO NOT RUN IN MAIN THREAD!
+     */
+    public void killPlayer() {
+        GMain.mainGGame.mainGFrame.consoleClear();
+        GMain.mainGGame.mainGFrame.consoleAddLine("**************");
+        GMain.mainGGame.mainGFrame.consoleAddLine("(You've died.)");
+        GMain.mainGGame.mainGFrame.consoleAddLine("**************");
+        try {Thread.sleep(2500);} catch (Exception e) {}
+        GMain.mainGGame.mainGFrame.consoleAddLine("(Your memory will not be forgotten.)");
+        try {Thread.sleep(2500);} catch (Exception e) {}
+        GMain.mainGGame.mainGFrame.consoleAddLine("(Rest in peace, Captain Flint.)");
+        try {Thread.sleep(2500);} catch (Exception e) {}
+        GMain.mainGGame.mainGFrame.consoleAddLine("(Type \"1\" to quit the game.)");
+        while (true) {
+            if (GFrame.getInput().equals("1")) {
+                System.exit(0);
+            }
+            else {
+                GMain.mainGGame.mainGFrame.consoleAddLine("(No, retard. I said type \"1\".)");
+            }
+        }
+    }
+
     public void setLocation(GLocation locationToSetTo){
         int distance = (int) Math.sqrt((locationToSetTo.xPos - currentLocation.xPos)*(locationToSetTo.xPos - currentLocation.xPos) + (locationToSetTo.yPos - currentLocation.yPos)*(locationToSetTo.yPos - currentLocation.yPos));
         mainGCommander.moveToNewLocation(distance, locationToSetTo);
