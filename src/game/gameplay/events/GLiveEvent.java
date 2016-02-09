@@ -12,6 +12,9 @@ public class GLiveEvent {
 
     public boolean isRunning = true;
     public boolean timedout = false;
+    public boolean pressedInTime = false;
+    public boolean isTimed = false;
+    public boolean isFight = false;
     public GNavigator currentObject;
 
     public GLiveEvent(){
@@ -33,7 +36,7 @@ public class GLiveEvent {
         isRunning = false;
         GMain.mainGGame.currentLiveEvent = null;
         if(!GMain.mainGGame.isMoving) {
-            GMain.mainGGame.mainGCommander.showLocation();
+            //GMain.mainGGame.mainGCommander.showLocation();
             GMain.mainGGame.currentLocation.showEntryInfo();
         }
     }

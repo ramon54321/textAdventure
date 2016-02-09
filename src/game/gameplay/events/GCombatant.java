@@ -15,17 +15,20 @@ public class GCombatant {
     public int defendBonus = 0;
     public GCombatant targetCom;
     public String name;
+    public boolean isPlayer;
 
-    public GCombatant(GLEFight fight, int hitPoints, int defendConst){
+    public GCombatant(GLEFight fight, int hitPoints, int defendConst, boolean isPlayer){
         this.fight = fight;
         this.hitPoints = hitPoints;
         this.defendConst = defendConst;
+        this.isPlayer = isPlayer;
     }
 
-    public GCombatant(GLEFight fight, GPerson person){
+    public GCombatant(GLEFight fight, GPerson person, boolean isPlayer){
         this.fight = fight;
         this.hitPoints = person.getHealthCurrent();
         this.defendConst = person.getDefenceConst();
+        this.isPlayer = isPlayer;
     }
 
     public void addNewTarget(GCombatant target){
@@ -44,6 +47,25 @@ public class GCombatant {
         else{
             GMain.mainGGame.mainGFrame.consoleAddLine(name + " Hitpoints -> " + hitPoints);
         }
+    }
+
+    public void resetBonuses(){
+        defendBonus = 0;
+    }
+
+    public void increaseDefenceBonus(int num){
+        defendBonus += num;
+        weapon.attackBonus -= num;
+    }
+
+    public void increaseAttackBonus(int num){
+        weapon.attackBonus += num;
+        defendBonus -= num;
+    }
+
+    public void inflictDamage(int damage){
+        hitPoints -= damage;
+        hitPointCheck();
     }
 
 }

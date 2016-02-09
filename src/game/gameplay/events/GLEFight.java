@@ -26,6 +26,7 @@ public class GLEFight extends GLiveEvent implements Runnable{
 
     public GLEFight(boolean useNewThread, GPerson enemy){
         this.enemy = enemy;
+        this.isFight  = true;
         if(useNewThread) {
             Thread newThread = new Thread(this);
             newThread.start();
@@ -49,10 +50,11 @@ public class GLEFight extends GLiveEvent implements Runnable{
         switchTurns();
         if(isRunning) {
             if (playerTurn) {
+                //player1.resetBonuses();
 
             } else {
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(500);
                 } catch (Exception e) {
                 }
                 player2.weapon.attackFork.actionNodes.get(0).executeAction();
@@ -84,8 +86,8 @@ public class GLEFight extends GLiveEvent implements Runnable{
     @Override
     public void run() {
         eventStart(this);
-        player1 = new GCombatant(this, GMain.mainGGame.mainGPlayer.getHitPoints(), 30);
-        player2 = new GCombatant(this, enemy);
+        player1 = new GCombatant(this, GMain.mainGGame.mainGPlayer.getHitPoints(), 30, true);
+        player2 = new GCombatant(this, enemy, false);
 
         player1.addNewTarget(player2);
         player2.addNewTarget(player1);

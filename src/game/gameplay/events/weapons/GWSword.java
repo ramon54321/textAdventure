@@ -18,6 +18,7 @@ public class GWSword extends GWeapon{
         currentFight = event;
         this.owner = owner;
         attackConst = 100;
+        attackBonus = 0;
         attackFork = new GForkNode(event, "Slash", "Stab");
         defendFork = new GForkNode(event, "Block", "Duck");
 
@@ -39,19 +40,32 @@ public class GWSword extends GWeapon{
         if(D < C){
             // Hit
             int E = (int)((attackConst / 5) + ((Math.random() - 0.5) * (attackConst / 10)));
-            owner.targetCom.hitPoints -= E;
             GMain.mainGGame.mainGFrame.consoleAddLine("Hit -> Damage -> " + E);
+            owner.targetCom.inflictDamage(E);
         }
         else{
             GMain.mainGGame.mainGFrame.consoleAddLine("Countered!");
         }
-        owner.targetCom.hitPointCheck();
-        //currentFight.finishTurn();
-        currentFight.currentObject = defendFork;
-        currentFight.timedout = true;
+
+        if(owner.isPlayer) {
+            currentFight.isTimed = true;
+            currentFight.currentObject = defendFork;
+        }
+        else {
+            currentFight.finishTurn();
+        }
+
     }
 
     private void defend0(){
+
+        owner.increaseDefenceBonus(500);
+
+        backToAttack();
+    }
+
+    private void backToAttack(){
+        currentFight.isTimed = false;
         currentFight.currentObject = attackFork;
         currentFight.finishTurn();
     }
