@@ -11,6 +11,7 @@ import game.GMain;
 public class GLiveEvent {
 
     public boolean isRunning = true;
+    public boolean timedout = false;
     public GNavigator currentObject;
 
     public GLiveEvent(){

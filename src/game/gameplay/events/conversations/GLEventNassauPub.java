@@ -1,6 +1,7 @@
 package game.gameplay.events.conversations;
 
 import game.GMain;
+import game.gameplay.GDatabase;
 import game.gameplay.GWorldData;
 import game.gameplay.events.*;
 
@@ -86,6 +87,10 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
         GMain.mainGGame.mainGFrame.consoleAddLine("** Nassau Pub **");
         GMain.mainGGame.mainGFrame.consoleAddLine(" - Pirates always come to the pub to rest, always makes for good conversation.");
         GMain.mainGGame.mainGFrame.consoleAddLine(" - The pub often contains hints and the latest information on whats happening.");
+
+        //GMain.mainGGame.mainGDatabase.conversations.get("mission4_gatesInPub").narrateConversation();
+
+        new GLEFight(true, GMain.mainGGame.person_singleton);
 
         if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission2_TellStoryToEleanorAboutSpaniard) && !GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission3_TalkToGatesAtPubAndSetOffToFindTheCook)){
             GMain.mainGGame.mainGFrame.consoleClear();

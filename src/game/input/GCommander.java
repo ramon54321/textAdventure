@@ -63,6 +63,7 @@ public class GCommander{
                 return;
             }
 
+
             String[] commands = command.split(" with ");
             String mainCommand = commands[0];
 

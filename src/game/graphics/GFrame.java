@@ -83,12 +83,36 @@ public class GFrame extends JFrame implements KeyListener{
     }
 
     public static String getInput(GLiveEvent loopBreakerEvent){
-        while(GCommander.lastCommand == null && loopBreakerEvent.isRunning){
+        while(GCommander.lastCommand == null && loopBreakerEvent.isRunning && !loopBreakerEvent.timedout){
+            System.out.println("Loop breaker now at " + loopBreakerEvent.timedout);
             try{Thread.sleep(50);}catch (Exception e){}
+        }
+        if(loopBreakerEvent.timedout){
+            System.out.println("Loop breaker triggered and set back to false.");
+            loopBreakerEvent.timedout = false;
         }
         String temp = GCommander.lastCommand;
         GCommander.lastCommand = null;
         return temp;
+    }
+    public static String getInput(GLiveEvent loopBreakerEvent, double timeout){
+        boolean doCommand = true;
+        long startTime = System.nanoTime();
+        while(GCommander.lastCommand == null && loopBreakerEvent.isRunning){
+            try{Thread.sleep(50);}catch (Exception e){}
+            if(System.nanoTime() - startTime > (timeout * 1000000)){
+                doCommand = false;
+                break;
+            }
+        }
+        if(doCommand) {
+            String temp = GCommander.lastCommand;
+            GCommander.lastCommand = null;
+            return temp;
+        }
+        else {
+            return null;
+        }
     }
 
     public void consoleAddLineNT(String string){

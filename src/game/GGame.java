@@ -1,9 +1,12 @@
 package game;
 
 import game.entity.GEntity;
+import game.gameplay.GDatabase;
+import game.gameplay.GPerson;
 import game.gameplay.GPlayer;
 import game.gameplay.GWorldData;
 import game.gameplay.events.GLiveEvent;
+import game.gameplay.events.conversations.GConversation;
 import game.gameplay.items.GItem;
 import game.gameplay.locations.*;
 import game.graphics.GFrame;
@@ -38,8 +41,9 @@ public class GGame extends Canvas implements Runnable{
     public GFrame mainGFrame;
     public GScreen mainGScreen;
     public GCommander mainGCommander;
-    //public GPlayer mainGPlayer;
+    public GPlayer mainGPlayer;
     public GWorldData mainWorldData;
+    public GDatabase mainGDatabase;
 
     public ArrayList<GEntity> gEntities = new ArrayList<GEntity>();
 
@@ -47,13 +51,17 @@ public class GGame extends Canvas implements Runnable{
     public BufferedImage map_Nassau;
     public BufferedImage map_Charleston;
 
-    // Gameplay
+    // Gameplay Logic
     public ArrayList<GLocation> gLocations = new ArrayList<GLocation>();
 
     public GLocation currentLocation;
     public GItem currentInteraction;
     public GLiveEvent currentLiveEvent;
     public boolean isMoving = false;
+
+    public GPerson person_singleton = new GPerson("Singleton", 120, 120, 25);
+
+    public int person_health_minimumBleedingLevel = 30;
 
     // Management variables
     /*
@@ -146,8 +154,9 @@ public class GGame extends Canvas implements Runnable{
         mainGFrame = new GFrame(this);
         mainGScreen = new GScreen(this);
         mainGCommander = new GCommander(this);
-        //mainGPlayer = new GPlayer(this);
+        mainGPlayer = new GPlayer();
         mainWorldData = new GWorldData();
+        mainGDatabase = new GDatabase();
 
         //Assets
         try {

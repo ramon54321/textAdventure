@@ -16,11 +16,31 @@ import java.util.ArrayList;
 public class GPlayer {
 
     public ArrayList<GItem> inventory = new ArrayList<GItem>();
+    private int hitPoints = 180;
+    private int maxHitPoints = 180;
 
     // TODO: Fix inventory
 
     public GPlayer() {
 
+    }
+
+    public int getHitPoints() {
+        return hitPoints;
+    }
+
+    public void setHitPoints(int hitPoints){
+        this.hitPoints = hitPoints;
+    }
+
+    public void maxOutHitPoints(){
+        hitPoints = maxHitPoints;
+    }
+
+    public void increaseHitPoints(){
+        if(hitPoints < maxHitPoints){
+            hitPoints++;
+        }
     }
 
     public boolean hasItemInInventoryByName(String name){
