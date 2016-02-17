@@ -1,0 +1,47 @@
+2000-(You look around, but you can't see anybody here.)
+2000-You: Where on earth is he?
+2000-(You start walking around, trying to find any traces of life.)
+2000-(You hear leaves rustling behind a tree.)
+2000-You: Who's there?!
+2000-...
+2000-(*Rustling*)
+3000-(You can see a shadowy figure walking towards you from behind the tree)
+2000-(*Quiet footsteps*)
+2000-(The figure comes closer, and you can see it's Charles Vane)
+2000-You: Charles!! What are you doing here?
+3000-Charles: None of your f*#ing business. Now f*#k off before I bash your skull in!
+2000-You: I'm not going anywhere.
+1000-(Charles swings a punch towards you!)
+2000-(You dodge and quickly punch him in the head before he has time to react.)
+2000-(You hit him again, this time harder. He's bleeding already.)
+2000-(Charles staggers backwards, trying to not fall down.)
+2000-(You walk towards him.)
+2000-(He's standing firmly on his feet now, ready to continue the fight.)
+1500-(He takes a swing at you, and manages to hit you quite heavily to your brow.)
+2000-(He hits you again to the head before you have time to react.)
+2000-(You manage to dodge his next hit.)
+2000-(You kick him on his stomach, causing him to fall down.)
+3500-(You kick him again, and again, and again, until he seems to be unconscious...)
+4000-You: IS THERE ANYONE ELSE WHO WANTS A FIGHT?!
+3000-(*Silence*)
+2000-(*Quiet rustling in the bushes*)
+3500-You: COME OUT WHOEVER YOU ARE!
+2000-(*Footsteps*)
+3500-John Silver -  the cook - walks towards you, while holding his hands up, surrendering.
+2500-John: Don't kill me, please! I don't want to fight...
+2500-You: John?! What are you doing here?
+2500-You: Give me the schedule right now!
+3000-John: Can't do that, captain.
+3000-John: See, the thing is.. I burned it. It is no longer in my possession.
+2500-You: You WHAT?!
+3000-John: I'm not dumb though - I memorized the schedule completely before burning it.
+3000-John: It's all in my head now.
+2500-You: ...
+3000-You: You son of a ...! Why would you do that?
+3500-John: Well, see, otherwise you could just kill me right now and take the schedule!
+3000-John: This way I ensure that I stay alive at least until the end of the mission.
+3000-You: And what stops me from killing you after we've completed the mission?
+3500-John: Well, there's at least two weeks until that. I was hoping we could become friends by then.
+3000-You: You know what? You're going to write it down for me before you totally forget it.
+2000-You: Come with me now. Come on!
+3000-(You exit the forest with the cook.)

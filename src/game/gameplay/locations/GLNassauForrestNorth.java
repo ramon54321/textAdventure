@@ -1,6 +1,7 @@
 package game.gameplay.locations;
 
 import game.GGame;
+import game.gameplay.events.conversations.GLEventNassauForestNorth;
 import game.gameplay.items.GINavigationManual;
 
 /**
@@ -22,5 +23,10 @@ public class GLNassauForrestNorth extends GLocation {
     @Override
     public void makeConnections() {
         makeConnectionTo("Nassau Flamingo Lagoon", true);
+    }
+
+    @Override
+    public void startEntryEvent() {
+        new GLEventNassauForestNorth(true);
     }
 }
