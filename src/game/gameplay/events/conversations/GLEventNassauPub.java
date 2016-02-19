@@ -71,7 +71,7 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
             GMain.mainGGame.mainGFrame.consoleAddLine("(You start to feel seriously light-headed now. You should probably stop drinking soon...)");
             bar.actionNodes.remove(bar.getActionNodeByOptionText("Drink beer."));
         }
-        if (beerCount == 4) {
+        if (beerCount ==4 ) {
             GMain.mainGGame.mainGFrame.consoleAddLine("(There's a heavy buzz in your head. You feel extremely dizzy.)");
             try{Thread.sleep(2500);}catch (Exception e){}
             GMain.mainGGame.mainGFrame.consoleAddLine("(You should stop drinking immediately.)");
