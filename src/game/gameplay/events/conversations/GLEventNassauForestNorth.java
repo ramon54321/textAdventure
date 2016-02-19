@@ -27,7 +27,8 @@ public class GLEventNassauForestNorth extends GLiveEvent implements Runnable{
 
     private void lookForCook(){
         GMain.mainGGame.mainGDatabase.conversations.get("mission4_cookInForest.txt").narrateConversation();
-        currentObject = tavernEntry;
+        GMain.mainGGame.mainWorldData.worldFlags.add(GWorldData.GFlags.mission4_FoundTheCook);
+        entryFork.actionNodes.remove(0);
     }
 
     private void examineSurroundings(){
@@ -42,7 +43,6 @@ public class GLEventNassauForestNorth extends GLiveEvent implements Runnable{
         try{Thread.sleep(2000);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("(The atmosphere is eerily quiet, as if something was going to happen very soon....)");
         try{Thread.sleep(2500);}catch (Exception e){}
-        entryFork.actionNodes.remove(1);
     }
 
     @Override
