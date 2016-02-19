@@ -14,7 +14,21 @@ public class GNarrator {
                 int choiceIndex;
                 while (((GForkNode) navObject).parentEvent.isRunning) {
                     try {
-                        choiceIndex = Integer.parseInt(GFrame.getInput(((GForkNode) navObject).parentEvent)) - 1;
+                        if(((GForkNode) navObject).parentEvent.isTimed) {
+                            // this one is delayed and will complete in delay time regardless of input
+                            choiceIndex = Integer.parseInt(GFrame.getInput(((GForkNode) navObject).parentEvent, 1000)) - 1;
+                        }
+                        else{
+                            choiceIndex = Integer.parseInt(GFrame.getInput(((GForkNode) navObject).parentEvent)) - 1;
+                        }
+                        if(choiceIndex == 998){
+                            if(((GLEFight)((GForkNode) navObject).parentEvent).isFight){
+                                ((GLEFight)((GForkNode) navObject).parentEvent).finishTurn();
+                                ((GLEFight)((GForkNode) navObject).parentEvent).isTimed = false;
+                                ((GLEFight)((GForkNode) navObject).parentEvent).currentObject = ((GLEFight)((GForkNode) navObject).parentEvent).player1.weapon.attackFork;
+                            }
+                            break;
+                        }
                         if(((GForkNode) navObject).parentEvent.isRunning) {
                             ((GForkNode) navObject).runOption(choiceIndex);
                         }
@@ -23,6 +37,7 @@ public class GNarrator {
                         }
                         break;
                     } catch (Exception e) {
+                        System.out.println("Caught exception trying input again.");
                         continue;
                     }
                 }

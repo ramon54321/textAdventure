@@ -119,7 +119,7 @@ public class GFrame extends JFrame implements KeyListener{
             return temp;
         }
         else {
-            return null;
+            return "999";
         }
     }
 
