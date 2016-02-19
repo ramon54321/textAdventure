@@ -6,7 +6,6 @@ import game.gameplay.GPerson;
 import game.gameplay.GPlayer;
 import game.gameplay.GWorldData;
 import game.gameplay.events.GLiveEvent;
-import game.gameplay.events.conversations.GConversation;
 import game.gameplay.items.GItem;
 import game.gameplay.locations.*;
 import game.graphics.GFrame;

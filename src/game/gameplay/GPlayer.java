@@ -18,6 +18,7 @@ public class GPlayer {
     public ArrayList<GItem> inventory = new ArrayList<GItem>();
     private int hitPoints = 180;
     private int maxHitPoints = 180;
+    public GPerson person = new GPerson("Captain Flint", 180, 180, 60);
 
     // TODO: Fix inventory
 

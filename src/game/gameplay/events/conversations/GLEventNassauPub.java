@@ -138,7 +138,7 @@ public class GLEventNassauPub extends GLiveEvent implements Runnable{
 
         //GMain.mainGGame.mainGDatabase.conversations.get("mission4_gatesInPub").narrateConversation();
 
-        //new GLEFight(true, GMain.mainGGame.person_singleton);
+        new GLEFight(true, GMain.mainGGame.person_singleton);
 
         if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission2_TellStoryToEleanorAboutSpaniard) && !GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission3_TalkToGatesAtPubAndSetOffToFindTheCook)){
             GMain.mainGGame.mainGFrame.consoleClear();

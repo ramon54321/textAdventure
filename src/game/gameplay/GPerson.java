@@ -15,6 +15,7 @@ public class GPerson {
     private int healthCurrent;
     private int defenceConst;
     private int defenceBonus;
+    private int defenceAdvantage;
 
     public GPerson ( String name, int healthMax, int healthCurrent, int defenceConst ) {
         this.name = name;
@@ -22,6 +23,7 @@ public class GPerson {
         this.healthCurrent = healthCurrent;
         this.defenceConst = defenceConst;
         this.defenceBonus = 0;
+        this.defenceAdvantage = 0;
     }
 
     public String getName() {
@@ -34,6 +36,10 @@ public class GPerson {
 
     public int getDefenceBonus() {
         return defenceBonus;
+    }
+
+    public int getDefenceAdvantage() {
+        return defenceAdvantage;
     }
 
     public int getHealthCurrent() {
@@ -50,6 +56,10 @@ public class GPerson {
 
     public void setDefenceBonus(int defenceBonus) {
         this.defenceBonus = defenceBonus;
+    }
+
+    public void setDefenceAdvantage(int defenceAdvantage) {
+        this.defenceAdvantage = defenceAdvantage;
     }
 
     public void setHealthCurrent(int healthCurrent) {

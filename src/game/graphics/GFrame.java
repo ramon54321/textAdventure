@@ -20,6 +20,7 @@ public class GFrame extends JFrame implements KeyListener{
     public Container container;
     public JTextField mainTextField = new JTextField(10);
     public JTextArea mainLabelOut = new JTextArea();
+    public JTextArea sideLabelOut = new JTextArea();
     public int linesWritten = 0;
 
     Border border = BorderFactory.createLineBorder(Color.BLACK);
@@ -29,6 +30,7 @@ public class GFrame extends JFrame implements KeyListener{
         container = getContentPane();
         container.add(mainTextField, BorderLayout.NORTH);
         container.add(mainLabelOut, BorderLayout.SOUTH);
+        container.add(sideLabelOut, BorderLayout.EAST);
 
         mainTextField.setBackground(Color.BLACK);
         mainTextField.setForeground(Color.ORANGE);
@@ -55,6 +57,24 @@ public class GFrame extends JFrame implements KeyListener{
         mainLabelOut.setText("Welcome to Black Flags of the West Indies. To get started, use the basic commands.\n\n" +
                 "\t'what is here'\n\t'what do I have'\n\t'go to ___'\n\t'pick up ___'\n\nType 1, 2 or 3 and enter, for quick information at any time." +
                 "\n\nYou feel thirsty. You should go get a drink somewhere. \nThere is a pub nearby...");
+
+        sideLabelOut.setBackground(Color.BLACK);
+        sideLabelOut.setForeground(Color.ORANGE);
+        sideLabelOut.setFont(new Font("Courier New", Font.PLAIN, 12));
+        sideLabelOut.setBorder(border);
+        sideLabelOut.setBorder(BorderFactory.createCompoundBorder(
+                sideLabelOut.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        sideLabelOut.setEditable(false);
+        sideLabelOut.setLineWrap(true);
+        sideLabelOut.setMinimumSize(new Dimension(200, 100));
+        sideLabelOut.setPreferredSize(new Dimension(200, 300));
+        sideLabelOut.setMaximumSize(new Dimension(200, 800));
+        sideLabelOut.setText("");
+    }
+
+    public void instantWrite(String string){
+        sideLabelOut.setText(string);
     }
 
     public void consoleWrite(String string){
@@ -92,7 +112,7 @@ public class GFrame extends JFrame implements KeyListener{
     }
     public static String getInput(GLiveEvent loopBreakerEvent){
         while(GCommander.lastCommand == null && loopBreakerEvent.isRunning && !loopBreakerEvent.timedout){
-            System.out.println("Loop breaker now at " + loopBreakerEvent.timedout);
+            //System.out.println("Loop breaker now at " + loopBreakerEvent.timedout);
             try{Thread.sleep(50);}catch (Exception e){}
         }
         if(loopBreakerEvent.timedout){

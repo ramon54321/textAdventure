@@ -9,6 +9,7 @@ public class GWeapon {
     public GForkNode defendFork;
     public int attackConst;
     public int attackBonus;
+    public int attackAdvantage;
 
     public GWeapon(){
 

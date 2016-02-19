@@ -10,25 +10,20 @@ public class GCombatant {
 
     public GLEFight fight;
     public GWeapon weapon;
-    public int hitPoints;
-    public int defendConst;
-    public int defendBonus = 0;
     public GCombatant targetCom;
-    public String name;
     public boolean isPlayer;
+    public GPerson person;
 
-    public GCombatant(GLEFight fight, int hitPoints, int defendConst, boolean isPlayer){
+    public GCombatant(GLEFight fight){
         this.fight = fight;
-        this.hitPoints = hitPoints;
-        this.defendConst = defendConst;
-        this.isPlayer = isPlayer;
+        this.person = GMain.mainGGame.mainGPlayer.person;
+        this.isPlayer = true;
     }
 
     public GCombatant(GLEFight fight, GPerson person, boolean isPlayer){
         this.fight = fight;
-        this.hitPoints = person.getHealthCurrent();
-        this.defendConst = person.getDefenceConst();
         this.isPlayer = isPlayer;
+        this.person = person;
     }
 
     public void addNewTarget(GCombatant target){
@@ -40,31 +35,35 @@ public class GCombatant {
     }
 
     public void hitPointCheck(){
-        if(hitPoints < 0){
-            GMain.mainGGame.mainGFrame.consoleAddLine("Fight over because hitpoints at " + hitPoints);
+        if(person.getHealthCurrent() < 0){
+            GMain.mainGGame.mainGFrame.consoleAddLine("Fight over because hitpoints at " + person.getHealthCurrent());
             fight.finishFight(this);
         }
         else{
-            GMain.mainGGame.mainGFrame.consoleAddLine(name + " Hitpoints -> " + hitPoints);
+            GMain.mainGGame.mainGFrame.consoleAddLine(person.getName() + " Hitpoints -> " + person.getHealthCurrent());
         }
     }
 
-    public void resetBonuses(){
-        defendBonus = 0;
+    public void resetAdvantageDefence(){
+        person.setDefenceAdvantage(0);
+    }
+
+    public void resetAdvantageAttack(){
+        weapon.attackAdvantage = 0;
     }
 
     public void increaseDefenceBonus(int num){
-        defendBonus += num;
+        person.setDefenceBonus(person.getDefenceBonus() + num);
         weapon.attackBonus -= num;
     }
 
     public void increaseAttackBonus(int num){
         weapon.attackBonus += num;
-        defendBonus -= num;
+        person.setDefenceBonus(person.getDefenceBonus() - num);
     }
 
     public void inflictDamage(int damage){
-        hitPoints -= damage;
+        person.setHealthCurrent(person.getHealthCurrent() - damage);
         hitPointCheck();
     }
 

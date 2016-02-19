@@ -16,7 +16,7 @@ public class GNarrator {
                     try {
                         if(((GForkNode) navObject).parentEvent.isTimed) {
                             // this one is delayed and will complete in delay time regardless of input
-                            choiceIndex = Integer.parseInt(GFrame.getInput(((GForkNode) navObject).parentEvent, 1000)) - 1;
+                            choiceIndex = Integer.parseInt(GFrame.getInput(((GForkNode) navObject).parentEvent, 10000)) - 1;
                         }
                         else{
                             choiceIndex = Integer.parseInt(GFrame.getInput(((GForkNode) navObject).parentEvent)) - 1;
