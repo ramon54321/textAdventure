@@ -2,10 +2,7 @@ package game.gameplay.events.conversations;
 
 import game.GMain;
 import game.gameplay.GWorldData;
-import game.gameplay.events.GActionNode;
-import game.gameplay.events.GForkNode;
-import game.gameplay.events.GLiveEvent;
-import game.gameplay.events.GNarrator;
+import game.gameplay.events.*;
 
 /**
  * Created by Ramon on 1/26/16.
@@ -176,10 +173,12 @@ public class GLEventNassauTownSquare extends GLiveEvent implements Runnable{
         try{Thread.sleep(4000);}catch (Exception e){}
         GMain.mainGGame.mainGFrame.consoleAddLine("(Singleton swings a punch at you.)");
 
-        //TODO: New fight with Singleton
-
         //Set flag, mission 5 fought Singleton
         tavernEntry.actionNodes.remove(1);
+        GMain.mainGGame.mainWorldData.worldFlags.add(GWorldData.GFlags.mission5_FoughtSingleton);
+
+        //TODO: New fight with Singleton
+        new GLEFight(true, GMain.mainGGame.person_singleton);
     }
 
     private void askAboutBusiness(){

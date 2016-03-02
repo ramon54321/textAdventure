@@ -2,6 +2,7 @@ package game.gameplay.events.conversations;
 
 import game.GMain;
 import game.gameplay.GWorldData;
+import game.gameplay.events.GActionNode;
 import game.gameplay.events.GForkNode;
 import game.gameplay.events.GLiveEvent;
 import game.gameplay.events.GNarrator;
@@ -11,7 +12,7 @@ import game.gameplay.events.GNarrator;
  */
 public class GLEventNassauForestNorth extends GLiveEvent implements Runnable{
 
-    GForkNode entryFork = new GForkNode(this, "Look for the cook.", "Examine your surroundings.");
+    GForkNode entryFork = new GForkNode(this, "Examine your surroundings.");
 
     GForkNode tavernEntry = new GForkNode(this, "Ask about business.", "Tell her a story of a Spaniard named Vasquez.");
 
@@ -55,8 +56,12 @@ public class GLEventNassauForestNorth extends GLiveEvent implements Runnable{
         GMain.mainGGame.mainGFrame.consoleAddLine(" - It's eerily quiet...");
 
         // Entry
-        entryFork.actionNodes.get(0).setOptionAction(() -> lookForCook());
-        entryFork.actionNodes.get(1).setOptionAction(() -> examineSurroundings());
+        entryFork.actionNodes.get(0).setOptionAction(() -> examineSurroundings());
+        if(GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission3_TalkToGatesAtPubAndSetOffToFindTheCook) && !GMain.mainGGame.mainWorldData.worldFlags.contains(GWorldData.GFlags.mission4_FoundTheCook)){
+            entryFork.actionNodes.add(new GActionNode("Look for cook.", null));
+            entryFork.actionNodes.get(1).setOptionAction(() -> lookForCook());
+        }
+
 
         /* Tavern Entry
         tavernEntry.actionNodes.get(0).setOptionAction(() -> askAboutBusiness());
