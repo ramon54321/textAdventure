@@ -49,6 +49,7 @@ public class GGame extends Canvas implements Runnable{
     // Assets
     public BufferedImage map_Nassau;
     public BufferedImage map_Charleston;
+    public BufferedImage map_pub;
 
     // Gameplay Logic
     public ArrayList<GLocation> gLocations = new ArrayList<GLocation>();
@@ -58,7 +59,7 @@ public class GGame extends Canvas implements Runnable{
     public GLiveEvent currentLiveEvent;
     public boolean isMoving = false;
 
-    public GPerson person_singleton = new GPerson("Singleton", 120, 120, 25);
+    public GPerson person_singleton = new GPerson("Singleton", 80, 80, 10);
 
     public int person_health_minimumBleedingLevel = 30;
 
@@ -161,6 +162,7 @@ public class GGame extends Canvas implements Runnable{
         try {
             map_Nassau = ImageIO.read(this.getClass().getResource("/game/resources/images/Nassau.jpg"));
             map_Charleston = ImageIO.read(this.getClass().getResource("/game/resources/images/Charleston.jpg"));
+            map_pub = ImageIO.read(this.getClass().getResource("/game/resources/images/Pub.jpg"));
         }
         catch (Exception e){
             e.printStackTrace();
@@ -260,7 +262,7 @@ public class GGame extends Canvas implements Runnable{
 
     public void setRegionToRender(){
         if(currentLocation.name.contains("Nassau Pub")){
-            currentRegionImage = map_Charleston;
+            currentRegionImage = map_pub;
         }
         else if(currentLocation.name.contains("Nassau")){
             currentRegionImage = map_Nassau;

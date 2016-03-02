@@ -29,7 +29,7 @@ public class GLEventNassauForestNorth extends GLiveEvent implements Runnable{
     private void lookForCook(){
         GMain.mainGGame.mainGDatabase.conversations.get("mission4_cookInForest.txt").narrateConversation();
         GMain.mainGGame.mainWorldData.worldFlags.add(GWorldData.GFlags.mission4_FoundTheCook);
-        entryFork.actionNodes.remove(0);
+        entryFork.actionNodes.remove(1);
     }
 
     private void examineSurroundings(){

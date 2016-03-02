@@ -40,10 +40,10 @@ public class GWSword extends GWeapon{
         int C = A - B;
         int D = (int)(Math.random() * 100);
 
-        GMain.mainGGame.mainGFrame.consoleAddLine("A Baseline           60 - 160      -> " + A);
-        GMain.mainGGame.mainGFrame.consoleAddLine("B Defence                          -> " + B);
-        GMain.mainGGame.mainGFrame.consoleAddLine("C Hit Chance : Baseline - Defence  -> " + C);
-        GMain.mainGGame.mainGFrame.consoleAddLine("D Random Score        0 - 100      -> " + D);
+        //GMain.mainGGame.mainGFrame.consoleAddLine("A Baseline           60 - 160      -> " + A);
+        //GMain.mainGGame.mainGFrame.consoleAddLine("B Defence                          -> " + B);
+        //GMain.mainGGame.mainGFrame.consoleAddLine("C Hit Chance : Baseline - Defence  -> " + C);
+        //GMain.mainGGame.mainGFrame.consoleAddLine("D Random Score        0 - 100      -> " + D);
 
         if(D < C){
             // Hit
@@ -52,9 +52,9 @@ public class GWSword extends GWeapon{
 
             int G = (E + (F < 0 ? 0 : F)) < 0 ? 0 : (E + (F < 0 ? 0 : F));
 
-            System.out.println("Printing E and F: " + E + F);
-            GMain.mainGGame.mainGFrame.consoleAddLine("E Attack - Op Defence % on Const   -> " + E);
-            GMain.mainGGame.mainGFrame.consoleAddLine("F Random Offset  +/- (0 - Attack)  -> " + F);
+            //System.out.println("Printing E and F: " + E + F);
+            //GMain.mainGGame.mainGFrame.consoleAddLine("E Attack - Op Defence % on Const   -> " + E);
+            //GMain.mainGGame.mainGFrame.consoleAddLine("F Random Offset  +/- (0 - Attack)  -> " + F);
             GMain.mainGGame.mainGFrame.consoleAddLine("Hit -> Damage -> " + G * 3);
             owner.targetCom.inflictDamage(G * 3);
         }
@@ -81,10 +81,10 @@ public class GWSword extends GWeapon{
         int C = A - B;
         int D = (int)(Math.random() * 100);
 
-        GMain.mainGGame.mainGFrame.consoleAddLine("A Baseline           60 - 160      -> " + A);
-        GMain.mainGGame.mainGFrame.consoleAddLine("B Defence                          -> " + B);
-        GMain.mainGGame.mainGFrame.consoleAddLine("C Hit Chance : Baseline - Defence  -> " + C);
-        GMain.mainGGame.mainGFrame.consoleAddLine("D Random Score        0 - 100      -> " + D);
+        //GMain.mainGGame.mainGFrame.consoleAddLine("A Baseline           60 - 160      -> " + A);
+        //GMain.mainGGame.mainGFrame.consoleAddLine("B Defence                          -> " + B);
+        //GMain.mainGGame.mainGFrame.consoleAddLine("C Hit Chance : Baseline - Defence  -> " + C);
+        //GMain.mainGGame.mainGFrame.consoleAddLine("D Random Score        0 - 100      -> " + D);
 
         if(D < C){
             // Hit
@@ -93,9 +93,9 @@ public class GWSword extends GWeapon{
 
             int G = (E + (F < 0 ? 0 : F)) < 0 ? 0 : (E + (F < 0 ? 0 : F));
 
-            System.out.println("Printing E and F: " + E + F);
-            GMain.mainGGame.mainGFrame.consoleAddLine("E Attack - Op Defence % on Const   -> " + E);
-            GMain.mainGGame.mainGFrame.consoleAddLine("F Random Offset  +/- (0 - Attack)  -> " + F);
+            //System.out.println("Printing E and F: " + E + F);
+            //GMain.mainGGame.mainGFrame.consoleAddLine("E Attack - Op Defence % on Const   -> " + E);
+            //GMain.mainGGame.mainGFrame.consoleAddLine("F Random Offset  +/- (0 - Attack)  -> " + F);
             GMain.mainGGame.mainGFrame.consoleAddLine("Hit -> Damage -> " + G * 3);
             owner.targetCom.inflictDamage(G * 3);
         }

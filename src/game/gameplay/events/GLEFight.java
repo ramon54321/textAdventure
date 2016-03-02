@@ -99,6 +99,11 @@ public class GLEFight extends GLiveEvent implements Runnable{
 
     public void finishFight(GCombatant losingPlayer){
         showFightStats();
+        GMain.mainGGame.mainGFrame.consoleAddLine("Time to go to the pub!");
+        try {
+            Thread.sleep(4000);
+        } catch (Exception e) {
+        }
         if(losingPlayer == player2){
             // You win
             GMain.mainGGame.mainGFrame.consoleAddLine("(You won)");
