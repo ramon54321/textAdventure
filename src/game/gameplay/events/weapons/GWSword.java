@@ -35,7 +35,7 @@ public class GWSword extends GWeapon{
         currentFight.showFightStats();
         GMain.mainGGame.mainGFrame.consoleAddLine("Slash!");
 
-        int A = 60 + (int)(Math.random() * 40);
+        int A = 70 + (int)(Math.random() * 40);
         int B = owner.targetCom.person.getDefenceConst() + owner.targetCom.person.getDefenceBonus() + owner.targetCom.person.getDefenceAdvantage();
         int C = A - B;
         int D = (int)(Math.random() * 100);
@@ -47,15 +47,16 @@ public class GWSword extends GWeapon{
 
         if(D < C){
             // Hit
-            int E = (((((attackConst * (B / 100)) + attackBonus + attackAdvantage) / 5)));
-            int F = (int)(((Math.random() - 0.5) * 2) * (E));
+            int E = (int)(((((attackConst * (B / 100.0)) + attackBonus + attackAdvantage) / 5.0)));
+            int F = (int)(((Math.random() - 0.5) * 2.0) * (E));
 
             int G = (E + (F < 0 ? 0 : F)) < 0 ? 0 : (E + (F < 0 ? 0 : F));
 
+            System.out.println("Printing E and F: " + E + F);
             GMain.mainGGame.mainGFrame.consoleAddLine("E Attack - Op Defence % on Const   -> " + E);
             GMain.mainGGame.mainGFrame.consoleAddLine("F Random Offset  +/- (0 - Attack)  -> " + F);
-            GMain.mainGGame.mainGFrame.consoleAddLine("Hit -> Damage -> " + G);
-            owner.targetCom.inflictDamage(G);
+            GMain.mainGGame.mainGFrame.consoleAddLine("Hit -> Damage -> " + G * 3);
+            owner.targetCom.inflictDamage(G * 3);
         }
         else{
             GMain.mainGGame.mainGFrame.consoleAddLine("Countered!");
@@ -75,7 +76,7 @@ public class GWSword extends GWeapon{
         currentFight.showFightStats();
         GMain.mainGGame.mainGFrame.consoleAddLine("Stab!");
 
-        int A = 20 + (int)(Math.random() * 40);
+        int A = 55 + (int)(Math.random() * 40);
         int B = owner.targetCom.person.getDefenceConst() + owner.targetCom.person.getDefenceBonus() + owner.targetCom.person.getDefenceAdvantage();
         int C = A - B;
         int D = (int)(Math.random() * 100);
@@ -92,10 +93,11 @@ public class GWSword extends GWeapon{
 
             int G = (E + (F < 0 ? 0 : F)) < 0 ? 0 : (E + (F < 0 ? 0 : F));
 
+            System.out.println("Printing E and F: " + E + F);
             GMain.mainGGame.mainGFrame.consoleAddLine("E Attack - Op Defence % on Const   -> " + E);
             GMain.mainGGame.mainGFrame.consoleAddLine("F Random Offset  +/- (0 - Attack)  -> " + F);
-            GMain.mainGGame.mainGFrame.consoleAddLine("Hit -> Damage -> " + G);
-            owner.targetCom.inflictDamage(G);
+            GMain.mainGGame.mainGFrame.consoleAddLine("Hit -> Damage -> " + G * 3);
+            owner.targetCom.inflictDamage(G * 3);
         }
         else{
             GMain.mainGGame.mainGFrame.consoleAddLine("Countered!");
