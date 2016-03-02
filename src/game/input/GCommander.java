@@ -29,6 +29,8 @@ public class GCommander{
         this.gGame = GGame;
     }
 
+
+    //Bug Fixed
     public void parseCommand(String command) {
 
         // Back up to event
